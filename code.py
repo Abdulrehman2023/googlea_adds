@@ -10,9 +10,9 @@ from selenium.webdriver.common.by import By
 
 
 
-driver.get('https://www.breeders.net/')
+driver.get('https://www.allbreedpedigree.com/')
 print("page loadded")
-time.sleep(30)
+time.sleep(10)
 
 
 page_rect = driver.execute_cdp_cmd("Page.getLayoutMetrics", {})
@@ -43,10 +43,13 @@ f.write(html)
 driver.save_screenshot('screenshot.png')
 
 getstyle = driver.find_elements(By.TAG_NAME, 'iframe')
+result = []
 for style in getstyle:
     iframe = style.get_attribute("name")
     if "google_ads_iframe" in iframe:
         print("-------------------------------")
+        a = style.get_attribute("name")
+        result.append(a)
         print(style.get_attribute("name"))
         print(style.get_attribute("height"))
         print(style.get_attribute("width"))
@@ -54,6 +57,8 @@ for style in getstyle:
         print("-------------------------------")
     elif "aswift" in iframe:
         print("-------------------------------")
+        a = style.get_attribute("name")
+        result.append(a)
         print(style.get_attribute("name"))
         print(style.get_attribute("height"))
         print(style.get_attribute("width"))
@@ -64,6 +69,21 @@ for style in getstyle:
 
 
 
+print(result)
+def apply_style(s,element):
+        driver.execute_script("arguments[0].setAttribute('style', arguments[1]);",element, s)
+
+def highlight(element, effect_time, color, border):
+    """Highlights (blinks) a Selenium Webdriver element"""
+    driver = element._parent
+    original_style = element.get_attribute('style')
+    apply_style("border: {0}px solid {1};".format(border, color),element)
+    time.sleep(effect_time)
+    apply_style(original_style,element)
 
 
+for ad in result:
+    print(ad)
+    content = driver.find_element(By.ID, ad)
+    highlight(content, 30, "red", 2)
 print("end")
