@@ -1,0 +1,783 @@
+<html lang="en-US"><head><script src="https://rules.quantcount.com/rules-p-54Nt-1NAaEEe0.js" async=""></script><script src="https://secure.quantserve.com/quant.js" async="" type="text/javascript"></script><script type="text/javascript" async="" src="https://static.criteo.net/js/ld/publishertag.prebid.117.js"></script>
+<title>Save a Web Page with Python Selenium</title>
+<meta charset="utf-8">
+<meta name="description" content="Save a Web Page with Python Selenium - We can save a webpage with Selenium webdriver in Python. To save a page we shall first obtain the page source behind the  ...">
+<meta name="keywords" content="C, C++, Python, Java, HTML, CSS, JavaScript, SQL, PHP, jQuery, XML, DOM, Bootstrap, Tutorials, Articles, Programming, training, learning, quiz, preferences, examples, code">
+<link rel="canonical" href="https://www.tutorialspoint.com/save-a-web-page-with-python-selenium">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
+<link id="style-switch" rel="stylesheet" href="/static/css/purge/style-min.css?v=5.12">
+<link rel="stylesheet" href="/static/css/custom.css?v=8.000120">
+<style>.navbar-expand-xl .navbar-brand .navbar-brand-item, .h-100px, ul.toc li.heading, .light-mode-item, .dark-mode-item, .back-top, a.demo, .home-intro-sub{background:#00b16e; color:#fff;}  ul.toc li.heading:hover{background:#00b16e;} .btn-grey-border{background:#00b16e; color:#fff; border:1px solid #00b16e;} .course-box{background:#00b16e;} 
+</style>
+<script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script id="adp1" data-cfasync="false">(function(w, d) { var s = d.createElement('script'); s.src = '//cdn.adpushup.com/40046/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script><script src="//cdn.adpushup.com/40046/adpushup.js" type="text/javascript" async=""></script>
+<script id="adp2" data-cfasync="false">(function(w, d) {var s = d.createElement('script'); s.src = '//delivery.adrecover.com/18107/adRecover.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script><script src="//delivery.adrecover.com/18107/adRecover.js" type="text/javascript" async=""></script>
+<link rel="stylesheet" href="/static/css/style-qa.css?v=7.0000111112345">
+<script type="text/javascript" async="" src="https://code.jquery.com/jquery-2.2.2.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css"><script type="text/javascript" async="" src="//code.jquery.com/jquery-3.6.0.min.js"></script><meta http-equiv="origin-trial" content="A7bG5hJ4XpMV5a3V1wwAR0PalkFSxLOZeL9D/YBYdupYUIgUgGhfVJ1zBFOqGybb7gRhswfJ+AmO7S2rNK2IOwkAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" async="" src="https://cdn.adpushup.com/prebid/pb.40046.1664551098848.js"></script><script type="text/javascript" async="" src="https://cdn.adpushup.com/pbuseridscripts/quantcast.js"></script><script type="text/javascript">(function () {
+	window._apPbJs = window._apPbJs || {};
+	window._apPbJs.que = window._apPbJs.que || [];
+	var enabledBidders = window.adpushup.utils.getQueryParams().enabledBidders;
+	if (enabledBidders) {
+		window.enabledBiddersArray = enabledBidders.split(',');
+		window.adpushup.utils.log(window.enabledBiddersArray);
+		window._apPbJs.que.push(function () {
+			window._apPbJs.onEvent('beforeRequestBids', function (adunits) {
+				var filteredAdUnits = [];
+				for (var i = 0; i < adunits.length; i++) {
+					var bidders = [];
+					var adUnit = adunits[i];
+					var adUnitBids = adUnit.bids;
+					for (var j = 0; j < adUnitBids.length; j++) {
+						if (window.enabledBiddersArray.indexOf(adUnitBids[j].bidder) !== -1) {
+							bidders.push(adUnitBids[j]);
+						}
+					}
+					adUnit.bids = bidders;
+					filteredAdUnits.push(adUnit);
+				}
+				adunits = filteredAdUnits;
+			});
+		});
+	}
+})();
+// send bid logging - bidder, cpm and ttl
+(function () {
+	window._apPbJs = window._apPbJs || { que: [] };
+
+	function sendBidLog() {
+		window.adpushup.utils.sendDataToLoggerService = function sendDataToLoggerService(
+			event,
+			payload
+		) {
+			var endPoint = 'https://aplogger.adpushup.com/log?pxRes=false';
+			var strigifiedDataBeacon = JSON.stringify({ event, data: payload });
+
+			if (strigifiedDataBeacon === '{}') {
+				strigifiedDataBeacon = JSON.stringify(
+					payload,
+					Object.getOwnPropertyNames({ event, data: payload })
+				);
+			}
+
+			if (typeof window.navigator.sendBeacon === 'function') {
+				window.navigator.sendBeacon(endPoint, strigifiedDataBeacon);
+			} else {
+				var strigifiedDataImagePixel = JSON.stringify(payload);
+				if (strigifiedDataImagePixel === '{}') {
+					strigifiedDataImagePixel = JSON.stringify(
+						payload,
+						Object.getOwnPropertyNames({ data: payload })
+					);
+				}
+
+				var img = document.createElement('img');
+				img.src = endPoint + '&event=' + event + '&data=' + window.btoa(strigifiedDataImagePixel);
+			}
+		};
+		window._apPbJs.onEvent('auctionEnd', function (data) {
+			var bidsReceived = data.bidsReceived;
+
+			// if there is no bid, then do not send the log
+			if (!bidsReceived.length) return;
+
+			var bids = [];
+			for (var i = 0; i < bidsReceived.length; i++) {
+				bids.push({
+					bidder: bidsReceived[i].bidder,
+					ttl: bidsReceived[i].ttl,
+					originalCpm: bidsReceived[i].originalCpm
+				});
+			}
+
+			var config = window.adpushup.config;
+			var finalObj = {
+				bids: bids,
+				browser: config.browser,
+				country: config.country,
+				platform: config.platform,
+				siteId: config.siteId
+			};
+
+			window.adpushup.utils.sendDataToLoggerService('TTL_CPM_bidder', finalObj);
+		});
+	}
+
+	window._apPbJs.que.push(sendBidLog);
+})();
+// send bid logging - bidder, cpm and ttl
+
+// Glimpse Starts
+(function () {
+    if(window.location.pathname != "/jupyter/index.htm") return;
+    
+	var scriptTag = document.createElement('script');
+	var linkPreviewUrl =
+		'https://cdn.adpushup.com/' + adpushup.config.siteId + '/linkPreview.js';
+	scriptTag.src = linkPreviewUrl;
+	document.body.append(scriptTag);
+})();
+// Glimpse Ends</script><script src="//securepubads.g.doubleclick.net/tag/js/gpt.js" async=""></script><script async="" src="//c.amazon-adsystem.com/aax2/apstag.js"></script><script type="text/javascript">(function($){ 
+ var $els = $('div[id^="STICKY"]');
+    $els.each(function(i,$el){
+        var span = $('<span style="cursor:pointer; position: absolute; top: -20px; right: 0; background: rgba(255,255,255,0.3); color: #000; padding: 0 5px;"> Close</span>');
+        $($el).append(span);
+        span.on('click',function(){
+            $(this).parents('.adp_interactive_ad').remove();
+        })
+    })
+ })(adpushup.$)</script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/664793816/?random=1664784121723&amp;cv=9&amp;fst=1664784121723&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=768&amp;u_w=1366&amp;u_ah=728&amp;u_aw=1366&amp;u_cd=24&amp;u_his=2&amp;u_tz=-420&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2oa9s0&amp;sendb=1&amp;ig=1&amp;data=event%3Dgtag.config&amp;frm=0&amp;url=https%3A%2F%2Fwww.tutorialspoint.com%2Fsave-a-web-page-with-python-selenium&amp;tiba=Save%20a%20Web%20Page%20with%20Python%20Selenium&amp;auid=1230025209.1664784117&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script><meta http-equiv="origin-trial" content="A+cA2PUOfIOKAdSDJOW5CP9ZlxONy1yu+hqAq72zUtKw4rLdihqRp6Nui/jUyCyegr+BUtH+C+Elv0ufn05yBQEAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+zsdH3aNZT/bkjT8U/o5ACzyaeNYzTvtoVmwf/KOilfv39pxY2AIsOwhQJv+YnXp98i3TqrQibIVtMWs5UHjgoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxceVEhIegcDEHqLXFQ2+vPKqzCppoJYsRCZ/BdfVnbM/sUUF2BXV8lwNosyYjvoxnTh2FC8cOlAnA5uULr/zAUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_2022092701.js" async=""></script><script src="https://tags.crwdcntrl.net/lt/c/16576/sync.min.js"></script><link rel="preload" href="https://adservice.google.com.pk/adsid/integrator.js?domain=www.tutorialspoint.com" as="script"><script type="text/javascript" src="https://adservice.google.com.pk/adsid/integrator.js?domain=www.tutorialspoint.com"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.tutorialspoint.com" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=www.tutorialspoint.com"></script></head>
+<body><div id="MathJax_Message" style="display: none;"></div>
+<div class="navbar-top navbar-dark d-xl-block py-2 mx-2 mx-md-4 rounded-bottom-4">
+	<div class="container-fluid px-3 px-xl-0">
+		<div class="d-lg-flex justify-content-lg-between align-items-center top-nav-links">
+			<ul class="nav align-items-center justify-content-center">
+				<li class="nav-item" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Home Page">
+					<a class="nav-link" href="https://www.tutorialspoint.com/index.htm"><i class="fal fa-home-alt me-1"></i> Home</a>
+				</li>
+				<li class="nav-item" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Online Coding System">
+					<a class="nav-link" href="https://www.tutorialspoint.com/codingground.htm"><i class="fal fa-code me-1"></i> Coding Ground</a>
+				</li>
+				<li class="nav-item" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Job Openings">
+					<span><a class="nav-link" href="https://www.tutorialspoint.com/about/about_careers.htm"><i class="fal fa-suitcase me-1"></i> Jobs</a></span>
+				</li>
+				<li class="nav-item" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Digital Whiteboard">
+					<span><a class="nav-link" href="https://www.tutorialspoint.com/whiteboard.htm"><i class="fal fa-chalkboard me-1"></i> Whiteboard</a></span>
+				</li>
+				<li class="nav-item" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Developer's Tools">
+					<span><a class="nav-link" href="https://www.tutorialspoint.com/online_dev_tools.htm"><i class="fal fa-tools me-1"></i> Tools</a></span>
+				</li>
+				<li class="nav-item" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Corporate Trainings">
+					<span><a class="nav-link" href="https://www.tutorialspoint.com/business/index.asp"><i class="fal fa-analytics me-1"></i> Business</a></span>
+				</li>
+			</ul>
+			<!-- Navbar top Right-->
+			<div class="d-flex align-items-center justify-content-center">
+				<div class="navbar-nav ms-2">
+				  <div class="modeswitch-wrap" id="darkModeSwitch">
+					 <div class="modeswitch-item">
+						<div class="modeswitch-icon">
+							<i class="fal fa-sun toggle-sun"></i>
+							<i class="fal fa-moon toggle-moon"></i>
+						</div>
+					 </div>
+				  </div>
+				</div>
+				<div class="me-3c top-nav-social">
+				  <a class="nav-link" href="https://www.tutorialspoint.com/market/teach_with_us.jsp" target="_self" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Teach with us"><i class="fal fa-users-class me-2"></i> <span>Teach with us</span></a>
+				</div>
+				<ul class="list-unstyled d-flex mb-0 top-nav-social">
+					<li><a class="px-2 nav-link" rel="nofollow" href="https://www.facebook.com/tutorialspointindia" target="_blank" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Tutorialspoint Facebook"><i class="fab fa-facebook"></i></a> </li>
+					<li><a class="px-2 nav-link" rel="nofollow" href="https://www.instagram.com/tutorialspoint_/" target="_blank" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Tutorialspoint Instagram"><i class="fab fa-instagram"></i></a> </li>
+					<li><a class="px-2 nav-link" rel="nofollow" href="https://twitter.com/tutorialspoint" target="_blank" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Tutorialspoint Twitter"><i class="fab fa-twitter"></i></a> </li>
+					<li><a class="px-2 nav-link" rel="nofollow" href="https://www.youtube.com/channel/UCVLbzhxVTiTLiVKeGV7WEBg" target="_blank" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Tutorialspoint Youtube"><i class="fab fa-youtube"></i></a> </li>
+					<li><a class="px-2 nav-link" rel="nofollow" href="https://www.linkedin.com/authwall?trk=bf&amp;trkInfo=AQEkqX2eckF__gAAAX-wMwEYvrsjBVbEtWQd4pgEdVSzkL22Nik1KEpY_ECWLKDGc41z8IOZWr2Bb0fvJplT60NPBtSw87J6QCpc7wD4qQ3iU13n6xJtBxME5o05Wmpg5JPm5YY=&amp;originalReferer=&amp;sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Ftutorialspoint" target="_blank" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Tutorialspoint LinkedIn"><i class="fab fa-linkedin-in"></i></a> </li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<header class="navbar-light navbar-sticky header-static">
+	<nav class="navbar navbar-expand-xl">
+		<div class="container-fluid px-3 px-xl-4">
+			<a class="navbar-brand" href="https://www.tutorialspoint.com/index.htm"><img class="light-mode-item navbar-brand-item" src="/static/images/logo-color.png" alt="logo"> <img class="dark-mode-item navbar-brand-item" src="/static/images/logo-color-b.png" alt="logo"></a>
+			<button class="navbar-toggler-toc collapsed ms-auto-toc" type="button" id="btn-tutorial-toc">
+                        <span><i class="fal fa-th-list"></i></span>
+			</button>
+			<button class="navbar-toggler ms-auto" type="button" id="btn-menu-collapse">
+				<span class="navbar-toggler-animation">
+					<span></span>
+					<span></span>
+					<span></span>
+				</span>
+			</button>
+			<div class="navbar-collapse w-100 collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll me-auto">
+					<li class="nav-item nav-xs-login">
+						<a class="nav-link" href="#"><i class="fal fa-sign-in-alt me-2"></i>Login</a>
+					</li>
+					<li class="nav-item dropdown dropdown-menu-shadow-stacked">
+						<a class="nav-link" id="categoryMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fal fa-th-list fs-5 me-xl-1 d-xl-none"></i>
+							<i class="fal fa-th me-1 d-none d-xl-inline-block"></i>
+							<span class="d-xl-inline-block">Category <i class="fal fa-angle-down"></i></span>
+						</a>
+						                                                <script>
+                                                  var isQA = true;
+                                                </script>
+						<ul class="dropdown-menu categories-menu shadow" id="categories-menu">
+							<li><a href="/questions/category/java8" class="dropdown-item"><i class="fal fa-angle-right"></i> Java</a></li>
+							<li><a href="/questions/category/jsp" class="dropdown-item"><i class="fal fa-angle-right"></i> JSP</a></li>
+							<li><a href="/questions/category/ios" class="dropdown-item"><i class="fal fa-angle-right"></i> iOS</a></li>
+							<li><a href="/questions/category/html" class="dropdown-item"><i class="fal fa-angle-right"></i> HTML</a></li>
+							<li><a href="/questions/category/android" class="dropdown-item"><i class="fal fa-angle-right"></i> Android</a></li>
+							<li><a href="/questions/category/python" class="dropdown-item"><i class="fal fa-angle-right"></i> Python</a></li>
+							<li><a href="/questions/category/c" class="dropdown-item"><i class="fal fa-angle-right"></i> C Programming</a></li>
+							<li><a href="/questions/category/cplusplus" class="dropdown-item"><i class="fal fa-angle-right"></i> C++ Programming</a></li>
+							<li><a href="/questions/category/csharp" class="dropdown-item"><i class="fal fa-angle-right"></i> C#</a></li>
+							<li><a href="/questions/category/php" class="dropdown-item"><i class="fal fa-angle-right"></i> PHP</a></li>
+							<li><a href="/questions/category/css" class="dropdown-item"><i class="fal fa-angle-right"></i> CSS</a></li>
+							<li><a href="/questions/category/javascript" class="dropdown-item"><i class="fal fa-angle-right"></i> Javascript</a></li>
+							<li><a href="/questions/category/jquery" class="dropdown-item"><i class="fal fa-angle-right"></i> jQuery</a></li>
+							<li><a href="/questions/category/sap" class="dropdown-item"><i class="fal fa-angle-right"></i> SAP</a></li>
+							<li><a href="/questions/category/sap-hana" class="dropdown-item"><i class="fal fa-angle-right"></i> SAP HANA</a></li>
+							<li><a href="/questions/category/data-structure" class="dropdown-item"><i class="fal fa-angle-right"></i> Data Structure</a></li>
+							<li><a href="/questions/category/rdbms" class="dropdown-item"><i class="fal fa-angle-right"></i> RDBMS</a></li>
+							<li><a href="/questions/category/mysql" class="dropdown-item"><i class="fal fa-angle-right"></i> MySQL</a></li>
+							<li><a href="/questions/category/mathematics" class="dropdown-item"><i class="fal fa-angle-right"></i> Mathematics</a></li>
+							<li><a href="/questions/category/8085" class="dropdown-item"><i class="fal fa-angle-right"></i> 8085 Microprocessor</a></li>
+							<li><a href="/questions/category/operating-system" class="dropdown-item"><i class="fal fa-angle-right"></i> Operating System</a></li>
+							<li><a href="/questions/category/digital-electronics" class="dropdown-item"><i class="fal fa-angle-right"></i> Digital Electronics</a></li>
+							<li><a href="/questions/category/analysis-of-algorithms" class="dropdown-item"><i class="fal fa-angle-right"></i> Analysis of Algorithms</a></li>
+							<li><a href="/questions/category/mobile-development" class="dropdown-item"><i class="fal fa-angle-right"></i> Mobile Development</a></li>
+							<li><a href="/questions/category/front-end-technology" class="dropdown-item"><i class="fal fa-angle-right"></i> Front End </a></li>
+							<li><a href="/questions/category/web-development" class="dropdown-item"><i class="fal fa-angle-right"></i> Web Development</a></li>
+							<li><a href="/questions/category/selenium" class="dropdown-item"><i class="fal fa-angle-right"></i> Selenium</a></li>
+							<li><a href="/questions/category/mongodb" class="dropdown-item"><i class="fal fa-angle-right"></i> MongoDB</a></li>
+							<li><a href="/questions/category/computer-network" class="dropdown-item"><i class="fal fa-angle-right"></i> Computer Network</a></li>
+							<li><a href="/questions/category/general-topics" class="dropdown-item"><i class="fal fa-angle-right"></i> General Topics</a></li>
+						</ul>
+											</li>
+				</ul>
+				<div class="navbar-collapse">
+					<div class="col-xl-9">
+						<div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
+							<div class="nav-item w-100">
+								<form class="rounded position-relative">
+									<input class="form-control pe-4 bg-secondary bg-opacity-10 border-0 search-strings" type="search" placeholder="Search tutorials ..." id="search-strings" name="key" data-result="search-results" aria-label="Search">
+									<button type="button" id="btnSearch" class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y"><i class="fal fa-search fs-6"></i></button>
+									<div class="search-box search-box-inn" id="search-results"></div>
+									<div class="clear"></div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul class="navbar-nav navbar-nav-scroll">
+					<li class="nav-item">
+						<a class="nav-link" href="https://www.tutorialspoint.com/latest/prime-packs" target="_self"><i class="fal fa-cubes me-1"></i>Prime Packs</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://www.tutorialspoint.com/market/index.asp" target="_self"><i class="fal fa-play-circle me-1"></i>Courses</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://www.tutorialspoint.com/latest/ebooks" target="_self"><i class="fal fa-book-reader me-1"></i>eBooks</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://www.tutorialspoint.com/tutorialslibrary.htm" target="_self"><i class="fal fa-books me-1"></i>Library</a>
+					</li>
+					<li class="nav-item">
+					        <a class="nav-link" href="https://www.tutorialspoint.com/questions/index.php" target="_self"><i class="fal fa-comments-alt me-1"></i> Q/A</a>
+					</li>
+				</ul>
+			</div>
+			<div class="navbar-nav d-lg-inline-block nav-login">
+			   <a href="https://www.tutorialspoint.com/questions/admin/login.php" class="btn btn-grey-border mb-0"><i class="fal fa-sign-in-alt me-2"></i>Login</a>
+			</div>
+		</div>
+	</nav>
+</header><div id="sticky-space"></div>
+<script>            
+var y = document.getElementsByClassName('nav-login');
+var aNode = y[0];
+var aTag = aNode.querySelector('a');
+aTag.href = "https://www.tutorialspoint.com/questions/admin/login.php";
+</script>
+<script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }          
+}              
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id=""> </script>
+<style>
+.tutorial-content br{display:none;} 
+.tutorial-content pre br, table br{display:block !important;}
+</style>
+<main class="bg-light pb-4">
+<div class="container-fluid mt-3 px-3 px-xl-3">
+<div class="row g-4">
+<div class="col-sm-12 col-md-4 col-xl-3 ps-0 pe-0 collapse tutorial-toc" id="tocCollapse">
+<div class="card card-body bg-light pt-0">
+<!-- Tutorial ToC Starts Here -->
+<!-- Tutorial ToC Starts Here -->
+<div class="tutorial-toc">
+<div class="mini-logo text-center">
+<img style="width: 162px;background:transparent!important;" src="/images/QAicon-black.png" class="light-mode-item" alt="Technical Questions and Answers">
+<img style="width: 162px;background:transparent!important;" src="/images/QAicon-white.png" class="dark-mode-item" alt="Technical Questions and Answers">
+</div>
+<ul class="toc chapters trending">
+<li class="heading big-font"><i class="fa fa-th-large"></i> Trending Categories</li>
+<li><a href="/questions/category/data-structure"><img alt="Data Structure" src="/images/Data-Structure.png" class="cat-img"> Data Structure</a></li>
+<li><a href="/questions/category/computer-network"><img alt="Networking" src="/images/Networking.png" class="cat-img"> Networking</a></li>
+<li><a href="/questions/category/rdbms"><img alt="RDBMS" src="/images/dbms.png" class="cat-img"> RDBMS</a></li>
+<li><a href="/questions/category/operating-system"><img alt="Operating System" src="/images/Operating-System.png" class="cat-img"> Operating System</a></li>
+<li><a href="/questions/category/Java"><img alt="Java" src="/images/java8.png" class="cat-img"> Java</a></li>
+<li><a href="/questions/category/ios"><img alt="iOS" src="/images/ios.png" class="cat-img"> iOS</a></li>
+<li><a href="/questions/category/HTML"><img alt="HTML" src="/images/html.png" class="cat-img"> HTML</a></li>
+<li><a href="/questions/category/CSS"><img alt="CSS" src="/images/css.png" class="cat-img"> CSS</a></li>
+<li><a href="/questions/category/android"><img alt="Android" src="/images/Android.png" class="cat-img"> Android</a></li>
+<li><a href="/questions/category/python"><img alt="Python" src="/images/Python.png" class="cat-img"> Python</a></li>
+<li><a href="/questions/category/c"><img alt="C Programming" src="/images/C-programming.png" class="cat-img"> C Programming</a></li>
+<li><a href="/questions/category/cplusplus"><img alt="C++" src="/images/C-PLUS.png" class="cat-img"> C++</a></li>
+<li><a href="/questions/category/csharp"><img alt="C#" src="/images/C-hash.png" class="cat-img"> C#</a></li>
+<li><a href="/questions/category/mongodb"><img alt="MongoDB" src="/images/mongodb.png" class="cat-img"> MongoDB</a></li>
+<li><a href="/questions/category/mysql"><img alt="MySQL" src="/images/MySQL.png" class="cat-img"> MySQL</a></li>
+<li><a href="/questions/category/Javascript"><img alt="Javascript" src="/images/Javascript.png" class="cat-img"> Javascript</a></li>
+<li><a href="/questions/category/php"><img alt="PHP" src="/images/php.png" class="cat-img"> PHP</a></li>
+</ul>
+<ul class="toc reading">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="/upsc_ias_exams.htm">UPSC IAS Exams Notes</a></li>
+<li><a target="_top" href="/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+<div id="stickyparent" class="d-none d-sm-block" style="position: sticky;">
+<div style="height:250px;width:300px;" id="sticky-ad">
+<div id="00000001-09b7e510-3212-460c-8845-2f9a381d64ea" class="_ap_apex_ad" data-section="00000001-09b7e510-3212-460c-8845-2f9a381d64ea" data-orig-id="430c9911-782f-495d-88f9-69f58ca8c9a4" data-render-time="1664784118299" data-ap-network="adpTags" style="text-align: center; margin: 10px auto; width: 300px; height: 250px; overflow: hidden; display: block;">
+<script>
+var adpushup = adpushup || {};
+adpushup.que = adpushup.que || [];
+adpushup.que.push(function() {
+adpushup.triggerAd("430c9911-782f-495d-88f9-69f58ca8c9a4");
+});
+</script>
+<div id="ADP_40046_300x250_00000001-09b7e510-3212-460c-8845-2f9a381d64ea" style="text-align: center; margin: 0 auto;" data-google-query-id="CL_Bw5jMw_oCFc5HHQkd8XUHsQ">
+
+<div id="google_ads_iframe_/103512698,60931893/21875371528_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/103512698,60931893/21875371528_0" name="google_ads_iframe_/103512698,60931893/21875371528_0" title="3rd party ad content" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" role="region" aria-label="Advertisement" tabindex="0" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" style="border: 0px; vertical-align: bottom;" data-load-complete="true" data-google-container-id="1"></iframe></div></div></div>
+</div>
+</div>
+</div>
+<!-- Tutorial ToC Ends Here -->
+</div>
+</div>
+<!-- Tutorial ToC Ends Here -->
+<!-- Tutorial Content Starts Here -->
+<div class="col-sm-12 col-md-8 col-xl-6 rounded-3 tutorial-content questions-wrap">
+<h1 class="qa_title">Save a Web Page with Python Selenium</h1>
+<div class="qa_category">
+<a href="https://www.tutorialspoint.com/questions/category/selenium" target="_blank"><span>Selenium</span></a><a href="https://www.tutorialspoint.com/questions/category/automation-testing" target="_blank"><span>Automation Testing</span></a><a href="https://www.tutorialspoint.com/questions/category/testing-tools" target="_blank"><span>Testing Tools</span></a><hr>
+<div id="adp_top_ads" style="text-align:center !important;"><div id="00000001-68d74802-ca19-4838-8eab-73dd539591ae" class="_ap_apex_ad" data-section="00000001-68d74802-ca19-4838-8eab-73dd539591ae" data-orig-id="2d1bb2c4-eb72-471d-9c80-1bf5514728c1" data-render-time="1664784118317" data-ap-network="adpTags" style="text-align: center; margin: 10px auto; width: 650px; height: 150px; overflow: hidden; display: block;" data-refresh-time="1664784168758" data-timeout="198"><div id="ADP_40046_650x150_00000001-68d74802-ca19-4838-8eab-73dd539591ae" style="text-align: center; margin: 0 auto;" data-google-query-id="CMDBw5jMw_oCFc5HHQkd8XUHsQ">
+
+<div id="google_ads_iframe_/103512698,60931893/ADP_40046_650X150_2d1bb2c4-eb72-471d-9c80-1bf5514728c1_0__container__" style="border: 0pt none; display: inline-block; width: 650px; height: 150px;"><iframe frameborder="0" src="https://0e285b7c2ced3dcd5284e34990db558f.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html" id="google_ads_iframe_/103512698,60931893/ADP_40046_650X150_2d1bb2c4-eb72-471d-9c80-1bf5514728c1_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="650" height="150" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" role="region" aria-label="Advertisement" tabindex="0" data-google-container-id="2" style="border: 0px; vertical-align: bottom;" data-load-complete="true"></iframe></div></div></div></div>
+<script>
+     var adPos = document.getElementById('adp_top_ads');
+     var ad_id_720 = "8014640d-fd34-4b2e-9b1b-cc67234a2325";
+     var ad_id_650 = "2d1bb2c4-eb72-471d-9c80-1bf5514728c1";
+     var ad_id_300 = "df94a1a9-ae2f-432d-9a92-d93823ff4503";
+     var width = window.innerWidth;
+     var ad_id = ad_id_720;
+     if( width <= 768 ){
+        ad_id =  ad_id_300;
+     }else if( width <= 1435 ){
+        ad_id =  ad_id_650;
+     }
+     adPos.innerHTML = '<div id="' + ad_id + '" class="_ap_apex_ad"></div>';
+     var adpushup = adpushup || {};
+     adpushup.que = adpushup.que || [];
+     adpushup.que.push(function() {
+     adpushup.triggerAd(ad_id);
+     });
+</script>
+</div>
+<hr>
+<div id="load">
+	<div class="">
+		<div id="ebooks_grid">
+						<div class="videos">
+			                <br>
+            				<div class="row">
+																<div class="col-sm-4 col-lg-4 col-xl-4 tns-item tns-slide-cloned">
+					<input type="hidden" class="course_id" value="6143">
+					<div class="card shadow-hover h-100 border">
+						<div class="course-card-thumbnail">
+							<a href="https://www.tutorialspoint.com/the-complete-selenium-webdriver-with-java-course/index.asp" class="" data-title="the-complete-selenium-webdriver-with-java-course"> 
+    <img class="rounded-img" src="https://d3mxt5v3yxgcsr.cloudfront.net/courses/6143/course_6143_image.png" alt="The Complete Selenium WebDriver with Java Course" title="The Complete Selenium WebDriver with Java Course">
+            <span class="play-button-trigger"></span>
+    </a>						</div>
+						
+						<div class="course-card-body">
+							<h4 class="h48"><a href="https://www.tutorialspoint.com/the-complete-selenium-webdriver-with-java-course/index.asp" title="The Complete Selenium WebDriver with Java Course" class="" data-title="the-complete-selenium-webdriver-with-java-course">The Complete Selenium WebDriver with Java Course</a></h4>							
+							<p class="videos-details course-list-video">
+    192 Lectures 
+    <span><i class="fa fa-clock"></i> 20 hours </span>
+</p>							<p class="h25"><i class="fa fa-user"></i> <a href="https://www.tutorialspoint.com/profile/dezlearn-education">Dezlearn Education</a></p>
+						</div>
+						<div class="v-courses-price">
+							<div class="btn-width">   
+   <a href="https://www.tutorialspoint.com/the-complete-selenium-webdriver-with-java-course/index.asp" target="_blank">
+   <div class="btn-success rounded">More Detail</div>
+   </a>
+</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+								
+																<div class="col-sm-4 col-lg-4 col-xl-4 tns-item tns-slide-cloned">
+					<input type="hidden" class="course_id" value="7204">
+					<div class="card shadow-hover h-100 border">
+						<div class="course-card-thumbnail">
+							<a href="https://www.tutorialspoint.com/mastering-xpath-and-css-selector-for-selenium/index.asp" class="" data-title="mastering-xpath-and-css-selector-for-selenium"> 
+    <img class="rounded-img" src="https://d3mxt5v3yxgcsr.cloudfront.net/courses/7204/course_7204_image.png" alt="Mastering XPath and CSS Selector for Selenium" title="Mastering XPath and CSS Selector for Selenium">
+            <span class="play-button-trigger"></span>
+    </a>						</div>
+						
+						<div class="course-card-body">
+							<h4 class="h48"><a href="https://www.tutorialspoint.com/mastering-xpath-and-css-selector-for-selenium/index.asp" title="Mastering XPath and CSS Selector for Selenium" class="" data-title="mastering-xpath-and-css-selector-for-selenium">Mastering XPath and CSS Selector for Selenium</a></h4>							
+							<p class="videos-details course-list-video">
+    47 Lectures 
+    <span><i class="fa fa-clock"></i> 3 hours </span>
+</p>							<p class="h25"><i class="fa fa-user"></i> <a href="https://www.tutorialspoint.com/profile/krishna_sakinala">Krishna Sakinala</a></p>
+						</div>
+						<div class="v-courses-price">
+							<div class="btn-width">   
+   <a href="https://www.tutorialspoint.com/mastering-xpath-and-css-selector-for-selenium/index.asp" target="_blank">
+   <div class="btn-success rounded">More Detail</div>
+   </a>
+</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+								
+								</div>
+			</div>
+			
+			<div class="clear"></div>
+			
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<div class="clear"></div>
+<p style="">We can save a webpage with Selenium webdriver in Python. To save a page we shall first obtain the page source behind the webpage with the help of the <strong>page_source</strong> method.</p><p>We shall open a file with a particular encoding with the <strong>codecs.open</strong> method. The file has to be opened in the write mode represented by <strong>w</strong> and encoding type as <strong>utf−8</strong>. Then use the <strong>write</strong> method to write the content obtained from the page_source method.</p><h2>Syntax</h2><pre class="result notranslate">n = os.path.join("C:\Users\ghs6kor\Downloads\Test", "PageSave.html")
+f = codecs.open(n, "w", "utf−8")
+h = driver.page_source
+f.write(h)</pre><p>Let us make an attempt to save the below webpage −</p><p style=""><img src="https://www.tutorialspoint.com/assets/questions/media/47794/tutorix.jpg" class="fr-fic fr-dib" width="600" height="272"></p><h2>Example</h2><pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">from</span><span class="pln"> selenium </span><span class="kwd">import</span><span class="pln"> webdriver
+</span><span class="kwd">import</span><span class="pln"> codecs
+</span><span class="com">#set chromedriver.exe path</span><span class="pln">
+driver </span><span class="pun">=</span><span class="pln"> webdriver</span><span class="pun">.</span><span class="typ">Chrome</span><span class="pun">(</span><span class="pln">executable_path</span><span class="pun">=</span><span class="str">"C:\chromedriver.exe"</span><span class="pun">)</span><span class="pln">
+driver</span><span class="pun">.</span><span class="pln">implicitly_wait</span><span class="pun">(</span><span class="lit">0.5</span><span class="pun">)</span><span class="pln">
+</span><span class="com">#maximize browser</span><span class="pln">
+driver</span><span class="pun">.</span><span class="pln">maximize_window</span><span class="pun">()</span><span class="pln">
+</span><span class="com">#launch URL</span><span class="pln">
+driver</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="str">"https://www.tutorialspoint.com/index.htm"</span><span class="pun">)</span><span class="pln">
+</span><span class="com">#get file path to save page</span><span class="pln">
+n</span><span class="pun">=</span><span class="pln">os</span><span class="pun">.</span><span class="pln">path</span><span class="pun">.</span><span class="kwd">join</span><span class="pun">(</span><span class="str">"C:\Users\ghs6kor\Downloads\Test"</span><span class="pun">,</span><span class="str">"Page.html"</span><span class="pun">)</span><span class="pln">
+</span><span class="com">#open file in write mode with encoding</span><span class="pln">
+f </span><span class="pun">=</span><span class="pln"> codecs</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="pln">n</span><span class="pun">,</span><span class="pln"> </span><span class="str">"w"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"utf−8"</span><span class="pun">)</span><span class="pln">
+</span><span class="com">#obtain page source</span><span class="pln">
+h </span><span class="pun">=</span><span class="pln"> driver</span><span class="pun">.</span><span class="pln">page_source
+</span><span class="com">#write page source content to file</span><span class="pln">
+file</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">h</span><span class="pun">)</span><span class="pln">
+</span><span class="com">#close browser</span><span class="pln">
+driver</span><span class="pun">.</span><span class="pln">quit</span><span class="pun">()</span></pre><h2>Output</h2><p style=""><img src="https://www.tutorialspoint.com/assets/questions/media/47794/page.jpg" class="fr-fic fr-dib" width="600" height="84"></p><p>On opening the Page.html file in a browser.</p><p style=""><img src="https://www.tutorialspoint.com/assets/questions/media/47794/course.jpg" class="fr-fic fr-dib" width="600" height="300"></p><div class="clear"></div>
+
+<div class="mui-panel profile-panel">
+<a href="https://www.tutorialspoint.com/answers/debomita_bhattacharjee" target="_blank" title="raja" class="mui--pull-left">
+<img class="profile" src="https://www.tutorialspoint.com/assets/profiles/210947/profile/60_171666-1594382095.jpg" alt="raja">
+</a>  
+<div class="qa_author">
+<a href="https://www.tutorialspoint.com/answers/debomita_bhattacharjee" target="_blank"><span>Debomita Bhattacharjee</span></a> 
+</div> 	
+<div class="qa_answer_dtm">
+Updated on 02-Feb-2021 12:19:00</div>
+<div class="author-caret">
+<a href="https://www.tutorialspoint.com/answers/debomita_bhattacharjee" target="_blank">
+<i class="fal fa-chevron-circle-right"></i>
+</a>
+</div>					
+</div>   
+<ul class="toc chapters">
+<li class="heading big-font" style="font-size: 25px!important;border: 0px;"><i class="fa fa-th-large"></i> Related Questions &amp; Answers</li><li><a href="https://www.tutorialspoint.com/smart-ways-to-save-a-web-page-forever">Smart Ways to Save a Web Page Forever!!</a></li>
+<li><a href="https://www.tutorialspoint.com/how-to-extract-text-from-a-web-page-using-selenium-and-save-it-as-a-text-file">How to extract text from a web page using Selenium and save it as a text file?</a></li>
+<li><a href="https://www.tutorialspoint.com/how-can-i-scroll-a-web-page-using-selenium-webdriver-in-python">How can I scroll a web page using selenium webdriver in python?</a></li>
+<li><a href="https://www.tutorialspoint.com/modern-web-automation-with-python-and-selenium">Modern Web Automation With Python and Selenium</a></li>
+<li><a href="https://www.tutorialspoint.com/best-way-to-take-screenshot-of-a-web-page-into-selenium">Best way to take screenshot of a web page into Selenium?</a></li>
+<li><a href="https://www.tutorialspoint.com/center-pagination-on-a-web-page-with-css">Center pagination on a web page with CSS</a></li>
+<li><a href="https://www.tutorialspoint.com/Retrofit-existing-web-page-with-mobile-CSS">Retrofit existing web page with mobile CSS</a></li>
+<li><a href="https://www.tutorialspoint.com/take-screenshot-of-full-page-with-selenium-python-with-chromedriver">Take screenshot of full page with Selenium Python with chromedriver.</a></li>
+<li><a href="https://www.tutorialspoint.com/how-to-scroll-a-web-page-using-coordinates-of-a-webelement-in-selenium-webdriver">How to scroll a Web Page using coordinates of a WebElement in Selenium WebDriver?</a></li>
+<li><a href="https://www.tutorialspoint.com/how-to-check-a-checkbox-in-a-page-in-selenium-with-python">How to check a checkbox in a page in Selenium with python?</a></li>
+<li><a href="https://www.tutorialspoint.com/how-to-get-text-with-selenium-web-driver-in-python">How to get text with selenium web driver in python?</a></li>
+<li><a href="https://www.tutorialspoint.com/what-to-press-ctrl-plusf-on-a-page-in-selenium-with-python">What to press ctrl +f on a page in Selenium with python?</a></li>
+<li><a href="https://www.tutorialspoint.com/what-to-press-ctrl-plusc-on-a-page-in-selenium-with-python">What to press ctrl +c on a page in Selenium with python?</a></li>
+<li><a href="https://www.tutorialspoint.com/how-to-select-a-radio-button-in-a-page-in-selenium-with-python">How to select a radio button in a page in Selenium with python?</a></li>
+<li><a href="https://www.tutorialspoint.com/wait-until-page-is-loaded-with-selenium-webdriver-for-python">Wait until page is loaded with Selenium WebDriver for Python.</a></li>
+</ul><div class="clear"><p></p></div>
+<div class="d-flex justify-content-between border-bottom border-top py-2" id="bottom_navigation">
+<a href="/questions/index.php" class="pre-btn"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+<a href="javascript:printPage();" class="pre-btn d-none d-sm-block"><i class="fal fa-print"></i> Print Page</a>
+<a href="https://www.tutorialspoint.com/wait-until-page-is-loaded-with-selenium-webdriver-for-python" class="nxt-btn">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+</div>
+			<div class="google-bottom-ads" id="google-bottom-ads">
+				<div>Advertisements</div>
+				<div>
+					<div id="adp_bottom_ads"><div id="00000001-ef097b22-b7f4-4311-ac26-dde0871db07b" class="_ap_apex_ad" data-section="00000001-ef097b22-b7f4-4311-ac26-dde0871db07b" data-orig-id="4951d1d6-24d4-4a31-afb7-2c22c489eae1" data-render-time="1664784118323" style="text-align: center; margin: 0px auto; display: block;">
+<!--  AP-TutorialsPoint instream video tag -->
+<div id="00000001-b42c193f-4b9e-4eb8-8f2c-368a92aa32f6" class="_ap_apex_ad" data-section="00000001-b42c193f-4b9e-4eb8-8f2c-368a92aa32f6" data-orig-id="484d9e35-bb46-41eb-aa18-d6da5fa66aea" data-render-time="1664784118353" data-ap-network="adpTags" style="text-align: center; margin: 0px auto; display: block;"><div id="ADP_40046_responsivexresponsive_00000001-b42c193f-4b9e-4eb8-8f2c-368a92aa32f6" style="text-align: center; margin: 0 auto;" data-google-query-id="CMHBw5jMw_oCFc5HHQkd8XUHsQ">
+
+<div id="google_ads_iframe_/103512698,60931893/22816932470_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/103512698,60931893/22816932470_0" name="google_ads_iframe_/103512698,60931893/22816932470_0" title="3rd party ad content" width="580" height="400" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" role="region" aria-label="Advertisement" tabindex="0" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" style="border: 0px; vertical-align: bottom;" data-load-complete="true" data-google-container-id="3"></iframe></div></div></div>
+<div id="videoAdSlot" style="max-width: 640px; margin: auto"></div>
+<script type="text/javascript" language="javascript">
+  adpushup.triggerAd("484d9e35-bb46-41eb-aa18-d6da5fa66aea");
+  var sendLog = function (eventName, log) {
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=" + eventName + "&data=" + data;
+  };
+  var trafficSplitNumber = Math.random() * 100;
+  var queryParamsString = window.location.search;
+  try {
+    if (
+      queryParamsString.includes("triggerVideoJs=true") ||
+      trafficSplitNumber < 33
+    ) {
+      sendLog("IN_HOUSE_VIDEO_TRIGGERED", { siteId: adpushup.config.siteId });
+      var sectionId = 'videoAdSlot';
+      var adContainer = document.getElementById(sectionId);
+      adContainer.style.visibility = 'hidden';
+      var scr = document.createElement('script');
+      scr.src = "https://cdn.adpushup.com/" + adpushup.config.siteId + "/videoJsBundle.js";
+      scr.type = 'text/javascript';
+      scr.language = 'javascript';
+      adContainer.appendChild(scr);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+</script></div></div>
+					<script>
+						var adPos = document.getElementById('adp_bottom_ads');
+						var mobile_ad_id = "6d621d7e-9531-4f26-810f-68af67dc6366";
+						var desktop_ad_id = "4951d1d6-24d4-4a31-afb7-2c22c489eae1";
+						var adpushup = adpushup || {};
+						adpushup.que = adpushup.que || [];
+						adpushup.que.push(function() {
+							var ad_id = window.innerWidth <= 768 ? mobile_ad_id : desktop_ad_id;
+							adPos.innerHTML = '<div id="' + ad_id + '" class="_ap_apex_ad"></div>';
+							adpushup.triggerAd(ad_id);
+						});
+					</script>
+				</div>
+			</div>
+		</div>
+	<!-- Tutorial Content Ends Here -->
+
+	<!-- Right Column Starts Here -->
+	<div class="col-sm-6 col-md-3 col-xl-3" id="google-right-ads">
+		<div class="data-sticky">
+			<div class="google-right-ad" style="margin: 0px auto !important;margin-top:5px;min-height:250px!important">
+				<div id="00000001-e2b48036-17b3-4268-9d9e-39c66de2f2ba" class="_ap_apex_ad" data-section="00000001-e2b48036-17b3-4268-9d9e-39c66de2f2ba" data-orig-id="f0f6cff6-393d-4170-b63a-d9ff06ca9f25" data-render-time="1664784118354">
+					<script>
+						if( window.innerWidth > 768 ){
+						   var adpushup = adpushup || {};
+						   adpushup.que = adpushup.que || [];
+						   adpushup.que.push(function() {
+						   adpushup.triggerAd("f0f6cff6-393d-4170-b63a-d9ff06ca9f25");
+						   });
+						}
+					</script>
+				</div>
+			</div>
+			<div class="google-right-ad" style="margin-top:16px;min-height:250px!important">
+				<div id="00000001-f2f6b601-0e9e-4135-acb8-a83ea167235e" class="_ap_apex_ad" data-section="00000001-f2f6b601-0e9e-4135-acb8-a83ea167235e" data-orig-id="5c0affd5-724a-475c-bfcd-cecbc7660c36" data-render-time="1664784118354">
+					<script>
+						if( window.innerWidth > 768 ){
+						   var adpushup = adpushup || {};
+						   adpushup.que = adpushup.que || [];
+						   adpushup.que.push(function() {
+						   adpushup.triggerAd("5c0affd5-724a-475c-bfcd-cecbc7660c36");
+						   });
+						}
+					</script>
+				</div>
+			</div>
+			<div class="google-right-ad" style="margin-top:16px;margin-bottom:15px;min-height:600px!important">
+				<div id="00000001-307e2cb6-c4ed-4c21-b4bb-d0e08fe608e3" class="_ap_apex_ad" data-section="00000001-307e2cb6-c4ed-4c21-b4bb-d0e08fe608e3" data-orig-id="8f8814c2-d64c-4d26-9cb9-543653c0b48f" data-render-time="1664784118355">
+					<script>
+						if( window.innerWidth > 768 ){
+						   var adpushup = adpushup || {};
+						   adpushup.que = adpushup.que || [];
+						   adpushup.que.push(function() {
+						   adpushup.triggerAd("8f8814c2-d64c-4d26-9cb9-543653c0b48f");
+						   });
+						}
+					</script>
+				</div>
+			</div>
+			<!-- Right Column Ends Here -->
+		</div>
+	</div>
+</div>
+</div>
+</main>
+
+<footer class="py-3 card navbar-dark border-top" id="footer">
+	<div class="container">
+		<div class="row g-4">
+			<div class="col-lg-12 text-center">
+				<a class="me-0 pb-4" href="https://www.tutorialspoint.com">
+					<img class="light-mode-item h-100px" src="/static/images/logo-color-footer.png" alt="Tutorials Point">
+					<img class="dark-mode-item h-100px" src="/static/images/logo-footer-b.png" alt="Tutorials Point">
+				</a>
+				<ul class="nav justify-content-center py-3 mt-md-0 ">
+					<li class="nav-item"><a class="nav-link fw-bold" href="/about/index.htm"><i class="fal fa-globe"></i> About us</a></li>
+					<li class="nav-item"><a class="nav-link fw-bold" href="/about/return_refund_policy.htm"> <i class="fal fa-check"></i> Refund Policy</a></li>
+					<li class="nav-item"><a class="nav-link fw-bold" href="/about/about_terms_of_use.htm"><i class="fal fa-check"></i> Terms of use</a></li>
+					<li class="nav-item"><a class="nav-link fw-bold" href="/about/about_privacy.htm"> <i class="fal fa-shield-check"></i> Privacy Policy</a></li>
+					<li class="nav-item"><a class="nav-link fw-bold" href="/about/faq.htm"><i class="fal fa-question-circle"></i> FAQ's</a></li>
+					<li class="nav-item"><a class="nav-link fw-bold" href="/about/contact_us.htm"><i class="fal fa-map-marker-alt"></i> Contact</a></li>
+				</ul>
+				<p class="small">© Copyright 2022. All Rights Reserved.</p>
+			</div>
+			<div id="privacy-banner" style="display: inherit;">
+				<div>
+					<p>We make use of First and third party cookies to improve our user experience. By using this website, you agree with our Cookies Policy.
+						<a id="banner-accept" href="#">Agree</a>
+						<a id="banner-learn" href="/about/about_cookies.htm" target="_blank">Learn more</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<div class="back-top">
+<i class="fal fa-angle-up position-absolute top-50 start-50 translate-middle"></i>
+</div>
+<script src="/static/js/script-min.js?v=119"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-232293-17"></script>
+<script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'UA-232293-17');
+</script>
+<!-- Global site tag (gtag.js) - Google Ads -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-664793816"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-664793816');
+</script><iframe src="https://0e285b7c2ced3dcd5284e34990db558f.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html" style="visibility: hidden; display: none;"></iframe>
+
+
+<iframe src="https://aax-eu.amazon-adsystem.com/s/iu3?cm3ppd=1&amp;d=dtb-pub&amp;csif=t&amp;dl=n-smaato_n-sharethrough_n-onetag_pm-db5_ym_rbd_n-MediaNet_n-inmobi_n-amobee_sovrn_3lift" style="display: none;"></iframe></body><iframe sandbox="allow-scripts allow-same-origin" id="1161cde85fc538f6" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="https://ads.pubmatic.com/AdServer/js/user_sync.html?kdntuid=1&amp;p=158261">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="117a58107c2b4892" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="https://acdn.adnxs.com/dmp/async_usersync.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="1180414937a969b8" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="https://public.servenobid.com/sync.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="1197c2543bb610f9" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="https://u.openx.net/w/1.0/pd">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="120e4ba3f3917a7f" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="https://js-sec.indexww.com/um/ixmatch.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="12192b85e144eddc" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="https://onetag-sys.com/usync/?cb=1664784122338">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="12207ae6ee35869d" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="https://csync.smilewanted.com">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="123f847b2daa3914" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="https://eb2.3lift.com/sync?">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="1246ad3152a756db" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="https://eus.rubiconproject.com/usync.html">
+    </iframe></html>
