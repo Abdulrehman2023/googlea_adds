@@ -1,42 +1,74 @@
-def full_screenshot(driver, save_path):
-    # initiate value
-    save_path = save_path + '.png' if save_path[-4::] != '.png' else save_path
-    img_li = []  # to store image fragment
-    offset = 0  # where to start
+from PIL import Image
+from io import BytesIO
+import time
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
-    # js to get height
-    height = driver.execute_script('return Math.max('
-                                   'document.documentElement.clientHeight, window.innerHeight);')
+def open_url(url):
 
-    # js to get the maximum scroll height
-    # Ref--> https://stackoverflow.com/questions/17688595/finding-the-maximum-scroll-position-of-a-page
-    max_window_height = driver.execute_script('return Math.max('
-                                              'document.body.scrollHeight, '
-                                              'document.body.offsetHeight, '
-                                              'document.documentElement.clientHeight, '
-                                              'document.documentElement.scrollHeight, '
-                                              'document.documentElement.offsetHeight);')
+    options = Options()
 
-    # looping from top to bottom, append to img list
-    # Ref--> https://gist.github.com/fabtho/13e4a2e7cfbfde671b8fa81bbe9359fb
-    while offset < max_window_height:
+    options.headless = True
+    CHROMEDRIVER_PATH="C:\\Users\\FabTechSol\\Downloads\\chromedriver_win32\\chromedriver.exe"
+    driver = webdriver.Chrome(CHROMEDRIVER_PATH, options=options)
+    driver.get(url)
+    time.sleep(15)
+    save_screenshot(driver, 'screen.png')
 
-        # Scroll to height
-        driver.execute_script(f'window.scrollTo(0, {offset});')
-        img = Image.open(BytesIO((driver.get_screenshot_as_png())))
-        img_li.append(img)
-        offset += height
-
-    # Stitch image into one
-    # Set up the full screen frame
-    img_frame_height = sum([img_frag.size[1] for img_frag in img_li])
-    img_frame = Image.new('RGB', (img_li[0].size[0], img_frame_height))
-    offset = 0
-    for img_frag in img_li:
-        img_frame.paste(img_frag, (0, offset))
-        offset += img_frag.size[1]
-    img_frame.save(save_path)
+def save_screenshot(driver, file_name):
+    height, width = scroll_down(driver)
+    driver.set_window_size(width, height)
+    img_binary = driver.get_screenshot_as_png()
+    img = Image.open(BytesIO(img_binary))
+    img.save(file_name)
+    # print(file_name)
+    print(" screenshot saved ")
 
 
+def scroll_down(driver):
+    total_width = driver.execute_script("return document.body.parentNode.scrollWidth")
+    total_height = driver.execute_script("return document.body.parentNode.scrollHeight")
+    viewport_width = driver.execute_script("return document.body.clientWidth")
+    viewport_height = driver.execute_script("return window.innerHeight")
 
-full_screenshot('C:\\Users\\FabTechSol\\Downloads\\chromedriver_win32\\chromedriver.exe','C:\\Users\\FabTechSol\\Desktop\\screenshot')
+    rectangles = []
+
+    i = 0
+    while i < total_height:
+        ii = 0
+        top_height = i + viewport_height
+
+        if top_height > total_height:
+            top_height = total_height
+
+        while ii < total_width:
+            top_width = ii + viewport_width
+
+            if top_width > total_width:
+                top_width = total_width
+
+            rectangles.append((ii, i, top_width, top_height))
+
+            ii = ii + viewport_width
+
+        i = i + viewport_height
+
+    previous = None
+    part = 0
+
+    for rectangle in rectangles:
+        if not previous is None:
+            driver.execute_script("window.scrollTo({0}, {1})".format(rectangle[0], rectangle[1]))
+            time.sleep(0.5)
+        # time.sleep(0.2)
+
+        if rectangle[1] + viewport_height > total_height:
+            offset = (rectangle[0], total_height - viewport_height)
+        else:
+            offset = (rectangle[0], rectangle[1])
+
+        previous = rectangle
+
+    return (total_height, total_width)
+
+open_url("https://babyanimalz.com/")

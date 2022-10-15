@@ -1,561 +1,361 @@
-<html><head>
-<title>All Breed Pedigree Query</title>
-<meta name="DESCRIPTION" content="All Breed Pedigree Database containing more than 6.4 million horses from all breeds. Get pedigrees reports and a free five generation pedigree chart.">
-<meta name="KEYWORDS" content="horse pedigree, quarter horse pedigree, allbreed pedigree, all breed pedigree arabian horse pedigree, pedigree database, horse database, quarter horse database">
-<meta name="OWNER" content="Miles Michelson">
-<meta name="AUTHOR" content="Miles Michelson">
-<meta name="Reply-to" content="pedigree@selectwv.com">
-<meta http-equiv="EXPIRES" content="">
-<meta http-equiv="CHARSET" content="ISO-8859-1">
-<meta http-equiv="CONTENT-LANGUAGE" content="English">
-<meta http-equiv="VW96.OBJECT TYPE" content="Homepage">
-<meta name="RATING" content="General">
-<meta name="ROBOTS" content="index,follow">
-<meta name="REVISIT-AFTER" content="4 weeks">
-
-
-<link rel="stylesheet" href="style.css">
-<style>
-.g {color: green;font-size:8pt}
-.r {color: red;font-size:8pt}
-.b8 {color: black; font-size:8pt}
-.bb {color: black;font-size:8pt;font-weight: bold}
-.grey {background-color: EEEEEE;font-family:verdana;font-size:7pt;font-spacing:normal;border-style:solid;border-width:1;border-color:333300;text-decoration:none;white-space:nowrap;padding-left:2px;padding-top:0px;padding-bottom:0px}
-.f {background-color: ffcccc;font-family:'Verdana';font-size:7pt;font-spacing:normal;border-style:solid;border-width:1;border-color:333300;text-decoration:none;padding-left:2px;padding-top:0px;padding-bottom:0px; white-space:nowrap;}
-.m {background-color: ccccff;font-family:'Verdana';font-size:7pt;font-spacing:normal;border-width:1;border-style:solid;border-color:333300;text-decoration:none;padding-left:2px;white-space:nowrap;}
-.f2 {background-color: CCCCCC;font-family:verdana;font-size:7pt;font-spacing:normal;border-style:solid;border-width:1;border-color:807040;text-decoration:none;}
-.m2 {background-color: EEEEEE;font-family:verdana;font-size:7pt;font-spacing:normal;border-width:1;border-style:solid;border-color:333366;text-decoration:none;}
-.w {background-color: FFFFFE;font-family:'Verdana';font-size:7pt;font-spacing:normal;border-width:1;border-style:solid;border-color:333366;text-decoration:none;white-space:nowrap;padding-left:1px;padding-right:1px}
-.w2 {background-color: FFFFFE;font-family:Verdana;font-size:7pt;font-spacing:normal;border-width:1;border-style:solid;border-color:333366;text-decoration:none;}
-.xf {background-color: cc9999;font-family:'Verdana';font-size:7pt;font-spacing:normal;border-style:solid;border-width:1;border-color:333300;text-decoration:none;white-space:nowrap;padding-left:2px;padding-top:0px;padding-bottom:0px}
-.xm {background-color: 9999cc;font-family:'Verdana';font-size:7pt;font-spacing:normal;border-width:1;border-style:solid;border-color:333300;text-decoration:none;white-space:nowrap;padding-left:2px}
-.ib {border-width:1;border-style:solid;border-top-color:333300;border-bottom-color:333300;border-left-color:CCCCCC;border-right-color:333300;padding-right:4px}
-.b {color: black}
-.menu {background-color: 44443A;color:FFFFFF;font-family:verdana;font-size:8pt;font-spacing:normal;text-decoration:none;white-space:nowrap}
-.header2 {background-color: F0F0D2;color:000000;font-family:verdana;font-size:10pt;font-spacing:normal;text-decoration:none;white-space:nowrap}
-.header {background-color: #404040;color:FFFFFF;font-family:verdana;font-size:7pt;font-spacing:normal;text-decoration:none;white-space:nowrap}
-.header_link2 {color:303030;text-decoration:none; font: 8pt Verdana,Arial;}
-.header_link2:visited {color:303030;}
-.header_link2:hover {color:336699;text-decoration:underline}
-.header_link:hover {color:white;text-decoration:underline}
-.header_link {color:white;text-decoration:none; font: 7pt Verdana;}
-.header_link:visited {color:white;}
-A:hover {text-decoration:underline}
-A {text-decoration:none; color:0000ff}
-.pedigreetable {border-style:solid;border-color:333300;border-width:1px}
-.table_heading {background-color: 666666; color:FFFFFF;font-family:verdana;font-size:8pt;border-width:1;border-style:solid;border-color:333333}
-.heading_link {color:FFFFFF;font-family:verdana;font-size:8pt}
-.footer {background-color: FFFFFE;font-family:verdana;font-size:7pt;font-spacing:normal;text-decoration:none;white-space:nowrap}
-.main_table {background-color:ffffff;border-width:0;border-style:solid;font-family:Verdana,Arial;font-size:9pt}
-.login_text {font-face:Verdana,Arial;font-size:7pt}
-.blank {background-color: FFFFFE;font-family:verdana;font-size:7pt;font-spacing:normal;border-width:0;border-style:solid;border-left-width:3;text-decoration:none;white-space:nowrap;border-color:000000;width:20px}
-.ff {background-color: FFFFFE;font-family:verdana;font-size:7pt;font-spacing:normal;text-decoration:none;white-space:nowrap}
-.fff {background-color: ffcccc;font-family:Verdana;font-size:7;font-spacing:normal;text-decoration;border-bottom-width:1; border-color:black;border-style:solid;border-top-width:0;border-left-width:0;border-right-width:0}
-.ffm {background-color: ccccff;font-family:Verdana;font-size:7;font-spacing:normal;text-decoration;border-bottom-width:1; border-color:black;border-style:solid;border-top-width:0;border-left-width:0;border-right-width:0}
-.large {font-face: Verdana,Arial;font-size:18pt;font-weight:bold}
-FIELDSET { PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; border: 1px solid #505050; font: 10pt Verdana; }
-LEGEND { margin-bottom: 5px; font-weight: bold; font-size: 12px; font-family: Verdana, Arial, sans-serif; padding-right: 2px; padding-left: 2px;}
-.prettybutton { font: 8pt Verdana; border: 1px solid #404040; background-color: #F0F0D2; background-image: url(/images/yellowgradient.gif); margin-left: 10px; }
-.n { font: 10pt Verdana; }
-.s { font-size: 8pt; }
-.ss { font-size: 7pt; }
-.title { font: 14pt Verdana,Arial; }
-A.nounderline:hover { text-decoration: none; }
-</style>
-<style media="print">
-.noprint { display: none; }
-</style>
-<script src="https://rules.quantcount.com/rules-p-4f2vudepavYFg.js" async=""></script><script src="https://secure.quantserve.com/quant.js" async="" type="text/javascript"></script><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script src="popup_new.js?1383096101"></script>
-<script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+<html><head><meta charset="windows-1252"><meta name="GENERATOR" content="Microsoft FrontPage 5.0"><meta name="ProgId" content="FrontPage.Editor.Document">
+	<title>Baby Animals - Pictures</title>
+<script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202210100101/reactive_library_fy2021.js"></script><script src="https://partner.googleadservices.com/gampad/cookie.js?domain=www.babyanimalz.com&amp;callback=_gfp_s_&amp;client=ca-pub-4114127556796384&amp;gpid_exp=1"></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202210100101/show_ads_impl_fy2021.js" id="google_shimpl"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
-  var googletag = googletag || {};
-  googletag.cmd = googletag.cmd || [];
-</script>
-
-<script>
-  googletag.cmd.push(function() {
-    googletag.defineSlot('/9733138/Allbreed_ped_top', [728, 90], 'div-gpt-ad-1553580942379-0').addService(googletag.pubads());
-    googletag.defineSlot('/9733138/AllBreed_home_med_rectangle', [300, 250], 'div-gpt-ad-1553581165743-0').addService(googletag.pubads());
-    googletag.defineSlot('/9733138/Allbreed_ped_sidebar', [160, 600], 'div-gpt-ad-1553581212366-0').addService(googletag.pubads());
-    googletag.pubads().enableSingleRequest();
-    googletag.pubads().collapseEmptyDivs();
-    googletag.enableServices();
-  });
-</script>
-
-<!--
-<script type='text/javascript' src='//partner.googleadservices.com/gampad/google_service.js'>
-</script>
-<script type='text/javascript'>
-GS_googleAddAdSenseService("ca-pub-6534565535837265");
-GS_googleEnableAllServices();
-</script>
-<script type='text/javascript'>
-GA_googleAddSlot("ca-pub-6534565535837265", "AllBreed_home_med_rectangle");
-GA_googleAddSlot("ca-pub-6534565535837265", "Allbreed_ped_sidebar");
-GA_googleAddSlot("ca-pub-6534565535837265", "Allbreed_ped_top");
-</script>
-<script type='text/javascript'>
-GA_googleFetchAds();
-</script>
--->
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-<script type="text/javascript">
-$(function() {
-	$(".hasJS").val(1);
-});
-</script>
-<meta http-equiv="origin-trial" content="A+cA2PUOfIOKAdSDJOW5CP9ZlxONy1yu+hqAq72zUtKw4rLdihqRp6Nui/jUyCyegr+BUtH+C+Elv0ufn05yBQEAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+zsdH3aNZT/bkjT8U/o5ACzyaeNYzTvtoVmwf/KOilfv39pxY2AIsOwhQJv+YnXp98i3TqrQibIVtMWs5UHjgoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxceVEhIegcDEHqLXFQ2+vPKqzCppoJYsRCZ/BdfVnbM/sUUF2BXV8lwNosyYjvoxnTh2FC8cOlAnA5uULr/zAUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_2022100301.js" async=""></script><link rel="preload" href="https://adservice.google.com.pk/adsid/integrator.js?domain=www.allbreedpedigree.com" as="script"><script type="text/javascript" src="https://adservice.google.com.pk/adsid/integrator.js?domain=www.allbreedpedigree.com"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.allbreedpedigree.com" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=www.allbreedpedigree.com"></script></head>
-<body style="margin: 0" bgcolor="white" oncontextmenu="return checkContext();" onload="">
-<div id="floatBox" style="z-index: 256; position: absolute;"></div>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-<tbody><tr><td colspan="2" background="images/pedtopbg.gif">
-<table cellpadding="0" cellspacing="0" width="100%">
-<tbody><tr>
-<td><a href="/"><img src="images/pedigree_header.gif" border="0" alt="Horse Pedigree Database"></a></td>
-<td align="center">
-<script langauge="javascript" src="https://www.equinenow.com/showads.js.php"></script><iframe width="468" height="60" scrolling="no" frameborder="0" allowtransparency="true" src="//www.equinenow.com/showads.js.php?&amp;c=true">Classifed ads by <a href="//www.equinenow.com" target="_top">EquineNow.com</a></iframe>
-</td>
-<form></form>
-<td align="right" valign="top"><a href="index.php?no_header=T"><img src="/images/x.gif" border="0" vspace="5" hspace="5"></a><br><br>
-<input type="button" value="Add A Horse" class="prettybutton" style="margin-right: 10px" onclick="location.href='/index.php?search_bar=&amp;query_type=add'">
-<input type="button" name="do" value="Log In" class="prettybutton" onclick="location.href='index.php?forcelogin=1'">&nbsp;
-</td>
-
-</tr>
-</tbody></table>
-</td></tr>
-
-<tr><td height="10" class="menu" width="*">
-
-<form action="/cgi-bin/check2.cgi" method="POST">
-<input type="hidden" name="query_type" value="check">
-<input type="hidden" name="search_bar" value="horse">
-<input type="hidden" name="wsid" value="">
-<table>
-<tbody><tr><td class="menu">Horse: <input type="text" tabindex="1" name="h" size="23" value="" style="{font-size:7pt}"><script type="text/javascript"><!--
-setTimeout( function() {
-    for(var i = 0; i < document.forms.length; ++i) {
-      var obj = document.forms[i].elements["h"];
-      if (obj) {
-        if (obj.length) { obj = obj[0]; }
-        if (obj.focus) { obj.focus(); obj.select(); }
-      }
-    }
-	}, 750);
-  //--> </script></td>
-<td class="menu">
-Gens: 
-<select name="g" style="{font-size:7pt}">
-<option value="4">4</option><option value="5" selected="">5</option></select>
-</td>
-<td class="menu">
-Highlight:
-<select name="inbred" style="{font-size:7pt}">
-<option value="Standard" selected="">Standard</option><option value="All Duplicates">All Duplicates</option><option value="Cross Duplicates">Cross Duplicates</option><option value="X Chromosome">X Chromosome</option><option value="Female Families">Female Families</option><option value="7 Gen Inbreeding">7 Gen Inbreeding</option></select>
-</td>
-<td><input type="submit" value="Horse Query" class="prettybutton"></td>
-
-</tr></tbody></table>
-
-
-
-</form></td>
-
-</tr><tr><td class="header2" valign="top">
-
-
-<table width="100%"><tbody><tr>
-<td class="header2" width="3"></td>
-<td class="header2" width="90" align="center"><a name="queries" href="javascript:nothing()" onmouseover="showMenu('queries')" style="{color:black}">Reports</a> </td>
-<td class="header2" width="110" align="center"><a name="maintenance" href="javascript:nothing()" onmouseover="showMenu('maintenance')" style="{color:black}">Maintenance</a></td>
-<td class="header2" width="110" align="center"><a name="subscriptions" href="javascript:nothing()" onmouseover="showMenu('subscriptions')" style="{color:black}">Subscriptions</a></td>
-<td class="header2" width="50" align="center"><a name="help" href="javascript:nothing()" onmouseover="showMenu('help')" style="{color:black}">Help</a></td>
-
-<td class="header2" width="*" align="right" style="font-size: 8pt;">&nbsp; </td>
-</tr>
-</tbody></table>
-<!-- #BeginEdittable "Product Comment" -->
-<!-- pedigree, pedigree database, horse pedigree, pedigree chart -->
-<!-- #EndEditable -->
-
-	</td></tr><tr><td height="8" background="/images/dropshadow.gif"></td></tr>
-	<tr><td height="480" width="*" valign="top">
-	<blockquote>
-
-<table align="right" width="300" style="margin-left: 10px; margin-top: 10px;" cellspacing="0" cellpadding="2">
-
-<tbody><tr><td style="border: 1px solid #404040;" bgcolor="#e0e0d0" class="n s">&nbsp;Related Sites</td></tr>
-<tr><td style="border: 1px solid #c0c0c0; font: 8pt Verdana; padding: 10px;">
-<a href="http://www.equinenow.com" style="color: #336699;font: 9pt Arial;text-decoration:underline;font-weight:bold">Equine Now Horses for Sale</a><br>Online horse classified ads. Sell your horse for free.
-<br><br>
-<a href="http://www.stallionsnow.com" style="color: #336699;font: 9pt Arial;text-decoration:underline;font-weight:bold">Stallions Now Stallion DIrectory</a><br>Online stallion directory. Find a stallion to breed your mare to.
-<br><br>
-<a href="http://www.pedigreequery.com" style="color: #336699;font: 9pt Arial;text-decoration:underline;font-weight:bold">Thoroughbred Database</a><br>Thoroughbred only Pedigree Database with 1,000,000+ horses.
-<!--
-<br><br>
-<a href="http://www.horsenamegame.com" style="color: #336699;font: 9pt Arial;text-decoration:underline;font-weight:bold">Horse Name Game</a><br>Get help naming those unnamed foals. Vote for others names.
--->
-<br><br>
-<a href="https://dogs.pedigreeonline.com" style="color: #336699; font: 9 pt Arial; text-decoration:underline; font-weight: bold"><b>Online Dog Pedigrees</b></a><br>Pedigree Online's dog database offers free pedigree reports for millions of dogs of all breeds and is completely open to the public. Use the search form above to find a dog pedigree now.
-</td></tr>
-<tr><td>&nbsp;</td></tr>
-<tr><td align="center"><br><font size="1">--Advertisement--</font><br></td></tr>
-<tr><td align="center">
-
-<!-- /9733138/AllBreed_home_med_rectangle -->
-<div id="div-gpt-ad-1553581165743-0" style="height:250px; width:300px;" data-google-query-id="CMSa__mA2PoCFXZSpAQdHGkFXg">
-
-<div id="google_ads_iframe_/9733138/AllBreed_home_med_rectangle_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/9733138/AllBreed_home_med_rectangle_0" name="google_ads_iframe_/9733138/AllBreed_home_med_rectangle_0" title="3rd party ad content" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" role="region" aria-label="Advertisement" tabindex="0" style="border: 0px; vertical-align: bottom;" data-load-complete="true" data-google-container-id="2"></iframe></div></div>
-
-<!-- AllBreed_home_med_rectangle OLD
-<script type='text/javascript'>
-GA_googleFillSlot("AllBreed_home_med_rectangle");
-</script>
--->
-
-
-</td></tr>
-
-</tbody></table>
-
-<div class="n">
-
-<br>
-<!--<p><b class="bigger">EquineNow - Classified Ad Site</b></p>
-We're in the process of developing and launching a new online classified
-ad site. It's our hope that it'll eventually grow into a place where
-people can sell their horses, showcase their stallions, and even list
-seasons/shares. At the moment, it's still a work in progress. Over time
-we'll try to build a version of the focused on thoroughbred racehorses.
-For now though, we'd like to introduce <a
-href="http://www.equinenow.com/">EquineNow.com</a> to you and solicit
-your <a href="http://www.equinenow.com/contact">feedback</a> so we can
-make the site better.
--->
-
-
-<h4 style="margin-top: 15px">Database Redesign</h4>
-
-<p>Did you know that All Breed Pedigree is nearly 20 year old? The database was designed when the internet was in its infancy, and while it has served people well for a long time it's also long overdue for an overhaul to embrace some newer technologies. We've started the process of redesigning the database by launching a brand new <a href="https://dogs.pedigreeonline.com">dog pedigree database</a>. This project will eventually serve as the framework for an updated All breed Pedigree database. If you have dogs or breed dogs, we encourage you to use our new site by adding dogs and giving us feedback.</p>
-
- <p><b class="bigger">All
-Breed Horse Pedigree Database</b></p>
-Pedigree Online's All Breed pedigree database consists of more than
-6.4 million horses from around the world cover all breeds of horses. If this
-is your first time visiting the site, you can pull up the pedigree for any horses in the
-database by simply entering it's name in the form above and clicking the
-"Horse Query" button. For more about using this site or reading pedigrees,
-make sure to check out the Help menu. Parts of this site are free,
-while advanced options and features require you to be a subscriber. <p></p>
-
-<table cellpadding="3">
-<tbody><tr><td valign="top" width="300">
-<table style="border: 1px solid #404040;" cellpadding="4" cellspacing="0">
-<tbody><tr bgcolor="#e0e0d0">
-<td class="n" width="100%"><b>&nbsp;Free Service</b></td>
-</tr>
-<tr>
-<td valign="top" class="n" style="{font:8pt Verdana}">
-· Simple 5 Generation Pedigrees (no detailed information)<br>
-· Progeny Reports<br>
-· Photos<br>
-· No Hypomating, Linebreeding or Female Family<br>
-· Limited Adding &amp; Editing Horses<br><br><br>
-</td>
-</tr>
-</tbody></table></td>
-<td valign="top" width="300">
-<table style="border: 1px solid #404040;" cellpadding="4" cellspacing="0">
-<tbody><tr bgcolor="#e0e0d0">
-<td class="n" width="100%"><b>&nbsp;Subscription Service</b></td>
-</tr>
-<tr>
-<td valign="top" class="n" style="{font:8pt Verdana}">
-· $10 (1 month), $20 (4 months), $50 (year)<br>
-· 5-9 Generation Pedigrees (full information)<br>
-· Linebreeding Reports<br>
-· Hypothetical Matings<br>
-· Female Family<br>
-· Improved Features<br>
-· Full access to report filters
-</td>
-</tr>
-</tbody></table>
-</td></tr>
-<tr><td colspan="2" align="center">
-<table style="border: 1px solid #404040;" cellpadding="4" cellspacing="0" width="100%">
-<tbody><tr bgcolor="#f5f5f5"><td colspan="2" align="center" class="n">
-<a href="index.php?forcelogin=1">Log In</a>
-&nbsp; | &nbsp;
-<a href="https://horses.pedigreeonline.com/register">New User
-Registration</a>
-&nbsp; | &nbsp;
-<a href="https://horses.pedigreeonline.com/account/subscriptions">Renew Subscription</a>
-</td>
-</tr>
-</tbody></table>
-</td></tr>
-</tbody></table>
-
-<p class="bigger"><br><b>Free Pedigree Chart Generator</b></p>
-If you have a website and want to put build html pedigree charts
-for your site, we've made it really easy with a simple
-<a href="http://www.pedigreequery.com/generator/">Pedigree Chart Generator</a>.
-Using the tool, you can select custom colors, fonts, and build professional
-looking pedigree charts for your websites in a matter of minutes.
-
-<!--
-<p class="bigger"><br><b>Horse Name Game</b></p>
-Pedigree Online has launched a new site called the <a
-href="http://www.horsenamegame.com/">Horse Name Game</a>
-(http://www.horsenamegame.com/). It's designed to let owners/breeders get
-name suggestions for their foals and to let others use their imagination
-to come up with wild and fun names. So, it you'd like to add your foal
-today or help others out, try it out.
--->
-
-<!--
-<p><b>New Features</b></p>
-The new pedigree site is a lot different than the old one. For those who
-aren't familiar with the new version of the site, we've compiled a list of
-<a href='index.php?query_type=features' style='{color:red}'>new
-features</a>. One of the most useful new features is the ability to right
-click on horse names inside the pedigree to get quick access to
-information for that horse.
--->
- <br><br></div>
-
-      <div class="noprint" style="padding-left: 160px;">
-<!-- <div style="text-align: center; margin: 16px auto; border: 1px solid black; width: 728px; line-height: 0px;"> -->
-<!-- <div style="text-align: center; margin: 16px auto; width: 728px; line-height: 0px;"> -->
-<br>
-
-<!-- /9733138/Allbreed_ped_top -->
-<div id="div-gpt-ad-1553580942379-0" style="height:90px; width:728px; margin: 0 auto" data-google-query-id="CMOa__mA2PoCFXZSpAQdHGkFXg">
-
-<div id="google_ads_iframe_/9733138/Allbreed_ped_top_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/9733138/Allbreed_ped_top_0" name="google_ads_iframe_/9733138/Allbreed_ped_top_0" title="3rd party ad content" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" role="region" aria-label="Advertisement" tabindex="0" style="border: 0px; vertical-align: bottom;" data-load-complete="true" data-google-container-id="1"></iframe></div></div>
-
-<!-- Allbreed_ped_top OLD
-<script type='text/javascript'>
-GA_googleFillSlot("Allbreed_ped_top");
-</script>
-<br>
-</div>
--->
-
-<!-- </div> -->
-</div></blockquote></td></tr>
-
-  </tbody></table>
-<!-- End  pedigree report -->
-
-
-
-
-<p align="center" class="n s"><a href="https://horses.pedigreeonline.com/privacy">PRIVACY POLICY</a>&nbsp;|&nbsp;<a href="https://horses.pedigreeonline.com/cancellation">CANCELLATION POLICY</a>&nbsp;|&nbsp;<a href="https://horses.pedigreeonline.com/terms">TERMS OF USE</a>&nbsp;|&nbsp;<a href="http://www.allbreedpedigree.com/sitemap.php">SITEMAP</a>&nbsp;|&nbsp;<a href="https://horses.pedigreeonline.com/contact">CONTACT</a> <br>
-</p>
-<center class="footer">© 2022  Select Web Ventures, LLC. All rights
-reserved.</center>
-
-
-<div id="menu_queries" class="float" style="top: 54px; left: -31px; display: block;">
-<table border="0" cellpadding="0" cellspacing="0">
-<tbody><tr><td colspan="3" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40"></td></tr>
-<tr>
-<td rowspan="2" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40"></td>
-<td><img src="/images/sp.gif" height="20" border="0"></td>
-<td rowspan="2" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40"></td>
-</tr>
-<tr>
-<td width="100">
-<ul class="pednav">
-<li><a href="/">Pedigree</a>
-</li><li><a href="/index.php?h=&amp;g=5&amp;query_type=progeny&amp;search_bar=progeny&amp;done=y&amp;inbred=Standard&amp;x2=n&amp;username=&amp;password=&amp;x=0&amp;y=0">Progeny</a>
-</li><li><a href="/index.php?h=&amp;g=5&amp;query_type=siblings&amp;search_bar=siblings&amp;sex=A&amp;relation=half&amp;inbred=Standard&amp;x2=n&amp;username=&amp;password=&amp;x=0&amp;y=0">Siblings</a>
-</li><li><a href="index.php?h=&amp;g=5&amp;query_type=hypomating&amp;search_bar=hypomating&amp;inbred=Standard&amp;x2=n&amp;username=&amp;password=&amp;x=0&amp;y=0">Hypo Mating</a>
-</li><li><a href="index.php?h=&amp;query_type=female_family&amp;search_bar=female_family&amp;inbred=Standard&amp;x2=n&amp;username=&amp;password=&amp;x=0&amp;y=0">Female
-Family</a>
-</li><li><a href="index.php?h=&amp;g=5&amp;query_type=tail_female&amp;search_bar=tail_female&amp;done=y&amp;inbred=Standard&amp;x2=n&amp;username=&amp;password=&amp;x=0&amp;y=0">Tail
-Female</a>
-</li><li><a href="index.php?h=&amp;g=9&amp;g2=5&amp;query_type=linebreeding&amp;search_bar=linebreeding&amp;what=done&amp;inbred=Standard&amp;x2=n&amp;username=&amp;password=&amp;x=0&amp;y=0">Linebreeding</a>
-</li><li><a href="index.php?h=&amp;query_type=equivalents&amp;search_bar=equivalents&amp;what=done&amp;inbred=Standard&amp;x2=n&amp;username=&amp;password=&amp;x=0&amp;y=0">Equivalents</a>
-</li><li><a href="index.php?h=&amp;query_type=commonancestors&amp;search_bar=commonancestors&amp;what=done&amp;inbred=Standard&amp;x2=n&amp;username=&amp;password=&amp;x=0&amp;y=0">Common Ancestors</a>
-</li><li><a href="index.php?h=&amp;g=9&amp;query_type=photos&amp;search_bar=photos&amp;inbred=Standard&amp;x2=n&amp;username=&amp;password=&amp;x=0&amp;y=0">Photos</a>
-</li></ul></td>
-</tr>
-<tr><td colspan="3" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40" border="0"></td></tr>
-</tbody></table>
-</div>
-
-
-<div id="menu_maintenance" class="float" style="top: 54px; left: 69px; display: block;">
-<table border="0" cellpadding="0" cellspacing="0">
-<tbody><tr><td colspan="3" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40"></td></tr>
-<tr>
-<td rowspan="2" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40"></td>
-<td><img src="/images/sp.gif" height="20" border="0"></td>
-<td rowspan="2" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40"></td>
-</tr><tr>
-<td width="120">
-<ul class="pednav">
-<li><a href="/index.php?search_bar=horse&amp;query_type=add">Add a Horse</a>
-</li><li><a href="/index.php?query_type=delete">Delete a Horse</a>
-</li></ul>
-</td>
-</tr>
-<tr><td colspan="3" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40" border="0"></td></tr></tbody></table>
-</div>
-
-
-<div id="menu_subscriptions" class="float" style="top: 54px; left: 179px; display: block;">
-<table border="0" cellpadding="0" cellspacing="0">
-<tbody><tr><td colspan="3" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40"></td></tr>
-<tr>
-<td rowspan="2" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40"></td>
-<td><img src="/images/sp.gif" height="20" border="0"></td>
-<td rowspan="2" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40"></td>
-</tr><tr>
-<td width="110">
-<ul class="pednav">
-<li><a href="/index.php?search_bar=horse&amp;forcelogin=1">Log In</a>
-<!-- <li><a href=index.php?query_type=info>Information</a> -->
-</li><li><a href="http://horses.pedigreeonline.com/account">Manage Account</a>
-</li><li><a href="http://horses.pedigreeonline.com/register">Subscribe</a>
-</li><li><a href="http://horses.pedigreeonline.com/account/subscriptions">Renew</a>
-</li><li><a href="http://horses.pedigreeonline.com/account/subscriptions">Cancel</a>
-</li></ul>
-</td>
-</tr>
-<tr><td colspan="3" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40" border="0"></td></tr></tbody></table>
-</div>
-
-
-<div id="menu_help" class="float" style="top: 54px; left: 289px; display: block;">
-<table border="0" cellpadding="0" cellspacing="0">
-<tbody><tr><td colspan="3" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40"></td></tr>
-<tr>
-<td rowspan="2" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40"></td>
-<td><img src="/images/sp.gif" height="20" border="0"></td>
-<td rowspan="2" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40"></td>
-</tr><tr>
-<td width="120">
-<ul class="pednav">
-<li><a href="/index.php?query_type=faq">FAQ</a>
-</li><li><a href="/index.php?query_type=na&amp;no_header=F&amp;show_prefs=T&amp;g=5&amp;query_type=horse&amp;horse=secretariat">Preferences</a>
-</li><li><a href="/index.php?query_type=features">New Features</a>
-</li><li><a href="/index.php?query_type=reading">Reading Pedigrees</a>
-<!--<li><a href="http://forum.pedigreeonline.com/phorum/list.php?f=11">Message Board</a>-->
-</li><li><a href="http://www.pedigreeonline.com/contact.php?from=all">Contact Us</a>
-</li></ul>
-</td>
-</tr>
-<tr><td colspan="3" onmouseover="hideMenus();"><img src="/images/sp.gif" width="40" height="40" border="0"></td></tr></tbody></table>
-</div>
-
-<div id="clickmenudiv" class="float">
-<table border="0" cellpadding="0" cellspacing="0">
-<tbody><tr><td colspan="4" onmouseover="clickMenu('','',0,event);"><img src="/images/sp.gif" width="40" height="40"></td></tr>
-<tr>
-<td onmouseover="clickMenu('','',0,event);"><img src="/images/sp.gif" width="40" height="40"></td>
-<td><img src="/images/sp.gif" width="20" height="40"></td>
-<td width="120">
-<ul class="pednav">
-<li><a href="javascript:clickgoto('index.php?query_type=horse&amp;search_bar=horse&amp;h=');">Pedigree</a>
-</li><li><a href="javascript:clickgoto('index.php?query_type=add&amp;search_bar=horse&amp;what=edit&amp;h=');">Edit Information</a>
-</li><li><a href="javascript:clickgoto('index.php?query_type=progeny&amp;done=y&amp;search_bar=progeny&amp;h=&amp;g=');">Progeny</a>
-</li><li><a href="javascript:clickgoto('index.php?query_type=siblings&amp;search_bar=siblings&amp;h=&amp;g=');">Siblings</a>
-</li><li><a href="javascript:clickgoto('index.php?query_type=female_family&amp;search_bar=female_family&amp;h=');">Female Family</a>
-</li><li><a href="javascript:clickgoto('index.php?query_type=tail_female&amp;done=y&amp;search_bar=tail_female&amp;h=');">Tail Female</a>
-</li><li><a href="javascript:clickgoto('index.php?query_type=linebreeding&amp;search_bar=linebreeding&amp;h=');">Linebreeding</a>
-
-</li></ul>
-</td>
-<td onmouseover="clickMenu('','',0,event);"><img src="/images/sp.gif" width="40" height="40"></td>
-</tr>
-<tr><td colspan="4" onmouseover="clickMenu('','',0,event);"><img src="/images/sp.gif" width="40" height="40" border="0"></td></tr>
-</tbody></table>
-</div>
-
-
-<div id="stakesmenudiv" class="float">
-<table border="0" cellpadding="0" cellspacing="0">
-<tbody><tr><td colspan="4" onmouseover="stakesMenu('','',0,event);"><img src="/images/sp.gif" width="40" height="40"></td></tr>
-<tr>
-<td onmouseover="stakesMenu('','',0,event);"><img src="/images/sp.gif" width="40" height="40"></td>
-<td><img src="/images/sp.gif" width="20" height="40"></td>
-<td width="120">
-<ul class="pednav">
-<li><a href="javascript:clickgoto('index.php?search_bar=stakes&amp;query_type=stakes&amp;field=edit_race&amp;year=&amp;id=');">Edit Race Info</a>
-</li><li><a href="javascript:clickgoto('index.php?search_bar=stakes&amp;query_type=stakes&amp;field=delete&amp;year=&amp;id=');">Delete Race</a> </li></ul>
-</td>
-<td onmouseover="stakesMenu('','',0,event);"><img src="/images/sp.gif" width="40" height="40"></td>
-</tr>
-<tr><td colspan="4" onmouseover="stakesMenu('','',0,event);"><img src="/images/sp.gif" width="40" height="40" border="0"></td></tr>
-
-</tbody></table>
-</div>
-<script type="text/javascript">
-setPositions('F');
-</script>
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-23300679-4']);
-
-  
-  _gaq.push(['_trackPageview']);
-
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-
-</script>
-
-<script src="//www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-_uacct = "UA-228924-4";
-urchinTracker();
-</script>
-<!-- Quantcast Tag -->
-<script type="text/javascript">
-var _qevents = _qevents || [];
-
-(function() {
-var elem = document.createElement('script');
-elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
-elem.async = true;
-elem.type = "text/javascript";
-var scpt = document.getElementsByTagName('script')[0];
-scpt.parentNode.insertBefore(elem, scpt);
-})();
-
-_qevents.push({
-qacct:"p-4f2vudepavYFg"
-});
+     (adsbygoogle = window.adsbygoogle || g[]).push({
+          google_ad_client: "ca-pub-4114127556796384",
+          enable_page_level_ads: true
+     });
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-EW8TG11Q4W"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-141456925-2"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-EW8TG11Q4W');
-</script><iframe src="https://be9a5042c5d813da4fab631edd6214fe.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html" style="visibility: hidden; display: none;"></iframe>
-<noscript>
-<div style="display:none;">
-<img src="//pixel.quantserve.com/pixel/p-4f2vudepavYFg.gif" border="0" height="1" width="1" alt="Quantcast"/>
-</div>
-</noscript>
-<!-- End Quantcast tag -->
+  gtag('config', 'UA-141456925-2');
+</script>
+<script data-ad-client="ca-pub-4114127556796384" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" data-checked-head="true"></script>
+<meta name="fo-verify" content="70a36bbc-39ef-453f-bf5e-366795eba9f9">
+<meta http-equiv="origin-trial" content="A+cA2PUOfIOKAdSDJOW5CP9ZlxONy1yu+hqAq72zUtKw4rLdihqRp6Nui/jUyCyegr+BUtH+C+Elv0ufn05yBQEAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+zsdH3aNZT/bkjT8U/o5ACzyaeNYzTvtoVmwf/KOilfv39pxY2AIsOwhQJv+YnXp98i3TqrQibIVtMWs5UHjgoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxceVEhIegcDEHqLXFQ2+vPKqzCppoJYsRCZ/BdfVnbM/sUUF2BXV8lwNosyYjvoxnTh2FC8cOlAnA5uULr/zAUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+cA2PUOfIOKAdSDJOW5CP9ZlxONy1yu+hqAq72zUtKw4rLdihqRp6Nui/jUyCyegr+BUtH+C+Elv0ufn05yBQEAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+zsdH3aNZT/bkjT8U/o5ACzyaeNYzTvtoVmwf/KOilfv39pxY2AIsOwhQJv+YnXp98i3TqrQibIVtMWs5UHjgoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxceVEhIegcDEHqLXFQ2+vPKqzCppoJYsRCZ/BdfVnbM/sUUF2BXV8lwNosyYjvoxnTh2FC8cOlAnA5uULr/zAUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+cA2PUOfIOKAdSDJOW5CP9ZlxONy1yu+hqAq72zUtKw4rLdihqRp6Nui/jUyCyegr+BUtH+C+Elv0ufn05yBQEAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+zsdH3aNZT/bkjT8U/o5ACzyaeNYzTvtoVmwf/KOilfv39pxY2AIsOwhQJv+YnXp98i3TqrQibIVtMWs5UHjgoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxceVEhIegcDEHqLXFQ2+vPKqzCppoJYsRCZ/BdfVnbM/sUUF2BXV8lwNosyYjvoxnTh2FC8cOlAnA5uULr/zAUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+cA2PUOfIOKAdSDJOW5CP9ZlxONy1yu+hqAq72zUtKw4rLdihqRp6Nui/jUyCyegr+BUtH+C+Elv0ufn05yBQEAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+zsdH3aNZT/bkjT8U/o5ACzyaeNYzTvtoVmwf/KOilfv39pxY2AIsOwhQJv+YnXp98i3TqrQibIVtMWs5UHjgoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxceVEhIegcDEHqLXFQ2+vPKqzCppoJYsRCZ/BdfVnbM/sUUF2BXV8lwNosyYjvoxnTh2FC8cOlAnA5uULr/zAUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><link rel="preload" href="https://adservice.google.com.pk/adsid/integrator.js?domain=www.babyanimalz.com" as="script"><script type="text/javascript" src="https://adservice.google.com.pk/adsid/integrator.js?domain=www.babyanimalz.com"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.babyanimalz.com" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=www.babyanimalz.com"></script><link rel="preload" href="https://adservice.google.com.pk/adsid/integrator.js?domain=www.babyanimalz.com" as="script"><script type="text/javascript" src="https://adservice.google.com.pk/adsid/integrator.js?domain=www.babyanimalz.com"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.babyanimalz.com" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=www.babyanimalz.com"></script><link rel="preload" href="https://adservice.google.com.pk/adsid/integrator.js?domain=www.babyanimalz.com" as="script"><script type="text/javascript" src="https://adservice.google.com.pk/adsid/integrator.js?domain=www.babyanimalz.com"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.babyanimalz.com" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=www.babyanimalz.com"></script></head>
+<body link="#000000" vlink="#000000" aria-hidden="false">
+<center style="height: auto !important;">
+<table bgcolor="#FFFFFF" border="1" bordercolor="#000000" cellpadding="0" cellspacing="0" height="109" id="AutoNumber2" style="border-collapse: collapse; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; height: auto !important;" width="69%">
+	<tbody>
+		<tr>
+			<td bordercolor="#3C6900" bordercolordark="#FFFFFF" bordercolorlight="#000000" colspan="2" height="35" nowrap="nowrap" style="border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium; border-top-style:solid; border-top-width:1; border-bottom-style:solid; border-bottom-width:1" valign="top" width="65%">
+			<p align="left"><font face="Century Gothic" size="6">Baby Animalz</font><b><font face="Georgia" size="6">.com</font></b><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></p>
+			</td>
+			<td bordercolor="#3C6900" bordercolordark="#FFFFFF" bordercolorlight="#000000" colspan="2" height="35" style="border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium; border-top-style:solid; border-top-width:1; border-bottom-style:solid; border-bottom-width:1" valign="top" width="64%">
+			<p align="right"><font color="#FFFFFF" size="1">kitten animals pictures and images of baby animals pictures animals baby animals baby animal images of baby animal kittens puppies kitten cub pictures of baby animals baby animal pictures kittens puppies cub animal pictures</font><br>
+			<font color="#808080" face="Verdana" size="1">February 2nd: New site layout!&nbsp; Valentine's Day update!</font></p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" height="457" rowspan="2" style="border-bottom:1px none #000000; border-left:1px none #000000; border-right-style:none; border-right-width:medium; " valign="top" width="20%">
+			<div align="center">
+			<center>
+			<table bgcolor="#FFFFFF" border="0" bordercolor="#111111" cellpadding="0" cellspacing="0" id="AutoNumber8" style="border-collapse: collapse" width="95%">
+				<tbody>
+					<tr>
+						<td width="100%">
+						<div align="left">
+						<table bgcolor="#FFFFFF" border="0" bordercolor="#111111" cellpadding="0" cellspacing="0" class="index" height="289" id="AutoNumber1" style="border-collapse: collapse" width="426%">
+							<tbody>
+								<tr>
+									<td bgcolor="#FFFFFF" bordercolor="#008000" height="8" style="border:medium none #008000; " valign="top" width="100%">&nbsp;&nbsp;&nbsp;<br>
+									<b><font face="Verdana" size="2">&nbsp;<a href="/" style="text-decoration: none"><font color="#000000">Gallery</font></a><br>
+									<br>
+									&nbsp;<a href="History.html" style="text-decoration: none"><font color="#000000">History</font></a><br>
+									<br>
+									&nbsp;<a href="Poems.html" style="text-decoration: none"><font color="#000000">Poems</font></a><br>
+									<br>
+									&nbsp;<a href="Sounds.html" style="text-decoration: none"><font color="#000000">Sounds</font></a><br>
+									<br>
+									&nbsp;<a href="Guestbook.html" style="text-decoration: none"><font color="#000000">Guestbook</font></a><br>
+									<br>
+									&nbsp;<a href="Haters.html" style="text-decoration: none"><font color="#000000">Haters</font></a><br>
+									<br>
+									&nbsp;<a href="About.html" style="text-decoration: none"><font color="#000000">About</font></a>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </font></b></td>
+								</tr>
+							</tbody>
+						</table>
+						</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</center>
+			</div>
+			</td>
+			<td align="center" colspan="2" height="457" rowspan="2" style="border-bottom: 1px none rgb(0, 0, 0); border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; height: auto !important;" valign="top" width="60%">
+			<div align="center" style="height: auto !important;">
+			<center style="height: auto !important;">
+			<table bgcolor="#FFFFFF" border="0" bordercolor="#111111" cellpadding="2" cellspacing="0" class="body" height="621" id="AutoNumber4" style="border-collapse: collapse; height: auto !important;" width="74%">
+				<tbody>
+					<tr style="height: auto !important;">
+						<td height="247" valign="top" width="100%" style="height: auto !important;">
+						<div align="center" style="height: auto !important;">
+						<center style="height: auto !important;">
+						       <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BabyAnimalz Header -->
+<ins class="adsbygoogle" style="display: block; height: 280px;" data-ad-client="ca-pub-4114127556796384" data-ad-slot="2838844503" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_1_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 280px; width: 662px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: visible;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:662px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="662" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-4114127556796384&amp;output=html&amp;h=280&amp;slotname=2838844503&amp;adk=283027156&amp;adf=2716424590&amp;pi=t.ma~as.2838844503&amp;w=662&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1646265138&amp;rafmt=1&amp;format=662x280&amp;url=https%3A%2F%2Fwww.babyanimalz.com%2F&amp;fwr=0&amp;fwrattr=true&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;uach=WyJXaW5kb3dzIiwiMTAuMC4wIiwieDg2IiwiIiwiMTA2LjAuNTI0OS4xMTkiLFtdLGZhbHNlLG51bGwsIjY0IixbWyJDaHJvbWl1bSIsIjEwNi4wLjUyNDkuMTE5Il0sWyJHb29nbGUgQ2hyb21lIiwiMTA2LjAuNTI0OS4xMTkiXSxbIk5vdDtBPUJyYW5kIiwiOTkuMC4wLjAiXV0sZmFsc2Vd&amp;dt=1665733579740&amp;bpp=15&amp;bdt=2426&amp;idt=2124&amp;shv=r20221012&amp;mjsv=m202210100101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;prev_fmts=0x0&amp;nras=1&amp;correlator=5556745573021&amp;frm=20&amp;pv=1&amp;ga_vid=1293768466.1665733582&amp;ga_sid=1665733582&amp;ga_hid=962167514&amp;ga_fc=1&amp;u_tz=-420&amp;u_his=2&amp;u_h=768&amp;u_w=1366&amp;u_ah=728&amp;u_aw=1366&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=361&amp;ady=49&amp;biw=1017&amp;bih=558&amp;scr_x=0&amp;scr_y=0&amp;eid=44759875%2C44759926%2C44759842%2C42531706&amp;oid=2&amp;pvsid=593667303695879&amp;tmod=1517495118&amp;uas=0&amp;nvt=1&amp;eae=0&amp;fc=1920&amp;brdim=10%2C10%2C10%2C10%2C1366%2C0%2C1050%2C708%2C1034%2C575&amp;vis=1&amp;rsz=d%7Cd%7CeE%7Cn&amp;abl=XS&amp;pfx=0&amp;fu=1152&amp;bc=31&amp;ifi=2&amp;uci=a!2&amp;fsb=1&amp;xpc=qNqgeZH8dW&amp;p=https%3A//www.babyanimalz.com&amp;dtd=2174" data-google-container-id="a!2" data-google-query-id="CKHGyJOd3_oCFRWfmwod2zcIGw" data-load-complete="true"></iframe></div></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+						<table border="0" bordercolor="#111111" cellpadding="4" cellspacing="0" height="152" id="AutoNumber9" style="border-collapse: collapse" width="80">
+							<tbody>
+								<tr>
+									<td bgcolor="#FFFFFF" bordercolor="#008000" class="body" height="161" rowspan="2" style="border-bottom-style: none; border-bottom-width: medium" width="621">
+									<table border="0" bordercolor="#111111" cellpadding="0" cellspacing="0" height="405" id="AutoNumber5" style="border-collapse: collapse" width="642">
+										<tbody>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/full.jpg"><img border="2" height="80" src="images/full_small2.jpg" width="110" xthumbnail-orig-image="images/full.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/k04-06-14-08.jpg"><img border="2" height="80" src="images/k04-06-14-08_small.jpg" style="border-style:solid; " width="110" xthumbnail-orig-image="images/k04-06-14-08.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/fullsss.jpg"><img border="2" height="80" src="images/fullsss_small.jpg" width="110" xthumbnail-orig-image="images/fullsss.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/54830506_92a93eea03.jpg"><img border="2" height="80" src="images/54830506_92a93eea03_small.jpg" style="border-style:solid; " width="110" xthumbnail-orig-image="images/54830506_92a93eea03.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/natural-love-2.jpg"><img border="2" height="80" src="images/natural-love-2_small.jpg" style="border-style:solid; " width="110" xthumbnail-orig-image="images/natural-love-2.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/chris_beradi.jpg"><img border="2" height="80" src="images/chris_beradi_small.jpg" width="110" xthumbnail-orig-image="images/chris_beradi.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/dogchicken.jpg"><img border="2" height="80" src="images/dogchicken_small.jpg" width="110" xthumbnail-orig-image="images/dogchicken.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/porcupine-baby.jpg"><img border="2" height="80" src="images/porcupine-baby_small.jpg" width="110" xthumbnail-orig-image="images/porcupine-baby.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/tongue.jpg"><img border="2" height="80" src="images/tongue_small.jpg" width="110" xthumbnail-orig-image="images/tongue.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/20041105-baby-rhinoceros.jpg"><img border="2" height="80" src="images/20041105-baby-rhinoceros_small.jpg" width="110" xthumbnail-orig-image="images/20041105-baby-rhinoceros.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/puppysleep.jpg"><img border="2" height="80" src="images/puppysleep_small.jpg" width="110" xthumbnail-orig-image="images/puppysleep.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/fuchs.jpg"><img border="2" height="80" src="images/fuchs_small.jpg" width="110" xthumbnail-orig-image="images/fuchs.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/molerat.jpg"><img border="2" height="80" src="images/molerat_small.jpg" width="110" xthumbnail-orig-image="images/molerat.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/monkey_and_stuff_duck_2.jpg"><img border="2" height="80" src="images/monkey_and_stuff_duck_2_small.jpg" width="110" xthumbnail-orig-image="images/monkey_and_stuff_duck_2.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/snewborntigers.jpg"><img border="2" height="80" src="images/snewborntigers_small.jpg" width="110" xthumbnail-orig-image="images/snewborntigers.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/bunnies_cups.jpg"><img border="2" height="80" src="images/bunnies_cups_small.jpg" width="110" xthumbnail-orig-image="images/bunnies_cups.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/equine5b.jpg"><img border="2" height="80" src="images/equine5b_small.jpg" width="110" xthumbnail-orig-image="images/equine5b.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/babybat.jpg"><img border="2" height="80" src="images/babybat_small.jpg" width="110" xthumbnail-orig-image="images/babybat.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/4310383.jpg"><img border="2" height="80" src="images/4310383_small.jpg" width="110" xthumbnail-orig-image="images/4310383.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/ArcticFoxPups.jpg"><img border="2" height="80" src="images/ArcticFoxPups_small.jpg" width="110" xthumbnail-orig-image="images/ArcticFoxPups.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/kittens1000clem2002.jpg"><img border="2" height="80" src="images/kittens1000clem2002_small.jpg" width="110" xthumbnail-orig-image="images/kittens1000clem2002.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/mike_1.jpg"><img border="2" height="80" src="images/mike_1_small.jpg" width="110" xthumbnail-orig-image="images/mike_1.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/BlueSky2.jpg"><img border="2" height="80" src="images/BlueSky2_small.jpg" width="110" xthumbnail-orig-image="images/BlueSky2.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/xantus_baby.jpg"><img border="2" height="80" src="images/xantus_baby_small.jpg" width="110" xthumbnail-orig-image="images/xantus_baby.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/other2.jpg"><img border="2" height="80" src="images/other2_small.jpg" width="110" xthumbnail-orig-image="images/other2.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/duo.jpg"><img border="2" height="80" src="images/duo_small.jpg" width="110" xthumbnail-orig-image="images/duo.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/Armadillo1.jpg"><img border="2" height="80" src="images/Armadillo1_small.jpg" width="110" xthumbnail-orig-image="images/Armadillo1.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/119_1997_1.jpg"><img border="2" height="80" src="images/119_1997_1_small.jpg" width="110" xthumbnail-orig-image="images/119_1997_1.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/White-Tip.md.jpg"><img border="2" height="80" src="images/White-Tip.md_small.jpg" width="110" xthumbnail-orig-image="images/White-Tip.md.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/puffbun.jpg"><img border="2" height="80" src="images/puffbun_small.jpg" width="110" xthumbnail-orig-image="images/puffbun.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/Sugar-Glider-Baby-pix.jpg"><img border="2" height="80" src="images/Sugar-Glider-Baby-pix_small.jpg" width="110" xthumbnail-orig-image="images/Sugar-Glider-Baby-pix.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/lickz.jpg"><img border="2" height="80" src="images/lickz_small.jpg" width="110" xthumbnail-orig-image="images/lickz.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/owletsandmom.jpg"><img border="2" height="80" src="images/owletsandmom_small.jpg" width="110" xthumbnail-orig-image="images/owletsandmom.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/donkey.jpg"><img border="2" height="80" src="images/donkey_small.jpg" width="110" xthumbnail-orig-image="images/donkey.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/cute_kitty_1.jpg"><img border="2" src="images/cute_kitty_1_small.jpg" width="110" xthumbnail-orig-image="images/cute_kitty_1.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/lion_cub12.jpg"><img border="2" height="80" src="images/lion_cub12_small.jpg" width="110" xthumbnail-orig-image="images/lion_cub12.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/beluga_baby2.jpg"><img border="2" height="80" src="images/beluga_baby2_small.jpg" width="110" xthumbnail-orig-image="images/beluga_baby2.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/joey.jpg"><img border="2" height="80" src="images/joey_small.jpg" width="110" xthumbnail-orig-image="images/joey.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/g_africa--gecko-on-thumb.jpg"><img border="2" height="80" src="images/g_africa--gecko-on-thumb_small.jpg" width="110" xthumbnail-orig-image="images/g_africa--gecko-on-thumb.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/Baby_Dolphin_1_low_res.jpg"><img border="2" height="80" src="images/Baby_Dolphin_1_low_res_small.jpg" width="110" xthumbnail-orig-image="images/Baby_Dolphin_1_low_res.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/Kind17.jpg"><img border="2" height="80" src="images/Kind17_small1.jpg" width="110" xthumbnail-orig-image="images/Kind17.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/redpandaweb.jpg"><img border="2" height="80" src="images/redpandaweb_small1.jpg" width="110" xthumbnail-orig-image="images/redpandaweb.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/babydevils.jpg"><img border="2" height="80" src="images/babydevils_small1.jpg" width="110" xthumbnail-orig-image="images/babydevils.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/BabyRaccoon.jpg"><img border="2" height="80" src="images/BabyRaccoon_small2.jpg" width="110" xthumbnail-orig-image="images/BabyRaccoon.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/kittenbig.jpg"><img border="2" height="80" src="images/kittenbig_small1.jpg" width="110" xthumbnail-orig-image="images/kittenbig.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/cat_cute_40.jpg"><img border="2" height="80" src="images/cat_cute_40_small1.jpg" width="110" xthumbnail-orig-image="images/cat_cute_40.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/babyhammerhead.jpg"><img border="2" height="80" src="images/babyhammerhead_small.jpg" width="110" xthumbnail-orig-image="images/babyhammerhead.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/owlet.jpg"><img border="2" height="80" src="images/owlet_small.jpg" width="110" xthumbnail-orig-image="images/owlet.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/whitebig.jpg"><img border="2" height="80" src="images/whitebig_small1.jpg" width="110" xthumbnail-orig-image="images/whitebig.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/nemoclowfish.jpg"><img border="2" height="80" src="images/nemoclowfish_small1.jpg" width="110" xthumbnail-orig-image="images/nemoclowfish.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/rabbit.jpg"><img border="2" height="80" src="images/rabbit_small1.jpg" width="110" xthumbnail-orig-image="images/rabbit.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/baby_turtle_042304.jpg"><img border="2" height="80" src="images/baby_turtle_042304_small1.jpg" width="110" xthumbnail-orig-image="images/baby_turtle_042304.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/007zoo.jpg"><img border="2" height="80" src="images/007zoo_small1.jpg" width="110" xthumbnail-orig-image="images/007zoo.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/vietpotbellypiglet.jpg"><img border="2" height="80" src="images/vietpotbellypiglet_small1.jpg" width="110" xthumbnail-orig-image="images/vietpotbellypiglet.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/cat_cute_39.jpg"><img border="2" height="80" src="images/cat_cute_39_small1.jpg" width="110" xthumbnail-orig-image="images/cat_cute_39.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/hamuhamu_20_Custom_.jpg"><img border="2" height="82" src="images/hamuhamu_20_Custom__small1.jpg" width="110" xthumbnail-orig-image="images/hamuhamu (Custom).jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/Capybara-485055.jpg"><img border="2" height="80" src="images/Capybara-485055_small1.jpg" width="110" xthumbnail-orig-image="images/Capybara-485055.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/lortwin3a.jpg"><img border="2" height="80" src="images/lortwin3a_small1.jpg" width="110" xthumbnail-orig-image="images/lortwin3a.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/baby_baboon_on_mom_s_back_4.jpg"><img border="2" height="80" src="images/baby_baboon_on_mom_s_back_4_small.jpg" width="110" xthumbnail-orig-image="images/baby_baboon_on_mom_s_back_4.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/koala23.jpg"><img border="2" height="80" src="images/koala23_small1.jpg" width="110" xthumbnail-orig-image="images/koala23.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/1_kitten_friends.jpeg"><img border="2" height="80" src="images/1_kitten_friends_small1.jpeg" width="110" xthumbnail-orig-image="images/1_kitten_friends.jpeg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/grrrrr.jpg"><img border="2" height="80" src="images/grrrrr_small1.jpg" width="110" xthumbnail-orig-image="images/grrrrr.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/babybath.jpg"><img border="2" height="80" src="images/babybath_small1.jpg" width="110" xthumbnail-orig-image="images/babybath.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/frogkitten6av8py.jpg"><img border="2" height="80" src="images/frogkitten6av8py_small1.jpg" width="110" xthumbnail-orig-image="images/frogkitten6av8py.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/babydeermouse.jpg"><img border="2" height="80" src="images/babydeermouse_small1.jpg" width="110" xthumbnail-orig-image="images/babydeermouse.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/contest_frogs.jpg"><img border="2" height="80" src="images/contest_frogs_small1.jpg" width="110" xthumbnail-orig-image="images/contest_frogs.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/pic13648.jpg"><img border="2" height="80" src="images/pic13648_small1.jpg" width="110" xthumbnail-orig-image="images/pic13648.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/koalabab.jpg"><img border="2" height="80" src="images/koalabab_small1.jpg" width="110" xthumbnail-orig-image="images/koalabab.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/faconz.jpg"><img border="2" height="80" src="images/faconz_small1.jpg" width="110" xthumbnail-orig-image="images/faconz.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/HOTDOG.JPG"><img border="2" height="80" src="images/HOTDOG_small1.JPG" width="110" xthumbnail-orig-image="images/HOTDOG.JPG"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/baby_hypo.jpg"><img border="2" height="80" src="images/baby_hypo_small1.jpg" width="110" xthumbnail-orig-image="images/baby_hypo.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/am-pup21088.jpg"><img border="2" height="80" src="images/am-pup21088_small1.jpg" width="110" xthumbnail-orig-image="images/am-pup21088.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/babyskun1.jpg"><img border="2" height="80" src="images/babyskun1_small1.jpg" width="110" xthumbnail-orig-image="images/babyskun1.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/wall-bunny.jpg"><img border="2" height="80" src="images/wall-bunny_small.jpg" width="110" xthumbnail-orig-image="images/wall-bunny.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/titaniamerry2005.jpg"><img border="2" height="80" src="images/titaniamerry2005_small.jpg" width="110" xthumbnail-orig-image="images/titaniamerry2005.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/cheetah_461.jpg"><img border="2" height="80" src="images/cheetah_461_small1.jpg" width="110" xthumbnail-orig-image="images/cheetah_461.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/whispers1.jpg"><img border="2" height="80" src="images/whispers1_small1.jpg" width="110" xthumbnail-orig-image="images/whispers1.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/logo1.jpg"><img border="2" height="80" src="images/logo1_small1.jpg" width="110" xthumbnail-orig-image="images/logo1.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/folves.JPG"><img border="2" height="80" src="images/folves_small2.JPG" width="110" xthumbnail-orig-image="images/folves.JPG"></a></td>
+												<td align="center" height="91" width="133">
+												<p style="width: 110; height: 80"><a href="images/baby-gorilla-with-red-tongu.jpg"><img border="2" height="80" src="images/baby-gorilla-with-red-tongu_small.jpg" width="110" xthumbnail-orig-image="images/baby-gorilla-with-red-tongu.jpg"></a></p>
+												</td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/zebrabab.jpg"><img border="2" height="80" src="images/zebrabab_small1.jpg" width="110" xthumbnail-orig-image="images/zebrabab.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/baby-goat.jpg"><img border="2" height="80" src="images/baby-goat_small1.jpg" width="110" xthumbnail-orig-image="images/baby-goat.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/baby_1.jpg"><img border="2" height="80" src="images/baby_1_small2.jpg" width="110" xthumbnail-orig-image="images/baby_1.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/Img223541004.jpg"><img border="2" height="80" src="images/Img223541004_small1.jpg" width="110" xthumbnail-orig-image="images/Img223541004.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/spiders3.jpg"><img border="2" height="80" src="images/spiders3_small1.jpg" width="110" xthumbnail-orig-image="images/spiders3.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/TooDamnedCute.jpg"><img border="2" height="80" src="images/TooDamnedCute_small1.jpg" width="110" xthumbnail-orig-image="images/TooDamnedCute.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/crabz.jpg"><img border="2" height="80" src="images/crabz_small1.jpg" width="110" xthumbnail-orig-image="images/crabz.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/deer.jpg"><img border="2" height="80" src="images/deer_small1.jpg" width="110" xthumbnail-orig-image="images/deer.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/babzdukz.jpg"><img border="2" height="80" src="images/babzdukz_small1.jpg" width="110" xthumbnail-orig-image="images/babzdukz.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/pupz.jpg"><img border="2" height="80" src="images/pupz_small1.jpg" width="110" xthumbnail-orig-image="images/pupz.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/baby-aligator.jpg"><img border="2" height="80" src="images/baby-aligator_small.jpg" width="110" xthumbnail-orig-image="images/baby-aligator.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/monkbaby.jpg"><img border="2" height="80" src="images/monkbaby_small1.jpg" width="110" xthumbnail-orig-image="images/monkbaby.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/babyTiger1.JPG"><img border="2" height="80" src="images/babyTiger1_small1.JPG" width="110" xthumbnail-orig-image="images/babyTiger1.JPG"></a></td>
+												<td align="center" height="91" width="133"><a href="images/babycrane.jpg"><img border="2" height="80" src="images/babycrane_small1.jpg" width="110" xthumbnail-orig-image="images/babycrane.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/dux.jpg"><img border="2" height="80" src="images/dux_small1.jpg" width="110" xthumbnail-orig-image="images/dux.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/PolarBears_02a-Mom_N_Baby-Sleeping.jpg"><img border="2" height="80" src="images/PolarBears_02a-Mom_N_Baby-Sleeping_small1.jpg" width="110" xthumbnail-orig-image="images/PolarBears_02a-Mom_N_Baby-Sleeping.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/8854400025.01.IN03._SCLZZZZZZZ_.jpg"><img border="2" height="80" src="images/8854400025.01.IN03._SCLZZZZZZZ__small1.jpg" width="110" xthumbnail-orig-image="images/8854400025.01.IN03._SCLZZZZZZZ_.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/calf.jpg"><img border="2" height="80" src="images/calf_small1.jpg" width="110" xthumbnail-orig-image="images/calf.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/baby-turtles.jpg"><img border="2" height="80" src="images/baby-turtles_small.jpg" width="110" xthumbnail-orig-image="images/baby-turtles.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/cute_kitten.p.jpg"><img border="2" height="80" src="images/cute_kitten.p_small1.jpg" width="110" xthumbnail-orig-image="images/cute_kitten.p.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/baby_flamingo5.jpg"><img border="2" height="80" src="images/baby_flamingo5_small1.jpg" width="110" xthumbnail-orig-image="images/baby_flamingo5.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/IMGP0719_20_Custom_.JPG"><img border="2" height="80" src="images/IMGP0719_20_Custom__small1.JPG" width="110" xthumbnail-orig-image="images/IMGP0719 (Custom).JPG"></a></td>
+												<td align="center" height="91" width="133"><a href="images/cheeta2.jpg"><img border="2" height="80" src="images/cheeta2_small1.jpg" width="110" xthumbnail-orig-image="images/cheeta2.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/tapirbaby.jpg"><img border="2" height="80" src="images/tapirbaby_small1.jpg" width="110" xthumbnail-orig-image="images/tapirbaby.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/Soccer_20Dalmations.jpg"><img border="2" height="80" src="images/Soccer_20Dalmations_small1.jpg" width="110" xthumbnail-orig-image="images/Soccer Dalmations.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/_cid_007001c40ab4_7710fe90_55f9c8d0_i7s3k7.jpg"><img border="2" height="80" src="images/_cid_007001c40ab4_7710fe90_55f9c8d0_i7s3k7_small1.jpg" width="110" xthumbnail-orig-image="images/_cid_007001c40ab4_7710fe90_55f9c8d0_i7s3k7.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/Baby-animals.jpg"><img border="2" height="80" src="images/Baby-animals_small.jpg" width="110" xthumbnail-orig-image="images/Baby-animals.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/swanz.jpg"><img border="2" height="80" src="images/swanz_small1.jpg" width="110" xthumbnail-orig-image="images/swanz.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/Dreamy.jpg"><img border="2" height="80" src="images/Dreamy_small1.jpg" width="110" xthumbnail-orig-image="images/Dreamy.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="http://www.babyanimalz.com/babyanimalz.com/Images/prariedog.jpg"><img border="2" height="80" src="images/chipmunk_small1.jpg" width="110" xthumbnail-orig-image="../babyanimalz.com/Images/chipmunk.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/15604.jpg"><img border="2" height="80" src="images/15604_small1.jpg" width="110" xthumbnail-orig-image="images/15604.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/baby_seal.jpg"><img border="2" height="80" src="images/baby_seal_small1.jpg" width="110" xthumbnail-orig-image="images/baby_seal.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/hahababies_.jpg"><img border="2" height="80" src="images/hahababies__small1.jpg" width="110" xthumbnail-orig-image="images/hahababies_.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/BabyRhino_L.jpg"><img border="2" height="80" src="images/BabyRhino_L_small.jpg" width="110" xthumbnail-orig-image="images/BabyRhino_L.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/106192.jpg"><img border="2" height="80" src="images/106192_small3.jpg" width="110" xthumbnail-orig-image="images/106192.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/cute.jpg"><img border="2" height="80" src="images/cute_small1.jpg" width="110" xthumbnail-orig-image="images/cute.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/babycamel.jpg"><img border="2" height="80" src="images/babycamel_small1.jpg" width="110" xthumbnail-orig-image="images/babycamel.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/polarz.jpg"><img border="2" height="80" src="images/polarz_small1.jpg" width="110" xthumbnail-orig-image="images/polarz.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/kintanalemur.jpg"><img border="2" height="80" src="images/kintanalemur_small2.jpg" width="110" xthumbnail-orig-image="images/kintanalemur.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/10096616.jpg"><img border="2" height="80" src="images/10096616_small1.jpg" width="110" xthumbnail-orig-image="images/10096616.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/Lefty.jpg"><img border="2" height="80" src="images/Lefty_small1.jpg" width="110" xthumbnail-orig-image="images/Lefty.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/CutestBunnyLarge_20_Custom_.jpg"><img border="2" height="80" src="images/CutestBunnyLarge_20_Custom__small1.jpg" width="110" xthumbnail-orig-image="images/CutestBunnyLarge (Custom).jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/puppy.kitten.jpg"><img border="2" height="80" src="images/puppy.kitten_small1.jpg" width="110" xthumbnail-orig-image="images/puppy.kitten.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/baby_sheep01.jpg"><img border="2" height="80" src="images/baby_sheep01_small1.jpg" width="110" xthumbnail-orig-image="images/baby_sheep01.jpg"></a></td>
+												<td align="center" height="91" style="border-bottom-style: none; border-bottom-width: medium" width="133"><a href="images/baby_tiger03.jpg"><img border="2" height="80" src="images/baby_tiger03_small1.jpg" width="110" xthumbnail-orig-image="images/baby_tiger03.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" height="91" width="133"><a href="images/Leopard.jpg"><img border="2" height="80" src="images/Leopard_small1.jpg" width="110" xthumbnail-orig-image="images/Leopard.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/babypanda.jpg"><img border="2" height="80" src="images/babypanda_small1.jpg" width="110" xthumbnail-orig-image="images/babypanda.jpg"></a></td>
+												<td align="center" height="91" width="133"><a href="images/foxbaby.jpg"><img border="2" height="80" src="images/foxbaby_small1.jpg" width="110" xthumbnail-orig-image="images/foxbaby.jpg"></a></td>
+												<td align="center" height="91" style="border-right-style: none; border-right-width: medium" width="133"><a href="images/ghj.jpg"><img border="2" height="80" src="images/ghj_small1.jpg" width="110" xthumbnail-orig-image="images/ghj.jpg"></a></td>
+												<td align="center" height="91" style="border-style: none; border-width: medium" width="133"><a href="images/Cougar-159037.jpg"><img border="2" height="80" src="images/Cougar-159037_small.jpg" width="110" xthumbnail-orig-image="images/Cougar-159037.jpg"></a></td>
+											</tr>
+											<tr>
+												<td align="center" colspan="5" height="91" width="665"><a href="Images/Karl-Amman-The-Giraffe-s-Kiss-206589.jpg"><img border="2" height="95" src="images/Karl-Amman-The-Giraffe-s-Kiss-206589_small1.jpg" width="67" xthumbnail-orig-image="images/Karl-Amman-The-Giraffe-s-Kiss-206589.jpg"></a> &nbsp;<a href="Images/Kittay_.jpg"><img border="2" height="95" src="images/Kittay__small2.jpg" width="67" xthumbnail-orig-image="Images/Kittay_.jpg"></a>&nbsp; <a href="Images/opsinbarrel_20.jpg"> <img border="2" height="95" src="images/opsinbarrel_20_small1.jpg" width="67" xthumbnail-orig-image="images/opsinbarrel .jpg"></a>&nbsp;&nbsp;<a href="Images/Elephant_20with_20baby_20_Custom_.jpg"><img border="2" height="95" src="images/Elephant_20with_20baby_20_Custom__small1.jpg" width="67" xthumbnail-orig-image="images/Elephant with baby (Custom).jpg"></a>&nbsp; <a href="Images/piglet.jpg"> <img border="2" height="95" src="images/piglet_small1.jpg" width="67" xthumbnail-orig-image="images/piglet.jpg"></a>&nbsp; <a href="Images/polarcub.jpg"> <img border="2" height="95" src="images/polarcub_small1.jpg" width="67" xthumbnail-orig-image="images/polarcub.jpg"></a>&nbsp; <a href="Images/small_baby_raccoon.JPG"> <img border="2" height="95" src="images/small_baby_raccoon_small2.JPG" width="67" xthumbnail-orig-image="images/small_baby_raccoon.JPG"></a>&nbsp; <a href="Images/baby.jpg"> <img border="2" height="95" src="images/baby_small1.jpg" width="67" xthumbnail-orig-image="images/baby.jpg"></a></td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+								<tr>
+									<td class="body" height="130" nowrap="nowrap" width="4">
+									<p align="left"></p>
 
+									<p align="left"></p>
 
-<iframe name="google_ads_top_frame" id="google_ads_top_frame" style="display: none; position: fixed; left: -999px; top: -999px; width: 0px; height: 0px;"></iframe><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;"></iframe></body></html>
+									<p align="left"></p>
+
+									<p align="left"></p>
+
+									<p align="left"></p>
+
+									<p align="left"></p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</center>
+						</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</center>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="#FFFFFF" height="117" nowrap="nowrap" style="border-bottom:1px none #000000; border-right:1px none #000000; border-left-style:none; border-left-width:medium; border-top-style:none; border-top-width:medium; " valign="top" width="20%">&nbsp;
+			<div align="right">
+			<table border="1" bordercolor="#111111" cellpadding="0" cellspacing="0" height="201" id="AutoNumber11" style="border-collapse: collapse; border-width: 0" width="90%">
+				<tbody>
+					<tr>
+						<td height="180" nowrap="nowrap" style="border-style: none; border-width: medium" valign="top" width="100%">&nbsp;<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BabyAnimalz Header -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4114127556796384" data-ad-slot="2838844503" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</center>
+
+<center style="height: auto !important;">
+<div class="google-auto-placed" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-4114127556796384" data-adsbygoogle-status="done" style="display: block; margin: 10px auto; background-color: transparent; height: 280px;" data-ad-status="filled"><div id="aswift_3_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 280px; width: 1001px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: visible;"><iframe id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0;width:1001px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1001" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-4114127556796384&amp;output=html&amp;h=280&amp;adk=1630414684&amp;adf=1510964603&amp;pi=t.aa~a.512810289~rp.1&amp;w=1001&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1646265138&amp;rafmt=1&amp;to=qs&amp;pwprc=6737746837&amp;format=1001x280&amp;url=https%3A%2F%2Fwww.babyanimalz.com%2F&amp;fwr=0&amp;pra=3&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=40&amp;uach=WyJXaW5kb3dzIiwiMTAuMC4wIiwieDg2IiwiIiwiMTA2LjAuNTI0OS4xMTkiLFtdLGZhbHNlLG51bGwsIjY0IixbWyJDaHJvbWl1bSIsIjEwNi4wLjUyNDkuMTE5Il0sWyJHb29nbGUgQ2hyb21lIiwiMTA2LjAuNTI0OS4xMTkiXSxbIk5vdDtBPUJyYW5kIiwiOTkuMC4wLjAiXV0sZmFsc2Vd&amp;dt=1665733583467&amp;bpp=6&amp;bdt=6153&amp;idt=6&amp;shv=r20221012&amp;mjsv=m202210100101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D66812d9bcdcfe8de-22d6fcb2f9d50028%3AT%3D1665733582%3ART%3D1665733582%3AS%3DALNI_MaPaxD2KE1SfLrg-mD2IHwbRFBODQ&amp;gpic=UID%3D00000b10dba76ee1%3AT%3D1665733582%3ART%3D1665733582%3AS%3DALNI_Mb1V_J9D37CM_pwrK0LBIbKRECXJw&amp;prev_fmts=0x0%2C662x280%2C1017x558&amp;nras=3&amp;correlator=5556745573021&amp;frm=20&amp;pv=1&amp;ga_vid=1293768466.1665733582&amp;ga_sid=1665733582&amp;ga_hid=962167514&amp;ga_fc=1&amp;u_tz=-420&amp;u_his=2&amp;u_h=723&amp;u_w=1366&amp;u_ah=723&amp;u_aw=1366&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=174&amp;ady=2818&amp;biw=1349&amp;bih=706&amp;scr_x=0&amp;scr_y=0&amp;eid=44759875%2C44759926%2C44759842%2C42531706&amp;oid=2&amp;psts=APxP-9AzbhyO7EfJBIRhVr-Ye4KvM9gTgO4PKe-kBbLgm_JFnR177NP2NoHtJHAdYBfZsrvfNBn9ankGl4lqXbGs&amp;pvsid=593667303695879&amp;tmod=1517495118&amp;uas=1&amp;nvt=1&amp;eae=0&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1366%2C0%2C1366%2C768%2C1366%2C723&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=1152&amp;bc=31&amp;ifi=4&amp;uci=a!4&amp;btvi=1&amp;fsb=1&amp;xpc=ztFmgE5LlT&amp;p=https%3A//www.babyanimalz.com&amp;dtd=17456" data-google-container-id="a!4" data-google-query-id="CK6x6Jyd3_oCFUOgmgodeG4Jwg"></iframe></div></ins></div><table bgcolor="#191970" border="0" bordercolor="#111111" cellpadding="0" cellspacing="0" height="78" id="AutoNumber7" style="border-collapse: collapse" width="93%">
+	<tbody>
+		<tr>
+			<td align="center" bgcolor="#FFFFFF" bordercolor="#FFFFFF" height="11" style="border-top-style: none; border-top-width: medium" valign="top" width="26%">
+			<div style="border-top-style: solid; border-top-width: 1; padding-top: 1; width:800; height:27">
+			<p class="footer"><br>
+			<font color="#808080" face="MS Sans Serif" size="1">The above pictures have been gathered from various sources around the internet using Google Image Search.<br>
+			Many of which were submitted by their original photographers; many of which were not.<div class="google-auto-placed ap_container" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-4114127556796384" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent; height: 280px;"><div id="aswift_2_host" style="border: none; height: 280px; width: 800px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins></div><br>
+			If any of the aforementioned photographs are copyrighted and you are the owner of these pictures, please do not hesitate to contact me!<br>
+			They will be swiftly removed if you so desire.<br>
+			All images are hosted server-side by babyanimalz.com.</font><br>
+			<br>
+			<a href="http://www.fastertechnologies.com/free-hit-counter.html"><img alt="Counter" border="0" src="fontcounter.php_start_36587_style_verdana_size_10_fgcolor_000000_bgcolor_FFFFFF.png"></a><img border="0" height="14" src="images/inlovefinal.jpg" width="261"><br>
+			<br>
+			<font face="Verdana" size="2">This site is kept and maintained by <a href="http://myspace.com/jacobklein">Jacob Klein</a><br>
+			Email him with pithy comments at <a href="mailto:kleinja@gmail.com"> kleinja@cwu.edu</a> </font></p>
+			<p class="footer"><font face="Verdana" size="2"><a href="https://www.linkedin.com/in/kleinja/">Jacob</a> now does <a href="https://nothingproprietary.com/seo-for-startups/">SEO for Startups</a> and is raising two baby animalz of his own in <a href="https://championtraveler.com/dates/best-time-to-visit-spokane-wa-us/">Spokane, WA</a>.</font></p>
+
+			<p class="footer"></p>
+			</div>
+			</td>
+			<td align="center" bgcolor="#FFFFFF" bordercolor="#FFFFFF" height="11" style="border-top-style: none; border-top-width: medium" valign="top" width="1%"></td>
+		</tr>
+	</tbody>
+</table>
+</center>
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-4114127556796384&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1646265138&amp;plat=1%3A1024%2C2%3A1024%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1048576%2C32%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fwww.babyanimalz.com%2F&amp;ea=0&amp;pra=5&amp;wgl=1&amp;easpi=0&amp;asntp=0&amp;asntpv=0&amp;asntpl=0&amp;asntpm=0&amp;asntpc=0&amp;asna=5&amp;asnd=5&amp;asnp=5&amp;asns=5&amp;asmat=1&amp;asptt=-1&amp;uach=WyJXaW5kb3dzIiwiMTAuMC4wIiwieDg2IiwiIiwiMTA2LjAuNTI0OS4xMTkiLFtdLGZhbHNlLG51bGwsIjY0IixbWyJDaHJvbWl1bSIsIjEwNi4wLjUyNDkuMTE5Il0sWyJHb29nbGUgQ2hyb21lIiwiMTA2LjAuNTI0OS4xMTkiXSxbIk5vdDtBPUJyYW5kIiwiOTkuMC4wLjAiXV0sZmFsc2Vd&amp;dt=1665733579720&amp;bpp=20&amp;bdt=2406&amp;idt=1968&amp;shv=r20221012&amp;mjsv=m202210100101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;nras=1&amp;correlator=5556745573021&amp;frm=20&amp;pv=2&amp;ga_vid=1293768466.1665733582&amp;ga_sid=1665733582&amp;ga_hid=962167514&amp;ga_fc=1&amp;u_tz=-420&amp;u_his=2&amp;u_h=768&amp;u_w=1366&amp;u_ah=728&amp;u_aw=1366&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1017&amp;bih=558&amp;scr_x=0&amp;scr_y=0&amp;eid=44759875%2C44759926%2C44759842%2C42531706&amp;oid=2&amp;pvsid=593667303695879&amp;tmod=1517495118&amp;uas=0&amp;nvt=1&amp;eae=2&amp;fc=1920&amp;brdim=10%2C10%2C10%2C10%2C1366%2C0%2C1050%2C708%2C1034%2C575&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=33792&amp;bc=31&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=2110" data-google-container-id="a!1" data-load-complete="true"></iframe></div></ins><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20221012/r20190131/zrt_lookup.html" style="display: none;"></iframe><ins class="adsbygoogle adsbygoogle-noablate" style="display: none !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; clear: none !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: fixed !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647 !important; background: transparent !important;" data-adsbygoogle-status="done" aria-hidden="true" data-ad-status="filled" data-vignette-loaded="true"><div id="aswift_4_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_4" name="aswift_4" style="width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; position: absolute !important; clear: none !important; display: inline !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; vertical-align: baseline !important; visibility: visible !important; z-index: auto !important;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="" height="" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/html/r20221012/r20110914/zrt_lookup.html?fsb=1#RS-0-&amp;adk=1812271808&amp;client=ca-pub-4114127556796384&amp;fa=8&amp;ifi=5&amp;uci=a!5&amp;xpc=bzEQ0bN7M8&amp;p=https%3A//www.babyanimalz.com" data-google-container-id="a!5" data-google-query-id="CMeNx5Od3_oCFQWQUQodTK4FvA" data-load-complete="true"></iframe></div></ins></html>
