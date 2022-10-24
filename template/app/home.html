@@ -1,0 +1,107 @@
+{% include "app/sitenavbar.html" %}
+{% load static %}
+    <section>
+        <div class="section-container1">
+            <div class="section-container1-items">
+                <p>Screenshot development tool for Ad Operations and Media Teams</p>
+            </div>
+            <div class="section-container1-items input-submit">
+                <a href="/register"><button class="blue-grad-btn">Start Now</button></a>
+            </div>
+        </div>
+        <div class="section-container2 " style="padding: 2rem 0;display: block !important;">
+            <div class="section-container1-items">
+                <p>How the screenshot tool works</p>
+            </div>
+            <div class="" style="display: block !important;">
+                <!-- Slideshow container -->
+                <div class="slideshow-container" style="width: clamp(280px, 80%, 1000px);" >
+                    <!-- Full-width images with number and caption text -->
+                    <div class="mySlides fadeSlides ">
+                        <img src="{% static 'assets/s1.png' %}" style="width:100%">
+                        <h4 class="text f-2  f-700" style="color: black;"><span style="color: #ffffff;">Step #1:</span> Create Screenshot Campaign Name</h4>
+                    </div>
+                
+                    <div class="mySlides fadeSlides">
+                        <img src="{% static 'assets/s2.png' %}" style="width:100%">
+                        <h4 class="text  f-2  f-700" style="color: black;"><span style="color: #ffffff;">Step #2:</span> Select Your Advertising Creative Type</h4>
+                    </div>
+                
+                    <div class="mySlides fadeSlides">
+                        <img src="{% static 'assets/s3.png' %}" style="width:100%">
+                        <h4 class="text f-2  f-700" style="color: black;"><span style="color: #ffffff;">Step #3:</span> Select Sample Ad Sizes for Screenshots</h4>
+                    </div>
+                    <div class="mySlides fadeSlides">
+                        <img src="{% static 'assets/s4.png' %}" style="width:100%">
+                        <h4 class="text f-2  f-700" style="color: black;"><span style="color: #ffffff;">Step #4:</span> Select Sample Site(s) for Screenshots</h4>
+                    </div>
+                    
+                    <div class="mySlides fadeSlides">
+                        <img src="{% static 'assets/s5.png' %}" style="width:100%">
+                        <h4 class="text f-2  f-700" style="color: black;"><span style="color: #ffffff;">Step #5:</span> Upload Video Ad File or Banner Ads</h4>
+                    </div>
+
+                    <div class="mySlides fadeSlides">
+                        <img src="{% static 'assets/s6.png' %}" style="width:100%">
+                        <h4 class="text f-2  f-700" style="color: black;"><span style="color: #ffffff;">Step #6:</span> Example Screenshot</h4>
+                    </div>
+                
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+                <!-- The dots/circles -->
+                <div class="" style="text-align:center;margin-bottom: 7rem;">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                </div>
+                <script>
+                    let slideIndex = 1;
+                    showSlides(slideIndex);
+
+                    // Next/previous controls
+                    function plusSlides(n) {
+                    showSlides(slideIndex += n);
+                    }
+
+                    // Thumbnail image controls
+                    function currentSlide(n) {
+                    showSlides(slideIndex = n);
+                    }
+
+                    function showSlides(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("mySlides");
+                    let dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) {slideIndex = 1}
+                    if (n < 1) {slideIndex = slides.length}
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndex-1].style.display = "block";
+                    dots[slideIndex-1].className += " active";
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="section-container1">
+            <div class="section-container1-items">
+                <p>Wave goodbye to your busy work</p>
+            </div>
+            <p class="para f-22 f-700">Don't waste another minute. Signup for access now and start saving time</p>
+            <div class="">
+                <a href="/register"><button class="blue-grad-btn">Start Now</button></a>
+            </div>
+        </div>
+    </section>
+{% include 'app/footer.html' %}
+</body>
+</html>

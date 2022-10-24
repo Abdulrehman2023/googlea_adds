@@ -1,0 +1,31 @@
+{% load static %}
+<!-- navbar start -->
+<nav class="navbar navbar-expand-lg navbar-light navbackground" >
+    <div class="container-fluid">
+        <div class="row" style="height: 8rem;display: flex;justify-content: space-between;align-items: center;">
+            <div class="col-md-9" style="display: flex;justify-content: left;align-items: center;">
+                <img src="{% static 'images/Ellipse 2.png' %}" alt="piranhad">
+                <a class="navbar-brand navbrand" href="/home">
+                    <p class="f-22 f-700 f-opificio">Piranhad</p>
+                </a>
+                <a href="/home/" style="text-decoration: none;">
+                    <p class="f-22 f-700 f-opificio">Piranhad</p>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="collapse navbar-collapse justify-content-end" style="display: flex;justify-content: center;align-items: center;">
+                    <a class="btn btn-default mx-3" style="text-decoration: none; background-color: Transparent; background-repeat:no-repeat;"href="/home">Dashboard</a>
+                    <a class="btn btn-default mx-3" style="text-decoration: none; background-color: Transparent; background-repeat:no-repeat;"href="/create-portal-session">Manage Subscription</a>
+                    <a class="btn btn-default mx-3" style="text-decoration: none; background-color: Transparent; background-repeat:no-repeat;" href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

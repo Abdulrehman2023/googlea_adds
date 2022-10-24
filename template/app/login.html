@@ -1,0 +1,85 @@
+{% load crispy_forms_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Login</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="{% static 'index.css' %}">
+
+    <script defer src="{% static 'home.js' %}" ></script>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+		integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id" content="199438874065-4hrj1c2mjhab0ppqirf0j8sp25kd6fvd.apps.googleusercontent.com">
+	<style>
+		input{
+		  width: 100%;
+		  outline: 0 !important;
+		  line-height: 2rem;
+		  border-radius: .2rem;
+		  border: #FA5277;
+		  padding: .2rem .8rem;
+		}
+		label {
+		  font-weight: bold;
+		  color: #0071bd;
+		}
+		a{
+			color: inherit; 
+			text-decoration: none;
+		}
+		a:hover{
+			color: #39b0ff !important;
+		}
+		.test {
+			border: 2px solid red !important;
+		}
+		.alert-danger{
+			background: #39b0ff;
+			border-color: #6ea9d1;
+			color: #ffffff;
+		}
+		.footer {
+		font-size: 16px !important;
+		}
+	</style>
+</head>
+
+<body style="font-size: 150% !important;">
+	{% include "app/sitenavbar.html" %}
+	<div class=" rounded shadow d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 90px); ">
+		<div class="border ads-container p-3" style="width: clamp(320px, 100%, 500px); background-color: #f3f7f8;">
+			<div class="d-flex flex-column align-items-center justify-content-sm-start justify-content-between h-100" action="/adstool/Ads/{{ad}}/" method="POST">
+				<div class="w-100">
+					<h2 class="font-weight-bold text-center" style="color: #0071bd;">Login</h2>
+					<form method="POST">
+						{% csrf_token %}
+						{{ login_form|crispy:"bootstrap4" }}
+						<button class="btn my-2 text-white" style="background-color: #39b0ff;font-size: 16px;" type="submit">Login</button>
+					</form>
+					<div class="mt-4">
+						<div class="d-flex justify-content-center links">
+							<a href="password_reset" class="ml-2" style="color: #0071bd">Forget Password?</a>
+						</div>
+						<div class="d-flex justify-content-center links">
+							Do not have an account?<a href="register" class="p-0 ml-1" style="color: #0071bd">Register</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% include 'app/footerAdmin.html' %}
+
+</body>
+
+</html>

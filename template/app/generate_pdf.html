@@ -1,0 +1,43 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>View Screenshots</title>
+  <style>
+    .table tr,td {
+      border-bottom: 2px solid black !important;
+      padding: 10px 0 !important;
+      text-align: center !important;
+    }
+    h1 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container cont1">
+    <div class="heading">
+      <h2>{{obj.url}}</h1> 
+      <small>{{obj.created_at}}</small>
+    </div>
+    <div class="table-responsive-sm tablediv">
+      <table class="table" style="border-spacing: none;">
+        <tbody>
+          <tr>
+            <td scope="row" class="td1">
+              <div class="imgoverflow">
+                <img class="tdimage myImg" src="https://piranhad.s3.eu-west-2.amazonaws.com/staticfiles/{{obj.image}}" alt="">
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

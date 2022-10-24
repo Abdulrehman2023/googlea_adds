@@ -1,0 +1,33 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'index.css' %}">
+<script defer src="{% static 'home.js' %}" ></script>
+<script src="https://kit.fontawesome.com/358433a07c.js" crossorigin="anonymous"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<style>
+    a {
+        color: black !important;
+        text-decoration: none;
+    }
+</style>
+<nav>
+    <a href="/home" class="navdivs nav1 flex-center">
+        <img class="navdivs-img" src="{% static 'assets/navLogo.png' %}" alt="Main-logo">
+        <p class="f-22 f-700 f-opificio">Piranhad</p>
+    </a>
+    <div class="navdivs nav2">
+        <ul class="navitems">
+            <div class="cross" style="cursor: pointer;">&#10006;</div>
+            <li><a href="/home"><p class="nav3-items">Dashboard</p></a></li>
+            <li><a href="/create-portal-session"><p class="nav3-items">Manage Subscription</p></a></li>
+            <li><a href="/logout"><p class="nav3-items">Logout</p></a></li>
+        </ul>
+    </div>
+    <div class="navdivs nav3">
+        <a href="/home"><p class="nav3-items">Dashboard</p></a>
+        <a href="/create-portal-session"><p class="nav3-items">Manage Subscription</p></a>
+        <a href="/logout"><p class="nav3-items">Logout</p></a>
+    </div>
+    <div class="navhamburger" style="cursor: pointer;">&#x2630;</div>
+</nav>

@@ -1,0 +1,270 @@
+{
+    "ad": {
+        "cta": {
+            "size": 14,
+            "text": "Purchase now",
+            "color": "#272220",
+            "style": "http://fonts.gstatic.com/s/cousine/v25/d6lKkaiiRdih4SpP_SEvyRTo39l8hw.ttf",
+            "family": "Roboto"
+        },
+        "accent": "#D03300",
+        "subhead": {
+            "size": 16,
+            "text": "With Amazing Deals that great favourites",
+            "color": "#e22292",
+            "style": "http://fonts.gstatic.com/s/splinesansmono/v2/R70MjzAei_CDNLfgZxrW6wrZOF2WdZ6xabUGSVtNuGBiMrtVy4d4dGb1.ttf",
+            "family": "Roboto"
+        },
+        "headline": {
+            "size": 20,
+            "text": "Stylish Kitchenware",
+            "color": "#025f43",
+            "style": "http://fonts.gstatic.com/s/splinesansmono/v2/R70MjzAei_CDNLfgZxrW6wrZOF2WdZ6xabUGSVtNuGBiMrtVy4d4dGb1.ttf",
+            "family": "Roboto"
+        },
+        "ctabutton": "#2581f8",
+        "background": "#836363"
+    },
+    "sizes": {
+        "300x50": {
+            "logoimg": {
+                "h": 50,
+                "w": 63,
+                "x": 0,
+                "y": 0
+            },
+            "ctabutton": {
+                "h": 30,
+                "w": 110,
+                "x": 185,
+                "y": 10
+            }
+        },
+        "320x50": {
+            "logoimg": {
+                "h": 50,
+                "w": 74,
+                "x": 0,
+                "y": 0
+            },
+            "ctabutton": {
+                "h": 30,
+                "w": 110,
+                "x": 205,
+                "y": 10
+            }
+        },
+        "728x90": {
+            "logoimg": {
+                "h": 90,
+                "w": 118,
+                "x": 0,
+                "y": 0
+            },
+            "subhead": {
+                "h": 37,
+                "w": 22,
+                "x": 285,
+                "y": 42
+            },
+            "headline": {
+                "h": 37,
+                "w": 255,
+                "x": 283,
+                "y": 5
+            },
+            "ctabutton": {
+                "h": 35,
+                "w": 110,
+                "x": 610,
+                "y": 27
+            },
+            "productimg": {
+                "h": 60,
+                "w": 86,
+                "x": 129,
+                "y": 15
+            }
+        },
+        "160x600": {
+            "logoimg": {
+                "h": 90,
+                "w": 160,
+                "x": 0,
+                "y": 0
+            },
+            "subhead": {
+                "h": 100,
+                "w": 15,
+                "x": 13,
+                "y": 180
+            },
+            "headline": {
+                "h": 122,
+                "w": 17,
+                "x": 13,
+                "y": 120
+            },
+            "ctabutton": {
+                "h": 37,
+                "w": 127,
+                "x": 17,
+                "y": 346
+            },
+            "productimg": {
+                "h": 190,
+                "w": 160,
+                "x": 0,
+                "y": 410
+            }
+        },
+        "300x250": {
+            "logoimg": {
+                "h": 54,
+                "w": 47,
+                "x": 0,
+                "y": 0
+            },
+            "subhead": {
+                "h": 37,
+                "w": 25,
+                "x": 20,
+                "y": 160
+            },
+            "headline": {
+                "h": 37,
+                "w": 267,
+                "x": 17,
+                "y": 125
+            },
+            "ctabutton": {
+                "h": 35,
+                "w": 140,
+                "x": 80,
+                "y": 209
+            },
+            "productimg": {
+                "h": 114,
+                "w": 163,
+                "x": 76,
+                "y": 0
+            }
+        },
+        "300x600": {
+            "logoimg": {
+                "h": 104,
+                "w": 89,
+                "x": 0,
+                "y": 0
+            },
+            "subhead": {
+                "h": 51,
+                "w": 25,
+                "x": 17,
+                "y": 425
+            },
+            "headline": {
+                "h": 61,
+                "w": 267,
+                "x": 17,
+                "y": 361
+            },
+            "ctabutton": {
+                "h": 35,
+                "w": 140,
+                "x": 80,
+                "y": 519
+            },
+            "productimg": {
+                "h": 210,
+                "w": 300,
+                "x": 0,
+                "y": 103
+            }
+        },
+        "320x100": {
+            "logoimg": {
+                "h": 100,
+                "w": 87,
+                "x": 0,
+                "y": 0
+            },
+            "ctabutton": {
+                "h": 35,
+                "w": 106,
+                "x": 207,
+                "y": 32
+            },
+            "productimg": {
+                "h": 66,
+                "w": 94,
+                "x": 100,
+                "y": 17
+            }
+        },
+        "320x480": {
+            "logoimg": {
+                "h": 104,
+                "w": 89,
+                "x": 0,
+                "y": 0
+            },
+            "subhead": {
+                "h": 51,
+                "w": 25,
+                "x": 27,
+                "y": 390
+            },
+            "headline": {
+                "h": 61,
+                "w": 267,
+                "x": 27,
+                "y": 341
+            },
+            "ctabutton": {
+                "h": 35,
+                "w": 140,
+                "x": 160,
+                "y": 35
+            },
+            "productimg": {
+                "h": 224,
+                "w": 320,
+                "x": 0,
+                "y": 104
+            }
+        },
+        "970x250": {
+            "logoimg": {
+                "h": 104,
+                "w": 89,
+                "x": 0,
+                "y": 0
+            },
+            "subhead": {
+                "h": 51,
+                "w": 267,
+                "x": 174,
+                "y": 138
+            },
+            "headline": {
+                "h": 61,
+                "w": 267,
+                "x": 174,
+                "y": 62
+            },
+            "ctabutton": {
+                "h": 35,
+                "w": 140,
+                "x": 457,
+                "y": 196
+            },
+            "productimg": {
+                "h": 251,
+                "w": 358,
+                "x": 612,
+                "y": 0
+            }
+        }
+    }
+}

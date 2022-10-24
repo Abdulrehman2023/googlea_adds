@@ -1,0 +1,72 @@
+{% include "app/sitenavbar.html" %}
+{% load static %}
+        <section>
+            <div class="priceContainer1">
+                <p class="heading">Pricing</p>
+                <p class="para">Subscribe today and start easily creating screenshots</p>
+                {% for i in prices %}
+                <div class="price-container">
+                    <p class="heading">{{i.Name}}</p>
+                    <p class="para">Starting at</p>
+                    <p class="para">$ <span class="lg-heading">{{i.price}}</span></p>
+                    <p class="para">Per Month</p>
+                    <div class="price-features">
+                        <p class="para"><i class="far fa-check-circle"></i>Programmatic display screenshots</p>
+                        <p class="para"><i class="far fa-check-circle"></i>Video advertising screenshot tool</p>
+                        <p class="para"><i class="far fa-check-circle"></i>Screenshots on top sites and ad placements</p>
+                        <p class="para"><i class="far fa-check-circle"></i>Desktop and mobile support</p>
+                        <p class="para"><i class="far fa-check-circle"></i>Hours back in your team's day</p>
+                        <p class="para"><i class="far fa-check-circle"></i>Improved team morale</p>
+                        <p class="para"><i class="far fa-check-circle"></i>Happy Clients</p>
+                    </div>
+                    <form action="create-checkout-session" method="POST">
+                        {% csrf_token %}
+                      <!-- Add a hidden field with the lookup_key of your Price -->
+                      <input type="hidden" name="lookup_key" value="{{i.lookup_key}}" />
+                      <button class="getstarted" id="checkout-and-portal-button" type="submit">Checkout</button>
+                    </form>
+                </div>
+                {% endfor %}
+                <p class="smallpara">Have a Question?</p>
+                <div class="btn">
+                    <a href="contactus">Get in Touch</a>
+                </div>
+            </div>
+
+            <div class="pricingContainer2">
+                <div class="items">
+                    <p class="heading">Wave goodbye to your busy work</p>
+                </div>
+                <div class="items">
+                    <p class="para">Don't waste another minute. Signup for access now and start saving time</p>
+                </div>
+                <div class="items input-submit">
+                    <a href="/register"><button class="blue-grad-btn">Start Now</button></a>
+                </div>
+                <!-- <div class="box">
+                    <div class="toppart">
+                        <div class="header">
+                            <img src="{% static 'assets/Group 145.png' %}" alt="">
+                            <p> Adam Johns</p>
+                        </div>
+                        <div>
+                            <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="bottompart">
+                        <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
+                            demonstrate the visual form of a document or a typeface without relying on meaningful
+                            content. Lorem ipsum may be used as placeholder before the final company is</p>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+        {% include 'app/footer.html' %}
+    </div>
+</body>
+
+</html>

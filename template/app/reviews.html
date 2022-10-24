@@ -1,0 +1,267 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'reviews.css' %}">
+    <script defer src="{% static 'home.js' %}" ></script>
+    <title>Pirahand</title>
+</head>
+
+<body>
+    <div class="bodycontainer">
+        <nav>
+            <div class="navdivs nav1">
+                <img class="navdivs-img" src="{% static 'assets/Group 147.png' %}" alt="Main-logo">
+            </div>
+            <div class="navdivs nav2">
+                <!-- <a href="#" class="navdivs-navitems">Home</a>
+                <a href="#" class="navdivs-navitems">Products</a>
+                <a href="#" class="navdivs-navitems">Integration</a>
+                <a href="#" class="navdivs-navitems">Pricing</a>
+                <a href="#" class="navdivs-navitems">Reviews</a>
+                <a href="#" class="navdivs-navitems">Blogs</a> -->
+                <ul class="navitems">
+                    <div class="cross">&#10006;</div>
+                    <li><a href="index">Home</a></li>
+                    <li class="dropdown"><a href="#">Products <span class="downarrow">&#x25BC;</span> <span
+                                class="uparrow">&#x25B2;</span> </a>
+                        <ul class="dropdown-content">
+                            <li><a href="screenshot">Screenshots</a></li>
+                            <li><a href="ad-qa">Ad QA</a></li>
+                            <li><a href="ad-txt-pro">Ads txt Pro</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="integration">Integration</a></li>
+                    <li><a href="pricing">Pricing</a></li>
+                    <li><a class="active" href="reviews">Reviews</a></li>
+                    <li><a href="blogs">Blogs</a></li>
+                </ul>
+            </div>
+            <div class="navdivs nav3">
+                {% if user.is_authenticated %}
+                <a href="home"><p class="nav3-items">Dashboard</p></a>
+                <a href="logout"><p class="nav3-items">Sign Out</p></a>
+                {% else %}
+                <a href="login"><p class="nav3-items">Sign in</p></a>
+                <a href="register"><button class="btn-primary nav3-items" >Start Now</button></a>
+                {% endif %}
+            </div>
+            <div class="navhamburger">&#x2630;</div>
+        </nav>
+        <section>
+            <div class="container1">
+                <p class="heading">Reviews</p>
+                <p class="para">Reviews from our Customers</p>
+                <div class="review-container">
+                    <div class="box">
+                        <div class="toppart">
+                            <div class="header">
+                                <img src="{% static 'assets/Group 145.png' %}" alt="">
+                                <p> Adam Johns</p>
+                            </div>
+                            <div>
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="bottompart">
+                            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
+                                demonstrate the visual form of a document or a typeface without relying on meaningful
+                                content. Lorem ipsum may be used as placeholder before the final company is</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="toppart">
+                            <div class="header">
+                                <img src="{% static 'assets/Group 145.png' %}" alt="">
+                                <p> Adam Johns</p>
+                            </div>
+                            <div>
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="bottompart">
+                            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
+                                demonstrate the visual form of a document or a typeface without relying on meaningful
+                                content. Lorem ipsum may be used as placeholder before the final company is</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="toppart">
+                            <div class="header">
+                                <img src="{% static 'assets/Group 145.png' %}" alt="">
+                                <p> Adam Johns</p>
+                            </div>
+                            <div>
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="bottompart">
+                            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
+                                demonstrate the visual form of a document or a typeface without relying on meaningful
+                                content. Lorem ipsum may be used as placeholder before the final company is</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="toppart">
+                            <div class="header">
+                                <img src="{% static 'assets/Group 145.png' %}" alt="">
+                                <p> Adam Johns</p>
+                            </div>
+                            <div>
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="bottompart">
+                            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
+                                demonstrate the visual form of a document or a typeface without relying on meaningful
+                                content. Lorem ipsum may be used as placeholder before the final company is</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="toppart">
+                            <div class="header">
+                                <img src="{% static 'assets/Group 145.png' %}" alt="">
+                                <p> Adam Johns</p>
+                            </div>
+                            <div>
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="bottompart">
+                            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
+                                demonstrate the visual form of a document or a typeface without relying on meaningful
+                                content. Lorem ipsum may be used as placeholder before the final company is</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="toppart">
+                            <div class="header">
+                                <img src="{% static 'assets/Group 145.png' %}" alt="">
+                                <p> Adam Johns</p>
+                            </div>
+                            <div>
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="bottompart">
+                            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
+                                demonstrate the visual form of a document or a typeface without relying on meaningful
+                                content. Lorem ipsum may be used as placeholder before the final company is</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="toppart">
+                            <div class="header">
+                                <img src="{% static 'assets/Group 145.png' %}" alt="">
+                                <p> Adam Johns</p>
+                            </div>
+                            <div>
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="bottompart">
+                            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
+                                demonstrate the visual form of a document or a typeface without relying on meaningful
+                                content. Lorem ipsum may be used as placeholder before the final company is</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="toppart">
+                            <div class="header">
+                                <img src="{% static 'assets/Group 145.png' %}" alt="">
+                                <p> Adam Johns</p>
+                            </div>
+                            <div>
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                                <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="bottompart">
+                            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
+                                demonstrate the visual form of a document or a typeface without relying on meaningful
+                                content. Lorem ipsum may be used as placeholder before the final company is</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="images-container">
+                    <img class="company images1" src="{% static 'assets/1 (1).png' %}" alt="company-images">
+                    <img class="company images2" src="{% static 'assets/1(5).png' %}" alt="company-images">
+                    <img class="company images3" src="{% static 'assets/1 (2).png' %}" alt="company-images">
+                    <img class="company images4" src="{% static 'assets/1 (3).png' %}" alt="company-images">
+                    <img class="company images5" src="{% static 'assets/1 (4).png' %}" alt="company-images">
+                </div>
+            </div>
+
+            <div class="container2">
+                <div class="items">
+                    <p class="heading">Wave goodbye to your busy work</p>
+                </div>
+                <div class="items">
+                    <p class="para">Don't waste another minute. Signup for access now and start saving time</p>
+                </div>
+                <div class="items input-submit">
+                    <input type="text" placeholder="Company Email">
+                    <input class="inputbtn" type="button" value="Start Now">
+                </div>
+                <div class="box">
+                    <div class="toppart">
+                        <div class="header">
+                            <img src="{% static 'assets/Group 145.png' %}" alt="">
+                            <p> Adam Johns</p>
+                        </div>
+                        <div>
+                            <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="bottompart">
+                        <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
+                            demonstrate the visual form of a document or a typeface without relying on meaningful
+                            content. Lorem ipsum may be used as placeholder before the final company is</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% include 'app/footer.html' %}
+    </div>
+</body>
+
+</html>

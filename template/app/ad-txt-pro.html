@@ -1,0 +1,260 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'ad-txt-pro.css' %}">
+    <script defer src="{% static 'home.js' %}" ></script>
+    <title>Pirahand</title>
+</head>
+
+<body>
+    <div class="bodycontainer">
+        <nav>
+            <div class="navdivs nav1">
+                <img class="navdivs-img" src="{% static 'assets/Group 147.png' %}" alt="Main-logo">
+            </div>
+            <div class="navdivs nav2">
+                <!-- <a href="#" class="navdivs-navitems">Home</a>
+                <a href="#" class="navdivs-navitems">Products</a>
+                <a href="#" class="navdivs-navitems">Integration</a>
+                <a href="#" class="navdivs-navitems">Pricing</a>
+                <a href="#" class="navdivs-navitems">Reviews</a>
+                <a href="#" class="navdivs-navitems">Blogs</a> -->
+                <ul class="navitems">
+                    <div class="cross">&#10006;</div>
+                    <li><a href="index">Home</a></li>
+                    <li class="dropdown"><a class="active" href="#">Products <span class="downarrow">&#x25BC;</span>
+                            <span class="uparrow">&#x25B2;</span> </a>
+                        <ul class="dropdown-content">
+                            <li><a href="screenshot">Screenshots</a></li>
+                            <li><a href="ad-qa">Ad QA</a></li>
+                            <li><a class="active" href="ad-txt-pro">Ads txt Pro</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="integration">Integration</a></li>
+                    <li><a href="pricing">Pricing</a></li>
+                    <li><a href="reviews">Reviews</a></li>
+                    <li><a href="blogs">Blogs</a></li>
+                </ul>
+            </div>
+            <div class="navdivs nav3">
+                {% if user.is_authenticated %}
+                <a href="home"><p class="nav3-items">Dashboard</p></a>
+                <a href="logout"><p class="nav3-items">Sign Out</p></a>
+                {% else %}
+                <a href="login"><p class="nav3-items">Sign in</p></a>
+                <a href="register"><button class="btn-primary nav3-items" >Start Now</button></a>
+                {% endif %}
+            </div>
+            <div class="navhamburger">&#x2630;</div>
+        </nav>
+        <section>
+            <div class="container1">
+                <div class="boxes one">
+                    <div>
+                        <p>Ads.txt Pro</p>
+                        <div>
+                            <p>Monitor ads.txt files, find errors before files go
+                                live, and get notified in Slack.</p>
+                            <input type="text" placeholder="Comany Email">
+                            <input type="button" value="Start Now">
+                        </div>
+                        <div class="workWith">
+                            <p>Try it out for free for 7 days. No credit card required.</p>
+                            <!-- <div>
+                                <div class="items">
+                                    <div>
+                                        <img class="display" src="{% static 'assets/1 (24).png' %}" alt="">
+                                    </div>
+                                    <p>Display ads</p>
+                                </div>
+                                <div class="items">
+                                    <div>
+                                        <img class="video" src="{% static 'assets/1 (25).png' %}" alt="">
+                                    </div>
+                                    <p>Video ads</p>
+                                </div>
+                                <div class="items">
+                                    <div>
+                                        <img class="mobile" src="{% static 'assets/1 (26).png' %}" alt="">
+                                    </div>
+                                    <p>Mobile ads</p>
+                                </div>
+                                <div class="items">
+                                    <div>
+                                        <img class="native" src="{% static 'assets/1 (27).png' %}" alt="">
+                                    </div>
+                                    <p>Native ads</p>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div>
+                        <img src="{% static 'assets/1 (44).png' %}" alt="">
+                    </div>
+                </div>
+                <div class="boxes two">
+                    <img class="company images1" src="{% static 'assets/1 (1).png' %}" alt="company-images">
+                    <img class="company images2" src="{% static 'assets/1(5).png' %}" alt="company-images">
+                    <img class="company images3" src="{% static 'assets/1 (2).png' %}" alt="company-images">
+                    <img class="company images4" src="{% static 'assets/1 (3).png' %}" alt="company-images">
+                    <img class="company images5" src="{% static 'assets/1 (4).png' %}" alt="company-images">
+                </div>
+                <!-- <div class="boxes three">
+                    <div>
+                        <img src="{% static 'assets/1.png' %}" alt="">
+                    </div>
+                    <div class="text-content">
+                        <p><q>
+                            It's night and day how much more work we can do with ad screenshots off our plate.          
+                        </q></p>
+                        <p class="syed-salman">
+                            <span>Syed Salman, </span>
+                             Ad Ops Specialist saved 300 hours in 2019 by using Ad Reform
+                        </p>
+                    </div>
+                </div> -->
+                <div class="boxes four">
+                    <div>
+                        <img src="{% static 'assets/1 (47).png' %}" alt="">
+                    </div>
+                    <div>
+                        <p>Validate via</p>
+                        <p>API + upload</p>
+                    </div>
+                </div>
+                <div class="boxes five">
+                    <div>
+                        <p>Integrate</p>
+                        <p>with Slake</p>
+                    </div>
+                    <div>
+                        <img src="{% static 'assets/1 (46).png' %}" alt="">
+                    </div>
+                </div>
+                <div class="boxes six">
+                    <div>
+                        <img src="{% static 'assets/1 (45).png' %}" alt="">
+                    </div>
+                    <div>
+                        <p>Automated Weekly</p>
+                        <p>monitoring</p>
+                    </div>
+                </div>
+                <!-- <div class="boxes seven">
+                    <div>
+                        <img src="{% static 'assets/1 (29).png' %}" alt="">
+                    </div>
+                    <div>
+                        <p>Get notified when</p>
+                        <p>your screenshots</p>
+                        <p>ready</p>
+                    </div>
+                </div>
+                <div class="boxes eight">
+                    <div>
+                        <p>Export</p>
+                        <p>Screenshots</p>
+                    </div>
+                    <div>
+                        <img src="{% static 'assets/1 (30).png' %}" alt="">
+                    </div>
+                </div> -->
+
+                <div class="boxes nine">
+                    <div class="price-container">
+                        <p class="heading">Small</p>
+                        <!-- <p class="para">Starting at</p> -->
+                        <p class="para">$ <span class="lg-heading">12</span></p>
+                        <p class="para">Per Month</p>
+                        <div class="price-features">
+                            <p class="para"> 100 validation credits</p>
+                            <p class="para"> Validation API</p>
+                            <p class="para">Slack integration</p>
+                            <p class="para">Weekly monitoring</p>
+                        </div>
+                    </div>
+                    <div class="price-container">
+                        <p class="heading">Medium</p>
+                        <!-- <p class="para">Starting at</p> -->
+                        <p class="para">$ <span class="lg-heading">55</span></p>
+                        <p class="para">Per Month</p>
+                        <div class="price-features">
+                            <p class="para"> 100 validation credits</p>
+                            <p class="para"> Validation API</p>
+                            <p class="para">Slack integration</p>
+                            <p class="para">Weekly monitoring</p>
+                        </div>
+                    </div>
+                    <div class="price-container">
+                        <p class="heading">Large</p>
+                        <!-- <p class="para">Starting at</p> -->
+                        <p class="para">$ <span class="lg-heading">100</span></p>
+                        <p class="para">Per Month</p>
+                        <div class="price-features">
+                            <p class="para"> 100 validation credits</p>
+                            <p class="para"> Validation API</p>
+                            <p class="para">Slack integration</p>
+                            <p class="para">Weekly monitoring</p>
+                        </div>
+                    </div>
+                    <div class="price-container bestValue">
+                        <p class="heading">Extra Large</p>
+                        <!-- <p class="para">Starting at</p> -->
+                        <p class="para">$ <span class="lg-heading">225</span></p>
+                        <p class="para">Per Month</p>
+                        <div class="price-features">
+                            <p class="para"> 2500 validation credits</p>
+                            <p class="para"> Validation API</p>
+                            <p class="para">Slack integration</p>
+                            <p class="para">Weekly monitoring</p>
+                        </div>
+                        <div class="bestValueBox">
+                            Best Value
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container2">
+                <div class="items">
+                    <p class="heading">Wave goodbye to your busy work</p>
+                </div>
+                <div class="items">
+                    <p class="para">Don't waste another minute. Signup for access now and start saving time</p>
+                </div>
+                <div class="items input-submit">
+                    <input type="text" placeholder="Company Email">
+                    <input class="inputbtn" type="button" value="Start Now">
+                </div>
+                <div class="box">
+                    <div class="toppart">
+                        <div class="header">
+                            <img src="{% static 'assets/Group 145.png' %}" alt="">
+                            <p> Adam Johns</p>
+                        </div>
+                        <div>
+                            <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                            <img class="stars" src="{% static 'assets/Icon awesome-star.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="bottompart">
+                        <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
+                            demonstrate the visual form of a document or a typeface without relying on meaningful
+                            content. Lorem ipsum may be used as placeholder before the final company is</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% include 'app/footer.html' %}
+    </div>
+</body>
+
+</html>

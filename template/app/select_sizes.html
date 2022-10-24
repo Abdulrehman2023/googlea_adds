@@ -1,0 +1,186 @@
+{% load static %}
+{% load custom_tags%}
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="{% static 'create_campaign.css' %}">
+  
+  <link rel="stylesheet" href="{% static 'select_url.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+  <title>Select Sizes</title>
+  <style>
+    .multiselect-container {
+      min-height: 22vh;
+      overflow-y: scroll;
+    }
+    .multiselect-container>li>a>label {
+      color: black !important;
+    }
+    footer div{
+      font-size: 14.4px !important;
+    }
+    #answer1 { display:none }
+  </style>
+</head>
+<body>
+  {% include 'app/navbar.html' %}
+  <div class="container" style="min-height: calc(100vh - 90px);">
+    {% if errors %}
+    <div class="row" style="background-color: gray; text-align: center; text-decoration: none;">
+      <p>{{errors.Url.0}}</p>
+    </div>
+    {% endif %}
+    <h1 class="heading">Generate screenshot</h1>
+    <div class="row uperrow1">
+      <div class="col-md-4 col-lg-3 uperrow1colleft">
+        <p class="leftpara">Step #3: Select Sample Ad Sizes for Screenshots </p>
+      </div>
+      <div class="col-md-8 col-lg-9">
+        <form action="{% url 'home' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-6 col-md-6 col-lg-6">
+              <p>Ads Sizes</p>
+                  <script type="text/javascript" defer>
+                $(document).ready(function () {
+                  $('#mobileselect').multiselect({
+                    // includeSelectAllOption: true,
+                    onChange: function (element, checked) {
+                      if (checked) {
+                        console.log(element[0].innerHTML)
+                        console.log(element[0].value)
+                        submitbtn.disabled = true;
+                        $.ajax({
+                          type: 'POST',
+                          headers: { 'X-CSRFToken': '{{csrf_token}}' },
+                          url: "/verify_sizes",
+                          data: {
+                            "size": element[0].innerHTML,
+                            "id": element[0].value
+                          },
+                          success: function (response) {
+                            
+                            submitbtn.disabled = false;
+                            document.getElementById("answer").insertAdjacentHTML("beforeend", `<div id="div${element[0].value}" ><br><div class="col-md-8"><p>Upload Ad image for device of ${element[0].innerHTML} size</p><input type="file"  name="AdFile${element[0].innerHTML}" accept="image/*"></div><div class="col-md-4" id="select${element[0].value}div" ><p>Select sites size ${element[0].innerHTML} </p><select name="CampaignUrl${element[0].innerHTML}" multiple="multiple" id="select${element[0].value}"></select><hr style="visibility: hidden;"></div></div>`)
+                            let selectitem = document.getElementById(`select${element[0].value}`)
+                            console.log(response)
+    
+                            response.forEach(element => {
+                              selectitem.appendChild(new Option(element.Url, element.pk))
+                            });
+                            $(`#select${element[0].value}`).multiselect({ includeSelectAllOption: true });
+                          },
+                          error: function (response) {
+                            console.log(response)
+                          }
+                        })
+                      }
+                      else {
+                        if (document.getElementById(`div${element[0].value}`)) {
+                          document.getElementById(`div${element[0].value}`).remove();
+                        }
+                      }
+                    }
+                  });
+                });
+              </script>
+                <input type="hidden" name="Name" value="{{Name}}">
+                <select name="mobiledevices" id="mobileselect" multiple required>
+                  {% for i in query %}
+                  <option value="{{i.pk}}" id="coupon_question"> {{i.weight}}x{{i.height}}</option>
+                  {% endfor %}
+                </select>
+                <hr>
+                <fieldset id="answer" style="color: black; " >
+                  
+                </fieldset>
+            </div>
+            <!-- <div class="col-6 col-md-6 col-lg-6">
+              <p>Desktop Ads Sizes</p>
+                <script type="text/javascript">
+                  $(document).ready(function() {
+                    $('#desktopselect').multiselect({
+                      includeSelectAllOption: true,
+                      onChange: function(element, checked) {
+                        console.log("desktop changed");
+                        if(checked){
+                          submitbtn.disabled = true;
+                          $.ajax({
+                            type: 'POST',
+                            headers: {'X-CSRFToken': '{{csrf_token}}'},
+                            url: "/verify_sizes",
+                            data: {"size":element[0].innerHTML},
+                            success: function (response) {
+                              submitbtn.disabled = false;
+                            },
+                            error: function (response) {
+                              if(!response['responseJSON']['status']){
+                                alert(`Ops! ${response['responseJSON']['size']} size ad not available.`)
+                                submitbtn.disabled = false;
+                              }
+                            }
+                          })
+                        }
+                      }
+                    });
+                  });
+                </script>
+                <select name="desktopdevices" id="desktopselect" multiple required>
+                  {% for i in desktopdevices %}
+                  <option value="{{i.pk}}">{{i.w}}x{{i.h}}</option>
+                  {% endfor %}
+                </select>
+            </div> -->
+          </div>
+          <div class="">
+            <script>
+              function checkvalidate() {
+                if(!mobileselect.value){
+                  alert("Please select Mobile size")
+                }
+                if (!desktopselect.value) {
+                  alert("Please select Desktop size")
+                  
+                }
+              }
+  
+              
+            </script>
+            
+            <div class="col-12" style="text-align: -webkit-right;">
+              <button type="submit" id="submitbtn" class="btn btnright3">Next</button>
+            </div>
+            <hr>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script> -->
+  <script>
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+    function saveurl(){
+      name = document.getElementById('Url').value;  
+    }
+  </script>
+  {% include 'app/footerAdmin.html' %}
+</body>
+</html>

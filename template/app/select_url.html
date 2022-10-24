@@ -1,0 +1,135 @@
+{% load custom_tags %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="{% static 'create_campaign.css' %}">
+
+  
+  <link rel="stylesheet" href="{% static 'select_url.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+
+  <title>Select URL</title>
+  <style>
+    .multiselect-container {
+      max-height: 30rem;
+      overflow-y: scroll;
+    }
+    .multiselect-container>li>a>label {
+      color: black !important;
+    }
+    footer div{
+      font-size: 14.4px !important;
+    }
+  </style>
+</head>
+
+<body>
+  {% include 'app/navbar.html' %}
+  <div class="container" style="min-height: calc(100vh - 105px);" >
+    {% if errors %}
+    <div class="row" style="background-color: gray; text-align: center; text-decoration: none;">
+      <p>{{errors.Url.0}}</p>
+    </div>
+    {% endif %}
+    <h1 class="heading">Generate screenshot</h1>
+    <div class="row uperrow1">
+      <div class="col-md-4 col-lg-3 uperrow1colleft">
+        {% if video %}
+        <p class="leftpara">Step #3: Select Sample Site(s) for Screenshots</p>
+        {% else %}
+        <p class="leftpara">Step #4: Select Sample Site(s) for Screenshots</p>
+        {% endif %}
+      </div>
+      <div class="col-md-8">
+        {% if video %}
+        <form action="/upload_ad" method="post">
+          {% csrf_token %}
+          {% else %}
+          <form action="/upload_ad" method="get">
+            <input type="hidden" name="mobiledevices" value="{{mobiledevices}}">
+            <input type="hidden" name="desktopdevices" value="{{desktopdevices}}">
+          {% endif %}
+          <input type="hidden" name="Name" value="{{Name}}">
+          <div class="">
+            <div class="col-12">
+              <div class="dropdown">
+                <select name="CampaignUrl" id="slt" class="dropdown-menu" multiple="multiple" required style="height: 5rem;">
+                  {% for i in urls %}
+                  <option value="{{i.Url}}">{{i.Url}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="col-12" style="padding-top: 3rem;text-align: right;">
+              <button type="submit" class="btn btnright3" style="text-align: center;">Next</button>
+            </div>
+            <script type="text/javascript">
+              $(document).ready(function() {
+                $('#slt').multiselect({
+                  includeSelectAllOption: true
+                });
+              });
+            </script>
+            <!-- <div class="col-3">
+              <button type="button" onclick="openForm()" class="btn btnright">
+                Add site
+              </button>
+            </div> -->
+          </div>
+          <!-- <div class="inerrow3">
+            <div class="col-12" style="text-align: -webkit-right;">
+            </div>
+          </div> -->
+        </form>
+      </div>
+
+    </div>
+    <div class="form-popup form-container" id="myForm">
+        <h1>Add Site</h1>
+        <label for="text"><b>Site URL</b></label>
+        <input id="Url" type="text" placeholder="Site URL" name="Url" required>
+        <button class="btn cancel" onclick="saveurl()">Add</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </div>
+
+  </div>
+  <script>
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+    // function saveurl(){
+    //   name = document.getElementById('Url').value
+    //   $.ajax({
+    //         type: 'POST',
+    //         url: "save_url",
+    //         data: {"Url":name},
+    //         success: function (response) {
+    //           window.location.reload()
+    //         },
+    //         error: function (response) {
+    //           console.log(response['responseJSON']['errors']['Url'][0]);
+    //         }
+    //     })
+    // }
+  </script>
+  <!-- <div class="lastpart">All rights reserved 2022 by <a href="index">Piranhad</a>. Developed and maintained by <a href="https://fabtechsol.com/">Fabulous Technology Solutions</a>.</div> -->
+  {% include 'app/footerAdmin.html' %}
+</body>
+
+</html>

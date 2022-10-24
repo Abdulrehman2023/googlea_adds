@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Thanks for your order!</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <script src="{% static 'client.js' %}"  defer></script>
+</head>
+
+<body>
+  <section>
+    <div class="section-container1">
+      <div class="product Box-root">
+        <div class="section-container1-items">
+          <h1 style="font-size: 5rem;">Subscription started successful!</h1>
+        </div>
+      </div>
+      <form action="/create-portal-session" method="POST">
+        {% csrf_token %}
+        <input type="hidden" id="session-id" name="session_id" value="" />
+        <button id="checkout-and-portal-button" class="btn-primary nav3-items"  style="margin-top: 1%;" type="submit">Manage your billing
+          information</button>
+      </form>
+        <div class="section-container1-items" style="margin-top: 2%;">
+          <a href="/home/"><button class="btn-primary nav3-items">Return to Piranhad</button></a>
+        </div>
+    </div>
+  </section>
+  </body>
+
+</html>

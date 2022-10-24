@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+  piranhad:
+    build: .
+    container_name: "piranhad"
+    image: "piranhad"
+    command: bash -c "python manage.py runserver 0.0.0.0:80"
+    volumes:
+      - ./:/usr/src/app/
+    ports:
+      - 80:80
+    env_file:
+      .env
+  celery:
+    restart: always
+    build: .
+    command: celery -A project worker -l info
+    volumes:
+      - ./:/usr/src/app/
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - piranhad
+     

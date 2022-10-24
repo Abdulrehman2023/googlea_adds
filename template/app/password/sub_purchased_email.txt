@@ -1,0 +1,11 @@
+{% autoescape off %}
+Hello {{ user }},
+
+Piranhad Advertising Screenshot Tool
+
+Subscription Purchased Successfully! Thanks for being a valueable member.
+
+Sincerely,
+Piranhad
+
+{% endautoescape %}

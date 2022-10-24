@@ -1,0 +1,662 @@
+{% load custom_tags %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Hard refresh by meta tags -->
+  <meta http-equiv='cache-control' content='no-cache'>
+
+  <meta http-equiv='expires' content='0'>
+
+  <meta http-equiv='pragma' content='no-cache'>
+
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'index.css' %}">
+
+
+  <!-- Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <title>Piranhad</title>
+  <style>
+    img {
+      /* border: 2px solid red; */
+      width: 100%;
+    }
+
+    .test {
+      border: 2px solid red;
+    }
+
+    .inputmedium {
+      width: 4rem;
+    }
+    .hideImages{display: none !important;}
+  </style>
+  <style>
+    #loading {
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      left: 0px;
+      position: fixed;
+      display: none;
+      opacity: 0.7;
+      background-color: #fff;
+      z-index: 99;
+      text-align: center;
+    }
+
+    #loading-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+    }
+
+    #loading-image img {
+      width: 30%;
+    }
+  </style>
+</head>
+
+<body>
+  {% include 'app/navbar.html' %}
+  <div class="container-fluid row mx-0 px-0">
+    <div id="loading">
+      <div id="loading-image">
+        <img src="http://cdn.nirmaltv.com/images/generatorphp-thumb.gif" alt="Loading..." />
+        <span>Please wait! Changes applying.</span>
+      </div>
+    </div>
+    <style>
+      .p-margin-bottom-0 p{
+        margin-bottom: 0;
+      }
+      .p-margin-bottom-0 label{
+        margin: .5rem 0 .8rem 0;
+        color: #0071bd;
+        font-size: 1.25rem;
+        border-bottom: 2px solid #0071bd;
+      }
+      .p-margin-bottom-0 form span > div{
+        /* border: 2px solid red; */
+        margin: .4rem 0;
+      }
+      .p-margin-bottom-0 .row > span{
+        /* border: 2px solid red; */
+        margin: .4rem 0;
+      }
+      input[type=number], input[type=text], select {
+        width: 100%;
+        height: 2.6rem;
+        outline: none !important;
+        border-radius: .4rem;
+        padding: 0 .4rem;
+        border: 1px solid #c1f3ff;
+        background-color: #f3f7f8;
+      }
+      .input-color-height-width{min-height: 2.6rem;min-width: 2.6rem;}
+      .input-color-container{width: 2rem;min-width: 2rem; height: 2rem;min-height: 2rem;border-radius: 50%;display: inline-block;overflow: hidden;}
+      a{
+        text-decoration: none !important;
+      }
+    </style>
+    <div class="col-xl-3 col-lg-4 col-md-5 col-12 px-2 pt-2 p-margin-bottom-0" style="background: #64c1ff; color: white; font-weight: bold;">
+      <div class="row mx-0">
+        <label>Style</label>
+        <span>
+          <div class="d-flex row">
+            <div class="col-4">
+              <p>Background</p>
+            </div>
+            <div class="col-6 text-center">
+              <!-- <button class="btn btn-dark" type="button">Apply</button> -->
+            </div>
+            <div class="d-flex justify-content-center align-items-center input-color-container" >
+              <input class="input-color-height-width" type="color" name="background" value="{{ad.info.ad.background}}" onchange="getdata(this)">
+            </div>
+          </div>
+        </span>
+        <!-- <span>
+          <div class="d-flex row">
+            <div class="col-9">
+              <p>Accent</p>
+            </div>
+            <div class="col-3 d-flex justify-content-end"><input type="color" name="accent"
+                value="{{ad.info.ad.accent}}" onchange="getdata(this)"></div>
+          </div>
+        </span> -->
+        <span>
+          <div class="d-flex row">
+            <div class="col-4">
+              <p>CTA button</p>
+            </div>
+            <div class="col-6 text-center">
+              <!-- <button class="btn btn-dark" type="button">Apply</button> -->
+            </div>
+            <div class="d-flex justify-content-center align-items-center input-color-container" >
+              <input class="input-color-height-width" type="color" name="ctabutton" value="{{ad.info.ad.ctabutton}}" onchange="getdata(this)">
+            </div>
+          </div>
+        </span>
+        <label>Assets</label>
+        <form id="logo" onchange="sendimg(this.id)" enctype="multipart/form-data">
+          <span>
+            <div class="d-flex row">
+              <div class="col-4">
+                <p>Logo</p>
+              </div>
+              <div class="col-8 d-flex"><input type="file" name="logo"></div>
+            </div>
+          </span>
+        </form>
+        <form id="product" onchange="sendimg(this.id)" enctype="multipart/form-data">
+          <span>
+            <div class="d-flex row">
+              <div class="col-4">
+                <p>product</p>
+              </div>
+              <div class="col-8 d-flex"><input type="file" name="product"></div>
+            </div>
+          </span>
+        </form>
+        <label>Text</label>
+        <span>
+          <div class="d-flex row">
+            <div class="col-3 d-flex justify-content-center align-items-center">
+              <p>CTA Text</p>
+            </div>
+            <div class="col-9 d-flex justify-content-end"><input type="text" name="ctatext"
+                value="{{ad.info.ad.cta.text}}" maxlength="14" placeholder="CTA Text here" onchange="getdata(this)">
+            </div>
+          </div>
+        </span>
+        <span>
+          <div class="d-flex row justify-content-center">
+            <div class="col-4 px-1">
+              <select name="ctafamily" id="ctafamily" onchange="getfonts(this,'cta')">
+                {% for i in FontCategory %}
+                <option value="{{i.pk}}">{{i.category}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-4 px-1">
+              <select name="ctastyle" id="ctastyle" onchange="getdata(this)">
+              </select>
+            </div>
+            <div class="col-2 px-1">
+              <input class="inputmedium" type="number" name="ctasize" max="14" placeholder="font size"
+                value="{{ad.info.ad.cta.size}}" onchange="getdata(this)">
+            </div>
+            <div class="col-2 px-1 d-flex justify-content-start align-items-center">
+              <div class="d-flex justify-content-center align-items-center input-color-container">
+                <input class="inputmedium input-color-height-width" type="color" name="ctacolor" value="{{ad.info.ad.cta.color}}"
+                  onchange="getdata(this)">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-2 text-center">
+            <!-- <button class="btn btn-dark" type="button">Apply</button> -->
+          </div>
+        </span>
+        <span>
+          <div class="d-flex row justify-content-center">
+            <div class="col-3 d-flex justify-content-center align-items-center">
+              <p>Headline</p>
+            </div>
+            <div class="col-9 d-flex justify-content-end"><input type="text" value="{{ad.info.ad.headline.text}}"
+                name="headlinetext" placeholder="CTA Text here" maxlength="20" onchange="getdata(this)"></div>
+          </div>
+        </span>
+        <span>
+          <div class="d-flex row justify-content-center">
+            <div class="col-4 px-1">
+              <select name="headlinefamily" id="headlinefamily" onchange="getfonts(this,'headline')">
+                {% for i in FontCategory %}
+                <option value="{{i.pk}}">{{i.category}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-4 px-1">
+              <select name="headlinestyle" id="headlinestyle" onchange="getdata(this)">
+              </select>
+            </div>
+            <div class="col-2 px-0 px-1">
+              <input class="inputmedium" type="number" name="headlinesize" value="{{ad.info.ad.headline.size}}"
+                placeholder="font size" max="20" onchange="getdata(this)">
+            </div>
+            <div class="col-2 px-1 d-flex justify-content-start align-items-center">
+              <div class="d-flex justify-content-center align-items-center input-color-container" >
+                  <input class="inputmedium input-color-height-width" type="color" name="headlinecolor" value="{{ad.info.ad.headline.color}}"
+                    onchange="getdata(this)">
+                </div>
+            </div>
+          </div>
+          <div class="col-12 p-2 text-center">
+            <!-- <button class="btn btn-dark" type="button">Apply</button> -->
+          </div>
+        </span>
+        <span>
+          <div class="d-flex row">
+            <div class="col-3 d-flex justify-content-center align-items-center">
+              <p>Subhead</p>
+            </div>
+            <div class="col-9 d-flex justify-content-end"><input type="text" value="{{ad.info.ad.subhead.text}}"
+                name="subheadtext" placeholder="CTA Text here" maxlength="40" onchange="getdata(this)"></div>
+          </div>
+        </span>
+        <span>
+          <div class="d-flex row justify-content-center">
+            <div class="col-4 px-1">
+              <select name="subheadfamily" id="subheadfamily" onchange="getfonts(this,'subhead')">
+                {% for i in FontCategory %}
+                <option value="{{i.pk}}">{{i.category}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-4 px-1">
+              <select name="subheadstyle" id="subheadstyle" onchange="getdata(this)">
+              </select>
+            </div>
+            <div class="col-2 px-1">
+              <input class="inputmedium" type="number" name="subheadsize" value="{{ad.info.ad.subhead.size}}"
+                placeholder="font size" max="16" onchange="getdata(this)">
+            </div>
+            <div class="col-2 px-1 d-flex justify-content-start align-items-center">
+              <div class="d-flex justify-content-center align-items-center input-color-container" >
+                    <input class="inputmedium input-color-height-width" type="color" name="subheadcolor" value="{{ad.info.ad.subhead.color}}"
+                      onchange="getdata(this)">
+                </div>
+            </div>
+            <!-- <div class="col-2">
+              <input class="inputmedium" type="color" name="subheadcolor" value="{{ad.info.ad.subhead.color}}"
+                onchange="getdata(this)">
+            </div> -->
+          </div>
+          <!-- <div class="col-12 p-2 text-center">
+            <button class="btn btn-dark" type="button">Apply</button>
+          </div> -->
+        </span>
+        <div class="col-12 py-4 text-center">
+          <button class="btn my-2 text-white" style="background-color: #0071bd;" onclick="senddata()" type="button">Apply Changes</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-lg-8 col-md-7 col-12 px-2 py-3 ads-preview overflow-auto">
+      <div class="container-fluid row overflow-auto py-3 mx-0">
+        <div class="col-12 m-auto" style="width: 1000px;min-width: 1000px;">
+          <div class=" d-flex flex-wrap justify-content-center gap-3">
+            <div class=" w-100 d-flex flex-column align-items-center gap-3">
+              <div class=" d-flex justify-content-center gap-3">
+                <div class=" d-flex flex-column flex-wrap justify-content-center gap-3">
+                  <div class="">
+                    <label>300x50</label>
+                    <div>
+                      <img src="{{MEDIA_URL}}{{ad.x300x50}}" alt="">
+                    </div>
+                  </div>
+                  <div class="">
+                    <label>320x50</label>
+                    <div>
+                      <img width="320" height="50" src="{{MEDIA_URL}}{{ad.x320x50}}" alt="">
+                    </div>
+                  </div>
+                  <div class="">
+                    <label>320x100</label>
+                    <div>
+                      <img width="320" height="100" src="{{MEDIA_URL}}{{ad.x320x100}}" alt="">
+                    </div>
+                  </div>
+                </div>
+                <div class="">
+                  <label>300x250</label>
+                  <div>
+                    <img width="300" height="250" src="{{MEDIA_URL}}{{ad.x300x250}}" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <label>728x90</label>
+                <div>
+                  <img width="728" height="90" src="{{MEDIA_URL}}{{ad.x728x90}}" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="">
+              <label>300x600</label>
+              <div>
+                <img width="300" height="600" src="{{MEDIA_URL}}{{ad.x300x600}}" alt="">
+              </div>
+            </div>
+    
+            <div class="">
+              <label>320x480</label>
+              <div>
+                <img width="320" height="480" src="{{MEDIA_URL}}{{ad.x320x480}}" alt="">
+              </div>
+            </div>
+    
+            <div class="">
+              <label>160x600</label>
+              <div>
+                <img width="160" height="600" src="{{MEDIA_URL}}{{ad.x160x600}}" alt="">
+              </div>
+            </div>
+            <div class="">
+              <label>970x250</label>
+              <div>
+                <img width="970" height="250" src="{{MEDIA_URL}}{{ad.x970x250}}" alt="">
+              </div>
+            </div>
+          </div>
+    
+          <div class="row">
+          </div>
+          <div class="row">
+          </div>
+    
+          <div class="row">
+          </div>
+        </div>
+    </div>
+
+      <!-- <div class="row">
+        <p id="sizes" hidden>{{ad.info.sizes}}</p>
+        <div class="col-4">
+          <label>300x50</label>
+          <img src="{{MEDIA_URL}}ads/{{ad.id}}/300x50.png" alt="">
+        </div>
+        <div class="col-4">
+          <label>320x50</label>
+          <img src="{{MEDIA_URL}}ads/{{ad.id}}/320x50.png" alt="">
+        </div>
+        <div class="col-4">
+          <label>320x100</label>
+          <img src="{{MEDIA_URL}}ads/{{ad.id}}/320x100.png" alt="">
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-12">
+          <label>728x90</label>
+          <img src="{{MEDIA_URL}}ads/{{ad.id}}/728x90.png" alt="">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label>970x250</label>
+          <img src="{{MEDIA_URL}}ads/{{ad.id}}/970x250.png" alt="">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <label>300x250</label>
+          <img src="{{MEDIA_URL}}ads/{{ad.id}}/300x250.png" alt="">
+        </div>
+        <div class="col-2">
+          <label>300x600</label>
+          <img src="{{MEDIA_URL}}ads/{{ad.id}}/300x600.png" alt="">
+        </div>
+        <div class="col-4">
+          <label>320x480</label>
+          <img src="{{MEDIA_URL}}ads/{{ad.id}}/320x480.png" alt="">
+        </div>
+        <div class="col-2">
+          <label>160x600</label>
+          <img src="{{MEDIA_URL}}ads/{{ad.id}}/160x600.png" alt="">
+        </div>
+      </div> -->
+      <!-- <script>
+        let testImage = document.querySelector('#testImage');
+        console.log(testImage);
+        let c = document.createElement('canvas');
+        c.width = testImage.naturalWidth;
+        c.height = testImage.naturalHeight;
+        let ctx = c.getContext('2d');
+        ctx.drawImage(testImage, 0, 0, testImage.width, testImage.height);
+        testImage.parentElement.append(c);
+      </script> -->
+      <!-- <script>
+        let adImages = document.querySelectorAll('.ads-preview img');
+        console.log(adImages);
+        adImages.forEach((adimage, index)=>{
+          if (adimage.id === 'testImage1') {
+            let testImage = document.querySelector('#testImage1');
+            testImage.classList.add('hideImages')
+            console.log(testImage.src);
+            let c = document.createElement('canvas');
+            c.width = testImage.naturalWidth;
+            c.height = testImage.naturalHeight;
+            let ctx = c.getContext('2d');
+            ctx.drawImage(testImage, 0, 0, testImage.width, testImage.height);
+            testImage.parentElement.append(c);
+          }
+          if (adimage.id === 'testImage2') {
+            let testImage = document.querySelector('#testImage2');
+            testImage.classList.add('hideImages')
+            console.log(testImage.src);
+            let c = document.createElement('canvas');
+            c.width = testImage.naturalWidth;
+            c.height = testImage.naturalHeight;
+            let ctx = c.getContext('2d');
+            ctx.drawImage(testImage, 0, 0, testImage.width, testImage.height);
+            testImage.parentElement.append(c);
+          }
+          if (adimage.id === 'testImage3') {
+            let testImage = document.querySelector('#testImage3');
+            testImage.classList.add('hideImages')
+            console.log(testImage.src);
+            let c = document.createElement('canvas');
+            c.width = testImage.naturalWidth;
+            c.height = testImage.naturalHeight;
+            let ctx = c.getContext('2d');
+            ctx.drawImage(testImage, 0, 0, testImage.width, testImage.height);
+            testImage.parentElement.append(c);
+          }
+          if (adimage.id === 'testImage4') {
+            let testImage = document.querySelector('#testImage4');
+            testImage.classList.add('hideImages')
+            console.log(testImage.src);
+            let c = document.createElement('canvas');
+            c.width = testImage.naturalWidth;
+            c.height = testImage.naturalHeight;
+            let ctx = c.getContext('2d');
+            ctx.drawImage(testImage, 0, 0, testImage.width, testImage.height);
+            testImage.parentElement.append(c);
+          }
+          if (adimage.id === 'testImage5') {
+            let testImage = document.querySelector('#testImage5');
+            testImage.classList.add('hideImages')
+            console.log(testImage.src);
+            let c = document.createElement('canvas');
+            c.width = testImage.naturalWidth;
+            c.height = testImage.naturalHeight;
+            let ctx = c.getContext('2d');
+            ctx.drawImage(testImage, 0, 0, testImage.width, testImage.height);
+            testImage.parentElement.append(c);
+          }
+          if (adimage.id === 'testImage6') {
+            let testImage = document.querySelector('#testImage6');
+            testImage.classList.add('hideImages')
+            console.log(testImage.src);
+            let c = document.createElement('canvas');
+            c.width = testImage.naturalWidth;
+            c.height = testImage.naturalHeight;
+            let ctx = c.getContext('2d');
+            ctx.drawImage(testImage, 0, 0, testImage.width, testImage.height);
+            testImage.parentElement.append(c);
+          }
+          if (adimage.id === 'testImage7') {
+            let testImage = document.querySelector('#testImage7');
+            testImage.classList.add('hideImages')
+            console.log(testImage.src);
+            let c = document.createElement('canvas');
+            c.width = testImage.naturalWidth;
+            c.height = testImage.naturalHeight;
+            let ctx = c.getContext('2d');
+            ctx.drawImage(testImage, 0, 0, testImage.width, testImage.height);
+            testImage.parentElement.append(c);
+          }
+          if (adimage.id === 'testImage8') {
+            let testImage = document.querySelector('#testImage8');
+            testImage.classList.add('hideImages')
+            console.log(testImage.src);
+            let c = document.createElement('canvas');
+            c.width = testImage.naturalWidth;
+            c.height = testImage.naturalHeight;
+            let ctx = c.getContext('2d');
+            ctx.drawImage(testImage, 0, 0, testImage.width, testImage.height);
+            testImage.parentElement.append(c);
+          }
+          if (adimage.id === 'testImage9') {
+            let testImage = document.querySelector('#testImage9');
+            testImage.classList.add('hideImages')
+            console.log(testImage.src);
+            let c = document.createElement('canvas');
+            c.width = testImage.naturalWidth;
+            c.height = testImage.naturalHeight;
+            let ctx = c.getContext('2d');
+            ctx.drawImage(testImage, 0, 0, testImage.width, testImage.height);
+            testImage.parentElement.append(c);
+          }
+          
+          // adimage.classList.add('hideImages');
+          // c[index] = document.createElement('canvas');
+          // c[index].classList.add('test',`hello${index}`);
+          // console.log(adimage.parentElement.append(c[index]));
+          // c[index].width = adimage.naturalWidth;
+          // c[index].height = adimage.naturalHeight;
+
+          // console.log(ctx[index]);
+          // console.log(c[index]);
+
+          // ctx[index] = c[index].getContext('2d');
+          // ctx[index].drawImage(adimage, 0, 0, adImages.width, adImages.height);
+          
+          // const image = new Image(); // Using optional size for image
+          // image.onload = drawImageActualSize(); // Draw when image has loaded
+          // image.src = adimage.src;
+          // async function drawImageActualSize(){
+          //   console.log(c[index]);
+          //   console.log(image);
+          //   ctx[index] = c[index].getContext('2d');
+          //    ctx[index].drawImage(adimage, 0, 0, adImages.width, adImages.height);
+          // }
+        })
+      </script> -->
+    </div>
+  </div>
+  <!-- <footer>
+    <div class="text-white text-center py-2" style="background-color: #FA5277; font-size: .8rem;">
+      All rights reserved 2022 by <a class="text-white" href="index">Piranhad</a>. Developed and maintained by <a
+    href="https://fabtechsol.com/" class="text-white">Fabulous Technology Solutions</a>.
+    </div>
+  </footer> -->
+  {% include 'app/footerAdmin.html' %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    let dataChange = {};
+    const getdata = (e) => {
+      const {name, value} = e;
+      // dataChange = {...dataChange, [`key: ${name} , value: `] : `${value}`};
+      dataChange = {...dataChange, [name]:value};
+      console.log(dataChange);
+    } 
+    // let data = sizes.innerHTML
+    // data = data.replace(/'/g,'"')
+    // data = JSON.parse(data)
+    // console.log(data);
+    getfonts(ctafamily[0],"cta")
+    getfonts(headlinefamily[0],"headline")
+    getfonts(subheadfamily[0],"subhead")
+    
+    function senddata(e) {
+      let adsPreviewImages = document.querySelectorAll('.ads-preview img');
+      var timestamp = new Date().getTime();  
+      var queryString = "?t=" + timestamp;
+      loading.style.display = "block";
+      ad = '{{ad.id}}';
+      csrftoken = '{{csrf_token}}';
+      $.ajax({
+        type: 'POST',
+        headers: { 'X-CSRFToken': csrftoken },
+        url: `/adstool/UpdateAds/${ad}/`,
+        data: dataChange,
+        success: function (response) {
+          loading.style.display = "none";
+          location.reload(true);
+          // console.log('success');
+          // console.log(response);
+          // adsPreviewImages.forEach((adsPreviewImage)=>{
+          //   adsPreviewImage.src = adsPreviewImage.src + queryString
+          // })
+
+        },
+        error: function (response) {
+          console.log(response["error"]);
+        }
+      })
+    }
+    function sendimg(e) {
+      ad = '{{ad.id}}';
+      loading.style.display = "block";
+      csrftoken = '{{csrf_token}}';
+      const form = document.getElementById(e)
+      const formData = new FormData(form);
+      fetch(`/adstool/UpdateAds/${ad}/`, {
+        method: 'POST',
+        headers: { 'X-CSRFToken': csrftoken },
+        body: formData
+      })
+      .then(response => response.json())
+      .then(result => {
+        console.log('Success:', result);
+        location.reload(true);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+    function getfonts(e,next) {
+      let selectid = document.getElementById(next+"style");
+      fetch(`/adstool/GetFonts/${e.value}/`, {
+        method: 'GET'
+      })
+      .then(response => response.json())
+      .then(result => {
+        document.querySelectorAll(`#${next+"style"} option`).forEach(option => option.remove())
+        for (let index = 0; index < result.length; index++) {
+          const element = result[index];
+          for (const [key1, value1] of  Object.entries(element['files'])) {
+            let option = new Option(element['family']+"-"+key1,value1);
+            selectid.appendChild(option);
+          }
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+  </script>
+</body>
+
+</html>

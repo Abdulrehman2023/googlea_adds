@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <!-- <script defer src="{% static 'home.js' %}" ></script> -->
+    <script src="https://kit.fontawesome.com/358433a07c.js" crossorigin="anonymous"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    <title>Piranhad</title>
+    <style>
+        a{color: inherit; text-decoration: none;}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="navdivs nav1 flex-center">
+            <img class="navdivs-img" src="{% static 'assets/navLogo.png' %}" alt="Main-logo">
+            <p class="f-22 f-700 f-opificio">Piranhad</p>
+        </a>
+        <div class="navdivs nav2">
+            <ul class="navitems">
+                <div class="cross" style="cursor: pointer;" >&#10006;</div>
+                <li><a class="" href="/index">Home</a></li>
+                <!-- <li class="dropdown"><a href="#">Products <span class="downarrow">&#x25BC;</span> <span class="uparrow">&#x25B2;</span> </a>
+                    <ul class="dropdown-content">
+                        <li><a href="screenshot">Screenshots</a></li>
+                        <li><a href="ad-qa">Ad QA</a></li>
+                        <li><a href="ad-txt-pro">Ads txt Pro</a></li>
+                    </ul>
+                </li> -->
+                <!-- <li><a href="integration">Integration</a></li> -->
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/contactus">Contact Us</a></li>
+                <!-- Change the integration page to about us -->
+                <li><a href="/about-us">About Us</a></li>
+                {% if user.is_authenticated %}
+                <li class="d-md-none"><a href="/home"><p class="nav3-items">Dashboard</p></a></li>
+                <li class="d-md-none"><a href="/logout"><p class="nav3-items">Sign Out</p></a></li>
+                {% else %}
+                <li class="d-md-none"><a href="/login"><p class="nav3-items">Sign in</p></a></li>
+                <li class="d-md-none"><a href="/register"><button class="blue-grad-btn">Start Now</button></a></li>
+                {% endif %}
+                <!-- <li><a href="reviews">Reviews</a></li> -->
+                <!-- <li><a href="blogs">Blogs</a></li> -->
+            </ul>
+        </div>
+        <div class="navdivs nav3">
+            {% if user.is_authenticated %}
+            <a href="/home"><p class="nav3-items">Dashboard</p></a>
+            <a href="/logout"><p class="nav3-items">Sign Out</p></a>
+            {% else %}
+            <a href="/login"><p class="nav3-items">Sign in</p></a>
+            <a href="/register"><button class="blue-grad-btn">Start Now</button></a>
+            {% endif %}
+        </div>
+        <div class="navhamburger" style="cursor: pointer;" >&#x2630;</div>
+    </nav>
+    <script>
+        var navhamburger = document.getElementsByClassName("navhamburger");
+        navhamburger[0].addEventListener("click", ()=> {
+            document.querySelector(".navdivs.nav2").classList.toggle("nav2-show-hide");
+            document.querySelector(".navdivs.nav3").classList.toggle("nav3-show-hide");
+            
+            let cross = document.querySelector(".cross");
+            cross.addEventListener("click", ()=> {
+                    document.querySelector(".navdivs.nav2").classList.remove("nav2-show-hide");
+                    document.querySelector(".navdivs.nav3").classList.remove("nav3-show-hide");
+                })
+                });
+        
+    </script>
+    
